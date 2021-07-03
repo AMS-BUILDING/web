@@ -1,0 +1,47 @@
+.fa-eye:before {
+    content: "\f06e"
+}
+
+.fa-eye-dropper:before {
+    content: "\f1fb"
+}
+
+.fa-eye-slash:before {
+    content: "\f070"
+}
+
+.fa-pen:before {
+    content: "\f304"
+}
+
+.fa-pen-alt:before {
+    content: "\f305"
+}
+
+.fa-pen-fancy:before {
+    content: "\f5ac"
+}
+
+.fa-pen-nib:before {
+    content: "\f5ad"
+}
+
+.fa-pen-square:before {
+    content: "\f14b"
+}
+
+.fa-pencil-alt:before {
+    content: "\f303"
+}
+
+.fa-pencil-ruler:before {
+    content: "\f5ae"
+}
+
+.fa-trash:before {
+    content: "\f1f8"
+}
+
+.fa-trash-alt:before {
+    content: "\f2ed"
+}

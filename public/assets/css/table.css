@@ -1,0 +1,47 @@
+#bootstrap-data-table-export tr td a {
+    padding: 5px;
+    color: #fff;
+    border-radius: .15rem;
+}
+
+#bootstrap-data-table-export tr td .view {
+    background-color: #3bac47;
+}
+
+#bootstrap-data-table-export tr td .view:hover {
+    color: #fff;
+    background-color: #308e3a;
+    text-decoration: none;
+}
+
+#bootstrap-data-table-export tr td .edit {
+    background-color: #ffc107;
+}
+
+#bootstrap-data-table-export tr td .edit:hover {
+    color: #fff;
+    background-color: #e0a800;
+    text-decoration: none;
+}
+
+#bootstrap-data-table-export tr td .remove {
+    background-color: #dc3545;
+}
+
+#bootstrap-data-table-export tr td .remove:hover {
+    color: #fff;
+    background-color: #c82333;
+    text-decoration: none;
+}
+
+.tab-content .table td,
+.tab-content .table th {
+    padding: .5rem;
+}
+
+
+/* Button tab */
+
+.customer-more-info a {
+    color: #28a745;
+}
