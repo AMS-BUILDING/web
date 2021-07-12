@@ -24,20 +24,66 @@ import CardParking from "./components/features/card-parking/CardParking";
 import CardDepartment from "./components/features/card-department/CardDepartment";
 import Notification from "./components/features/notification/Notification";
 import FeedBack from "./components/features/feedback/FeedBack";
-import Dashboard from "./components/common/Dashboard";
-import { useState } from "react";
+import { useState } from 'react';
+
 function Navigation() {
-  const [page,setPage] = useState("home");
-  const handlePage = (text) => {
-    setPage(text)
-  }
+
   return (
     <>
       <Router>
-        <LeftPanel page={page} handlePage={handlePage} />
+        <LeftPanel />
         <div id="right-panel" className="right-panel">
           <Header />
-          <Dashboard page={page} />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/department">
+              <Department />
+            </Route>
+            <Route path="/employee">
+              <Employee />
+            </Route>
+            <Route path="/building">
+              <Building />
+            </Route>
+            <Route path="/resident">
+              <Resident />
+            </Route>
+            <Route path="/service">
+              <Service />
+            </Route>
+            <Route path="/isstay">
+              <IsStaying />
+            </Route>
+            <Route path="/request-service">
+              <RequestService />
+            </Route>
+            <Route path="/fee-building">
+              <FeeBuilding />
+            </Route>
+            <Route path="/fee-department">
+              <FeeDepartment />
+            </Route>
+            <Route path="/card-parking">
+              <CardParking />
+            </Route>
+            <Route path="/card-department">
+              <CardDepartment />
+            </Route>
+            <Route path="/notification">
+              <Notification />
+            </Route>
+            <Route path="/feedback">
+              <FeedBack />
+            </Route>
+          </Switch>
           <Footer />
         </div>
       </Router>

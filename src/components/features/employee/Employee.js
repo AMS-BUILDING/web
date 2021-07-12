@@ -9,12 +9,26 @@ export default function Employee() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return <>
+        <div className="breadcrumbs">
+            <div className="col-sm-4">
+                <div className="page-header float-left">
+                    <div className="page-title">
+                        <h1>Nhân viên</h1>
+                    </div>
+                </div>
+            </div>
+            <div className="col-sm-8">
+                <div className="page-header float-right">
+                    <div className="page-title">
+                        <ol className="breadcrumb text-right">
+                            <li className="active">Nhân viên</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div className="add">
-            <button onClick={handleShow}>
-                <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                </svg>
-            </button>
+            <button onClick={handleShow}>Thêm Nhân Viên</button>
         </div>
         <div className="main__table">
             <table>

@@ -5,7 +5,7 @@ export default function ModalSend({ show, handleClose, handleShow }) {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Gửi thông báo</Modal.Title>
                 </Modal.Header>
@@ -62,11 +62,11 @@ export default function ModalSend({ show, handleClose, handleShow }) {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={() => {
+                    <Button variant="success" onClick={() => {
 
                         handleClose()
                     }}>
-                        Gửi 
+                        Gửi
                     </Button>
                     <Button variant="secondary" onClick={() => {
                         handleClose()

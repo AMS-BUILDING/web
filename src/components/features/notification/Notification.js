@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import Item from './Item';
 import ModalAdd from './ModalAdd';
-export default function Notification(){
+export default function Notification() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    return(
+    return (
         <>
-        <div className="add">
-            <button onClick={handleShow}>
-                <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                </svg>
-            </button>
-        </div>
-        <ModalAdd
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        />
+            <div className="breadcrumbs">
+                <div className="col-sm-4">
+                    <div className="page-header float-left">
+                        <div className="page-title">
+                            <h1>Thông báo</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-8">
+                    <div className="page-header float-right">
+                        <div className="page-title">
+                            <ol className="breadcrumb text-right">
+                                <li className="active">Thông báo</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="add">
+                <button onClick={handleShow}>
+                    Thêm thông báo
+                </button>
+            </div>
+            <ModalAdd
+                show={show}
+                handleClose={handleClose}
+                handleShow={handleShow}
+            />
             <div className="main__table">
                 <table>
                     <tr>

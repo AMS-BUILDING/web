@@ -5,7 +5,7 @@ export default function ModalUpdate({ show, handleClose, handleShow }) {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật thông tin cư dân</Modal.Title>
                 </Modal.Header>
@@ -84,7 +84,7 @@ export default function ModalUpdate({ show, handleClose, handleShow }) {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={() => {
+                    <Button variant="success" onClick={() => {
 
                         handleClose()
                     }}>
