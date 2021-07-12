@@ -29,7 +29,7 @@ export default function Resident() {
                     <th>Tên</th>
                     <th>Số điện thoại</th>
                     <th>Số phòng</th>
-                    <th></th>
+                    <th>Chức năng</th>
 
                 </tr>
                 <Item />

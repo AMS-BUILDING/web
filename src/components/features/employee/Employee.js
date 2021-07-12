@@ -40,7 +40,7 @@ export default function Employee() {
                     <th>Địa chỉ</th>
                     <th>Email</th>
                     <th>Vị trí</th>
-                    <th></th>
+                    <th>Chức năng</th>
 
                 </tr>
                 <Item />

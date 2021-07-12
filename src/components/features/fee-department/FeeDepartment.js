@@ -41,13 +41,13 @@ export default function FeeDepartment() {
             />
             <div style={{ paddingLeft: '30px' }}>
                 <button onClick={() => setIsSign(false)} style={{
-                    border: '1px solid #333', color: '#333', backgroundColor: (!isSign ? '#41C7DB' : 'transparent'),
-                    cursor: 'pointer'
+                    border: '1px solid #333', color: '#333', backgroundColor: (!isSign ? '#5cb377' : 'transparent'),
+                    cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
                 }}>Dịch vụ đặt chỗ</button>
                 <button onClick={() => setIsSign(true)}
                     style={{
-                        border: '1px solid #333', color: '#333', backgroundColor: (isSign ? '#41C7DB' : 'transparent'),
-                        cursor: 'pointer'
+                        border: '1px solid #333', color: '#333', backgroundColor: (isSign ? '#5cb377' : 'transparent'),
+                        cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
                     }}
                 >Đăng ký dịch vụ</button>
             </div>

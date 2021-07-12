@@ -30,7 +30,7 @@ export default function RequestService() {
                         <th>Số phòng</th>
                         <th>Tên dịch vụ</th>
                         <th>Trạng thái</th>
-                        <th></th>
+                        <th>Chức năng</th>
 
                     </tr>
                     <Item />

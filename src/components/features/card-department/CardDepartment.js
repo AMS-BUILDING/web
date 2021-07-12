@@ -44,7 +44,7 @@ export default function CardDepartment() {
                         <th>Số điện thoại</th>
                         <th>Số thẻ căn hộ</th>
                         <th>Trạng thái</th>
-                        <th></th>
+                        <th>Chức năng</th>
 
 
 

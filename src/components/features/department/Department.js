@@ -42,7 +42,7 @@ export default function Department() {
                     <th>Tòa</th>
                     <th>Số phòng</th>
                     <th>Tên chủ hộ</th>
-                    <th></th>
+                    <th>Chức năng</th>
                 </tr>
 
                 <Item />

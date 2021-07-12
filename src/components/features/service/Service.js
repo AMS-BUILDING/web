@@ -31,7 +31,7 @@ export default function Service() {
                         <th>STT</th>
                         <th>Tên dịch vụ</th>
                         <th>Tên dịch vụ phụ</th>
-                        <th></th>
+                        <th>Chức năng</th>
                     </tr>
                     <ServiceItem />
                     <ServiceItem />
