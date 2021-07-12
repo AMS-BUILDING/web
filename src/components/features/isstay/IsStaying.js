@@ -67,9 +67,6 @@ export default function IsStaying() {
                     <button
                         onClick={() => {
                             getAbsent()
-                            setIdentifyCard("")
-                            setName("")
-                            setAbsentType(-1)
                             setActivePage(1)
                         }}
                     ><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
