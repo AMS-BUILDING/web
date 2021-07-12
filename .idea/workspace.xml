@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac8c4d19-85f5-4ede-8592-8c07cfdc9cc4" name="Default Changelist" comment="update modal center, add title each page" />
+    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/LeftPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/LeftPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/Item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/style.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="hang_nguyen_employee" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1vB493XOxWtIXXcDiWMK2mF5DNQ" />
+  <component name="ProjectId" id="1uj4YiTfdhzquEW7D3PfqYyRDYO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,6 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Git/CasptoneProject/server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -29,51 +45,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ac8c4d19-85f5-4ede-8592-8c07cfdc9cc4" name="Default Changelist" comment="" />
-      <created>1626021993671</created>
+      <changelist id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="" />
+      <created>1625165714041</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1626021993671</updated>
-      <workItem from="1626021996858" duration="3273000" />
-      <workItem from="1626061260087" duration="1048000" />
-      <workItem from="1626103017550" duration="378000" />
+      <updated>1625165714041</updated>
+      <workItem from="1625165717439" duration="533000" />
+      <workItem from="1625166438491" duration="168000" />
+      <workItem from="1625373876986" duration="307000" />
+      <workItem from="1626105610303" duration="1073000" />
     </task>
-    <task id="LOCAL-00001" summary="Base UI First Implement">
-      <created>1626066197712</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1626066197713</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Fix components/features">
-      <created>1626086300300</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1626086300300</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Update navigation + dashboard">
-      <created>1626098774639</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1626098774639</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Update stype.css">
-      <created>1626099135563</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1626099135563</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update modal center, add title each page">
-      <created>1626103191165</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1626103191165</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,11 +76,5 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Base UI First Implement" />
-    <MESSAGE value="Fix components/features" />
-    <MESSAGE value="Update navigation + dashboard" />
-    <MESSAGE value="Update stype.css" />
-    <MESSAGE value="update modal center, add title each page" />
-    <option name="LAST_COMMIT_MESSAGE" value="update modal center, add title each page" />
   </component>
 </project>
