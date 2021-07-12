@@ -1,6 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Pagination from 'react-js-pagination';
+import { doGet } from '../../../lib/DataSource';
 import Item from './Item';
+import Search from './Search';
 export default function FeedBack() {
+    const [data, setData] = useState();
+    const [activePage, setActivePage] = useState(1);
+
+    const [textSearch, setTextSearch] = useState("");
+    useEffect(() => {
+        search()
+    }, [])
+
+    useEffect(() => {
+        search()
+    }, [activePage])
+
+    let search = async () => {
+        let path = `/feedback/search?pageNo=${activePage - 1}&name=${textSearch}`;
+        try {
+            let resp = await doGet(path);
+            if (resp.status === 200) {
+                setData(resp.data)
+            }
+        } catch (error) {
+
+        }
+    }
+    let handleTextSearch = (text) => {
+        setTextSearch(text)
+    }
+    let handleActivePage = (num) => {
+        setActivePage(num)
+    }
     return (
         <>
             <div className="breadcrumbs">
@@ -11,6 +43,7 @@ export default function FeedBack() {
                         </div>
                     </div>
                 </div>
+                <Search text={textSearch} handleTextSearch={handleTextSearch} search={search} handleActivePage={handleActivePage} />
                 <div className="col-sm-8">
                     <div className="page-header float-right">
                         <div className="page-title">
@@ -30,12 +63,29 @@ export default function FeedBack() {
                         <th>Ngày</th>
 
                     </tr>
-                    <Item />
-                    <Item />
-                    <Item />
+                    {data?.totalElement > 0 ?
+                        data?.data?.map((item, idx) => {
+                            return <Item data={item} index={parseInt(5 * (activePage - 1) + idx + 1)} />
+                        }) :
+
+                        <>
+                            No data
+                        </>
+                    }
 
                 </table>
             </div>
+            {data?.totalElement > 0 ?
+                <div className="wrapper-paginate">
+                    <Pagination
+                        activePage={activePage}
+                        itemsCountPerPage={5}
+                        totalItemsCount={parseInt(data?.totalElement)}
+                        pageRangeDisplayed={3}
+                        onChange={(item) => setActivePage(item)}
+                    />
+                </div> : <></>
+            }
         </>
     )
 }
