@@ -9,7 +9,7 @@ export default function ModalUpdateDepend({ show, handleClose, handleShow }) {
     const handleShowSumbit = () => setShowSumbit(true);
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật thông tin người phụ thuộc</Modal.Title>
                 </Modal.Header>
@@ -73,7 +73,7 @@ export default function ModalUpdateDepend({ show, handleClose, handleShow }) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleClose()
                         handleShowSumbit()
                     }}>

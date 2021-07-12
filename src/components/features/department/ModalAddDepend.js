@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import ModalAddSumbit from './ModalAddSumbit';
-export default function ModalAddDepend({ showDepend, handleCloseDepend, handleShowDepend, handleShowAdd }) {
+export default function ModalAddDepend({ showDepend, handleCloseDepend, handleShowDepend,handleShowAdd }) {
     const [showSumbit, setShowSumbit] = useState(false);
 
     const handleCloseSumbit = () => setShowSumbit(false);
     const handleShowSumbit = () => setShowSumbit(true);
     return (
         <>
-            <Modal show={showDepend} onHide={handleCloseDepend} animation={false} centered>
+            <Modal show={showDepend} onHide={handleCloseDepend} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm thông tin người phụ thuộc</Modal.Title>
                 </Modal.Header>
@@ -73,7 +73,7 @@ export default function ModalAddDepend({ showDepend, handleCloseDepend, handleSh
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleCloseDepend()
                         handleShowSumbit()
                     }}>

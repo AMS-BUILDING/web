@@ -4,7 +4,8 @@ import { Button } from 'react-bootstrap';
 export default function ModalDetailService({ show, handleClose }) {
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết dịch vụ</Modal.Title>
                 </Modal.Header>

@@ -6,7 +6,7 @@ export default function ModalDetail({ show, handleClose }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết căn hộ</Modal.Title>
                 </Modal.Header>
@@ -78,9 +78,9 @@ export default function ModalDetail({ show, handleClose }) {
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Người phụ thuộc:</div>
-
+                               
                             </li>
-
+                           
                             <table>
                                 <tr>
 

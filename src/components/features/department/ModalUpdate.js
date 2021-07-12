@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import SubItem from './SubItem';
 import ModalUpdateDepend from './ModalUpdateDepend';
-export default function ModalUpdate({ show, handleClose, handleShow }) {
+export default function ModalUpdate({ show, handleClose,handleShow }) {
     const [showUpdate, setShowUpdate] = useState(false);
 
     const handleCloseUpdate = () => setShowUpdate(false);
@@ -11,7 +11,7 @@ export default function ModalUpdate({ show, handleClose, handleShow }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật thông tin chủ hộ</Modal.Title>
                 </Modal.Header>
@@ -72,7 +72,7 @@ export default function ModalUpdate({ show, handleClose, handleShow }) {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleShowUpdate()
                         handleClose()
                     }}>
@@ -83,10 +83,10 @@ export default function ModalUpdate({ show, handleClose, handleShow }) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <ModalUpdateDepend
-                show={showUpdate}
-                handleClose={handleCloseUpdate}
-                handleShow={handleShow}
+            <ModalUpdateDepend 
+            show={showUpdate}
+            handleClose={handleCloseUpdate}
+            handleShow={handleShow}
             />
         </>
     )

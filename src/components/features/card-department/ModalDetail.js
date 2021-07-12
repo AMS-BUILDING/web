@@ -5,7 +5,7 @@ export default function ModalDetail({ show, handleClose }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết thẻ căn hộ</Modal.Title>
                 </Modal.Header>
@@ -18,7 +18,7 @@ export default function ModalDetail({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-
+                                                      
                             <li className="menu__item">
                                 <div className="menu__item--title">Số ĐT:</div>
                                 <div className="menu__item--input">
@@ -31,7 +31,7 @@ export default function ModalDetail({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-
+                            
                             <li className="menu__item">
                                 <div className="menu__item--title">Tên xe:</div>
                                 <div className="menu__item--input">
@@ -44,7 +44,7 @@ export default function ModalDetail({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-
+                           
                         </ul>
 
                     </Modal.Body>

@@ -10,7 +10,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
     return (
         <>
 
-            <Modal show={show} onHide={handleCloseAdd} animation={false} centered>
+            <Modal show={show} onHide={handleCloseAdd} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm thông tin chủ hộ</Modal.Title>
                 </Modal.Header>
@@ -80,7 +80,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleCloseAdd()
                         handleShowDepend()
                     }}>

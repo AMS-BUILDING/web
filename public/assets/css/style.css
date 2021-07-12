@@ -5111,7 +5111,7 @@ aside.left-panel {
 
 .navbar .navbar-nav li:hover,
 .navbar .navbar-nav li:hover .menu-icon {
-    color: #fff ;
+    color: #fff;
 }
 
 .navbar .navbar-nav li .menu-icon {
@@ -5122,12 +5122,14 @@ aside.left-panel {
     text-align: left;
     z-index: 9;
 }
+
+.menu-item__active > .menu-icon{
+    color: #000 !important;
+}
+
 .menu-item__active{
     background-color: #fff !important;
     border-right: 1px solid #272c33;
-    color: #000 !important;
-}
-.menu-item__active > .menu-icon{
     color: #000 !important;
 }
 
@@ -5161,7 +5163,6 @@ aside.left-panel {
     top: 10px;
     right: 0;
     text-align: right;
-   
 }
 
 .navbar .navbar-nav li.menu-item-has-children a:hover:before {
@@ -5453,7 +5454,6 @@ header.fixed-top {
     margin: -2px 20px 0 -57px;
     text-align: center;
     width: 43px;
-    display: none;
 }
 
 .open .menutoggle i:before {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import ModalAdd from './ModalAdd'
-export default function ModalAddAddress({ show, handleClose, handleShow }) {
+export default function ModalAddAddress({ show, handleClose,handleShow }) {
     const [showAdd, setShowAdd] = useState(false);
 
     const handleCloseAdd = () => setShowAdd(false);
@@ -10,7 +10,7 @@ export default function ModalAddAddress({ show, handleClose, handleShow }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm cư dân vào căn hộ</Modal.Title>
                 </Modal.Header>
@@ -35,11 +35,11 @@ export default function ModalAddAddress({ show, handleClose, handleShow }) {
                                 </select>
                             </div>
                         </li>
-
+                        
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleClose()
                         handleShowAdd()
                     }}>
@@ -50,7 +50,7 @@ export default function ModalAddAddress({ show, handleClose, handleShow }) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <ModalAdd
+            <ModalAdd 
                 show={showAdd}
                 handleCloseAdd={handleCloseAdd}
                 handleShowAdd={handleShowAdd}

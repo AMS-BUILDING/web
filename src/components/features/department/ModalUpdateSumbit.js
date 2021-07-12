@@ -2,12 +2,12 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import SubItem from './SubItem';
-export default function ModalUpdateSumbit({ show, handleCloseSumbit, handleShow }) {
-
+export default function ModalUpdateSumbit({ show,handleCloseSumbit,handleShow }) {
+    
     return (
         <>
 
-            <Modal show={show} onHide={handleCloseSumbit} animation={false} centered>
+            <Modal show={show} onHide={handleCloseSumbit} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Xác nhận thông tin</Modal.Title>
                 </Modal.Header>
@@ -79,9 +79,9 @@ export default function ModalUpdateSumbit({ show, handleCloseSumbit, handleShow 
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Người phụ thuộc:</div>
-
+                               
                             </li>
-
+                           
                             <table>
                                 <tr>
 
@@ -105,7 +105,7 @@ export default function ModalUpdateSumbit({ show, handleCloseSumbit, handleShow 
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="primary" onClick={() => {
                         handleCloseSumbit()
                     }}>
                         Tiếp
