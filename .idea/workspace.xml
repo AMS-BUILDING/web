@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac8c4d19-85f5-4ede-8592-8c07cfdc9cc4" name="Default Changelist" comment="Update navigation + dashboard">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="ac8c4d19-85f5-4ede-8592-8c07cfdc9cc4" name="Default Changelist" comment="update modal center, add title each page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1vB493XOxWtIXXcDiWMK2mF5DNQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,6 +24,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -37,6 +36,7 @@
       <updated>1626021993671</updated>
       <workItem from="1626021996858" duration="3273000" />
       <workItem from="1626061260087" duration="1048000" />
+      <workItem from="1626103017550" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="Base UI First Implement">
       <created>1626066197712</created>
@@ -59,7 +59,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626098774639</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update stype.css">
+      <created>1626099135563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626099135563</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update modal center, add title each page">
+      <created>1626103191165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626103191165</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,9 +92,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="Base UI First Implement" />
     <MESSAGE value="Fix components/features" />
     <MESSAGE value="Update navigation + dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update navigation + dashboard" />
+    <MESSAGE value="Update stype.css" />
+    <MESSAGE value="update modal center, add title each page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update modal center, add title each page" />
   </component>
 </project>

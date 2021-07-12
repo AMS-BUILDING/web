@@ -9,7 +9,7 @@ th, td {
 }
 th {
     height: 40px;
-    text-align: left;
+    text-align: center;
 }
 .menu{
     &__item{
@@ -23,8 +23,20 @@ th {
             flex: 1;
             display: flex;
             justify-content: flex-end;
+            
+            margin-left: 8px;
             input{
                 width: 300px;
+            }
+            textarea{
+                width: 300px;
+                height: 100px;
+            }
+            select{
+                width: 300px;
+            }
+            .ipt{
+                width: 700px;
             }
         }
     }
@@ -33,6 +45,8 @@ th {
     width: 100%;
     padding-left: 30px;
     padding-right: 30px;
+    margin-top: 20px;
+    text-align: center;
 }
 @media(min-width:576px){
     .modal-dialog{
@@ -52,6 +66,9 @@ th {
             input{
                 width: 90%;
             }
+            select{
+                width: 90%;
+            }
         }
     }
     &--content{
@@ -63,11 +80,37 @@ th {
 .add{
    margin: 30px;
     button{
-        background-color: #dc3545;
+        background-color:#5cb377;
         cursor: pointer;
         border: none;
-        svg{
-            color: #fff;
-        }
+        display: block;
+        padding: 10px;
+        color: black;
+        border-radius: 10px;
+        font-family: 'Roboto', sans-serif;
     }
+}
+.send{
+    margin: 30px;
+    button{
+        background-color: #797979;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 8px 10px;
+        border-radius: 5px;
+    }
+}
+.sub__btn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    color: #333;
+    font-weight: 800;
 }

@@ -4,8 +4,7 @@ import { Button } from 'react-bootstrap';
 export default function ModalAdd({ show, handleClose }) {
     return (
         <>
-
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm thông báo</Modal.Title>
                 </Modal.Header>
@@ -18,22 +17,19 @@ export default function ModalAdd({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-                                                      
+
                             <li className="menu__item">
                                 <div className="menu__item--title">Mô tả:</div>
                                 <div className="menu__item--input">
                                     <textarea />
                                 </div>
                             </li>
-                            
-                            
-                           
                         </ul>
 
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                         Thêm
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>

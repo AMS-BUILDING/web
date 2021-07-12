@@ -6,7 +6,7 @@ export default function ModalUpdate({ show, handleClose }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật trạng thái</Modal.Title>
                 </Modal.Header>
@@ -26,7 +26,7 @@ export default function ModalUpdate({ show, handleClose }) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                         Cập nhật
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 export default function ModalDetail({ show, handleClose, handleShow }) {
-    
+
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết thông tin cư dân</Modal.Title>
                 </Modal.Header>
@@ -78,7 +78,7 @@ export default function ModalDetail({ show, handleClose, handleShow }) {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                   
+
                     <Button variant="secondary" onClick={() => {
                         handleClose()
                     }}>

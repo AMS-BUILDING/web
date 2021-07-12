@@ -4,8 +4,7 @@ import { Button } from 'react-bootstrap';
 export default function ModalAdd({ show, handleClose }) {
     return (
         <>
-
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm nhân viên</Modal.Title>
                 </Modal.Header>
@@ -75,7 +74,7 @@ export default function ModalAdd({ show, handleClose }) {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                         Thêm
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>

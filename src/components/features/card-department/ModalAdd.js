@@ -5,7 +5,7 @@ export default function ModalAdd({ show, handleClose }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm thẻ căn hộ</Modal.Title>
                 </Modal.Header>
@@ -18,7 +18,7 @@ export default function ModalAdd({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-                                                      
+
                             <li className="menu__item">
                                 <div className="menu__item--title">Số ĐT:</div>
                                 <div className="menu__item--input">
@@ -31,14 +31,14 @@ export default function ModalAdd({ show, handleClose }) {
                                     <input type="text" />
                                 </div>
                             </li>
-                            
-                           
+
+
                         </ul>
 
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                         Thêm
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>

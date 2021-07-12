@@ -5,7 +5,7 @@ export default function ModalDetail({ show, handleClose }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết yêu cầu dịch vụ</Modal.Title>
                 </Modal.Header>
