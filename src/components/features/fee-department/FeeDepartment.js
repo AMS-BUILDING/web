@@ -1,25 +1,51 @@
-import React from 'react';
-import Item from './Item';
-export default function FeeDepartment(){
-    return(
+import React, { useState } from 'react';
+import ModalSend from './ModalSend';
+import Service from './Service';
+import SignUpService from './SignUpService';
+export default function FeeDepartment() {
+    const [isSign, setIsSign] = useState(false)
+    console.log(isSign);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    return (
         <>
+            <div className="send">
+                <button onClick={handleShow}>
+                    Gửi thông báo
+                </button>
+            </div>
+            <ModalSend
+                show={show}
+                handleClose={handleClose}
+                handleShow={handleShow}
+            />
+            <br />
             <div className="main__table">
-                <table>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tòa</th>
-                        <th>Số phòng</th>
-                        <th>Tên dịch vụ</th>
-                        <th>Giá dịch vụ</th>
-                        <th>Tháng</th>
-                        <th>Trạng thái</th>
-
-                    </tr>
-                    <Item />
-                    <Item />
-                    <Item />
-
-                </table>
+                <div>
+                    <button onClick={() => setIsSign(false)} style={{
+                        border: '1px solid #333', color: '#333', backgroundColor: (!isSign ? '#41C7DB' : 'transparent'),
+                        cursor: 'pointer'
+                    }}>Dịch vụ đặt chỗ</button>
+                    <button onClick={() => setIsSign(true)}
+                        style={{
+                            border: '1px solid #333', color: '#333', backgroundColor: (isSign ? '#41C7DB' : 'transparent'),
+                            cursor: 'pointer'
+                        }}
+                    >Đăng ký dịch vụ</button>
+                </div>
+                <br />
+                {!isSign
+                    ?
+                    <>
+                        <Service />
+                    </>
+                    :
+                    <>
+                        <SignUpService />
+                    </>
+                }
             </div>
         </>
     )

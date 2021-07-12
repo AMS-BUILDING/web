@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../../style/style.scss'
 import ServiceItem from './ServiceItem';
 export default function Service() {
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, []); // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
             <table>
@@ -13,9 +16,9 @@ export default function Service() {
                     <th></th>
                 </tr>
 
-               <ServiceItem />
-               <ServiceItem />
-               <ServiceItem />
+                <ServiceItem />
+                <ServiceItem />
+                <ServiceItem />
             </table>
         </>
     )

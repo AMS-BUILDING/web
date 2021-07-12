@@ -34,7 +34,7 @@ th {
     padding-left: 30px;
     padding-right: 30px;
 }
-@media(max-width:576px){
+@media(min-width:576px){
     .modal-dialog{
         max-width: fit-content !important;
         margin: 1.75em auto;

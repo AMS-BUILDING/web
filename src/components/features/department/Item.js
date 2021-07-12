@@ -14,6 +14,8 @@ export default function Item() {
     let deleteItem = () => {
         let message = window.confirm("Bạn chắc chắn muốn xóa chứ")
     }
+   
+
     return (
         <>
             <tr>
@@ -49,6 +51,7 @@ export default function Item() {
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
                 handleShow={handleShowUpdate}
+               
             />
         </>
     )
