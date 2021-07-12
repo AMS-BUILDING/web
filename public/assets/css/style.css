@@ -5002,9 +5002,11 @@ aside.left-panel {
     display: table-cell;
     height: 100vh;
     min-height: 100%;
+    padding: 0 25px;
     vertical-align: top;
-    width: 350px;
-  
+    width: 280px;
+    -webkit-transition: width 0.3s ease;
+    transition: width 0.3s ease;
 }
 
 .navbar {
@@ -5014,8 +5016,6 @@ aside.left-panel {
     display: block;
     margin: 0 0 100px;
     padding: 0;
-    width: 260px;
-    
 }
 
 .navbar .navbar-header {
@@ -5070,7 +5070,7 @@ aside.left-panel {
     font-size: 14px;
     font-weight: 700;
     line-height: 50px;
-    padding: 15px 10px;
+    padding: 15px 0 0;
     text-transform: uppercase;
     width: 100%;
 }
@@ -5094,9 +5094,9 @@ aside.left-panel {
     display: none;
 }
 
-.navbar .navbar-nav li {
-    background: none ;
-    color: #c8c9ce;
+.navbar .navbar-nav li>a {
+    background: none !important;
+    color: #c8c9ce !important;
     display: inline-block;
     font-family: 'Open Sans';
     font-size: 14px;
@@ -5104,31 +5104,20 @@ aside.left-panel {
     padding: 10px 0;
     position: relative;
     width: 100%;
-    cursor: pointer;
-    padding-left: 25px;
-    padding-right: 25px;
 }
 
-.navbar .navbar-nav li:hover,
-.navbar .navbar-nav li:hover .menu-icon {
-    color: #fff ;
+.navbar .navbar-nav li>a:hover,
+.navbar .navbar-nav li>a:hover .menu-icon {
+    color: #fff !important;
 }
 
-.navbar .navbar-nav li .menu-icon {
+.navbar .navbar-nav li>a .menu-icon {
     color: #8b939b;
     float: left;
     margin-top: 8px;
-    width: 30px;
+    width: 55px;
     text-align: left;
     z-index: 9;
-}
-.menu-item__active{
-    background-color: #fff !important;
-    border-right: 1px solid #272c33;
-    color: #000 !important;
-}
-.menu-item__active > .menu-icon{
-    color: #000 !important;
 }
 
 .navbar .navbar-nav li>a .menu-title-text {
@@ -5161,7 +5150,8 @@ aside.left-panel {
     top: 10px;
     right: 0;
     text-align: right;
-   
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .navbar .navbar-nav li.menu-item-has-children a:hover:before {
@@ -5453,7 +5443,6 @@ header.fixed-top {
     margin: -2px 20px 0 -57px;
     text-align: center;
     width: 43px;
-    display: none;
 }
 
 .open .menutoggle i:before {

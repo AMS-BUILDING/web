@@ -8,8 +8,10 @@ export default function SubItem(){
                 <td>Ha Noi</td>
                 <td>minhhoangzeno@gmail.com</td>
                 <td>Card</td>
-                <td>Card</td>
-                <td>Card</td>
+                <td>
+                    <input type="checkbox" />
+                </td>
+
 
             </tr>
     )
