@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { doGet } from '../../../lib/DataSource';
 import ModalDetailService from './ModalDetailService';
-export default function ServiceItem() {
+export default function ServiceItem({ data, index }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [subService,setSubService] = useState()
+    useEffect(() => {
+        getDetail();
+    },[])
+    useEffect(() => {
+        getDetail();
+    },[data?.subSerivceId])
+    let getDetail = async () => {
+        let path = `/sub-service/get-one/${data?.subSerivceId}`;
+        try {
+            let resp = await doGet(path);
+            if(resp.status === 200){
+                setSubService(resp.data)
+            }
+        } catch (error) {
+            
+        }
+    }
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>Giải trí</td>
-                <td>BBQ</td>
+                <td>{index}</td>
+                <td>{data?.serviceName}</td>
+                <td>{data?.subServiceName}</td>
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
                         onClick={handleShow}
@@ -24,6 +43,7 @@ export default function ServiceItem() {
                 show={show}
                 handleClose={handleClose}
                 handleShow={handleShow}
+                data={subService}
             />
         </>
     )

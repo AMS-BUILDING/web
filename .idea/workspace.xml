@@ -48,14 +48,6 @@
       <workItem from="1625373876986" duration="307000" />
       <workItem from="1626105610303" duration="1073000" />
     </task>
-    <task id="LOCAL-00001" summary="Update isStaying">
-      <created>1626109490081</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1626109490081</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,7 +69,5 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Update isStaying" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update isStaying" />
   </component>
 </project>
