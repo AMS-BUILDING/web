@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/Item.js" afterDir="false" />
+    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="Update isStaying">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,14 @@
       <workItem from="1625373876986" duration="307000" />
       <workItem from="1626105610303" duration="1073000" />
     </task>
+    <task id="LOCAL-00001" summary="Update isStaying">
+      <created>1626109490081</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626109490081</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,5 +77,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="Update isStaying" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update isStaying" />
   </component>
 </project>
