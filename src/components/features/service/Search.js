@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API from '../../../lib/API';
 import { doGet } from '../../../lib/DataSource';
 export default function Search({ search, textSearch, handleServiceId, handleTextSearch, serviceId,handleActivePage }) {
     const [service, setService] = useState();
@@ -7,14 +8,11 @@ export default function Search({ search, textSearch, handleServiceId, handleText
         searchService()
     }, [])
     let searchService = async () => {
-        let path = '/service/list';
-        try {
-            let resp = await doGet(path);
-            if (resp.status === 200) {
-                setService(resp.data)
-            }
-        } catch (error) {
-
+        let path = '/manager-service/service/list';
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setService(response)
         }
     }
 

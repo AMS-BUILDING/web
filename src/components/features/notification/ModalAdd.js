@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
-export default function ModalAdd({ show, handleClose }) {
+import API from '../../../lib/API';
+export default function ModalAdd({ show, handleClose, search }) {
+    let [data, setData] = useState();
+    let addNotification = async () => {
+        let path = "/admin/notification/add";
+        let resp = await API.authorizedJSONPost(path, data);
+        if (resp.ok) {
+            let response = await resp.json();
+            console.log(response)
+            alert("Them Thanh Cong!")
+            handleClose()
+            search()
+        } else {
+            let response = await resp.json();
+            alert(response?.message)
+        }
+    }
     return (
         <>
             <Modal show={show} onHide={handleClose} animation={false} centered>
@@ -14,14 +30,24 @@ export default function ModalAdd({ show, handleClose }) {
                             <li className="menu__item">
                                 <div className="menu__item--title">Tiêu đề:</div>
                                 <div className="menu__item--input">
-                                    <input type="text" />
+                                    <input type="text"
+                                        onChange={e => setData({
+                                            ...data,
+                                            title: e.target.value
+                                        })}
+                                    />
                                 </div>
                             </li>
 
                             <li className="menu__item">
                                 <div className="menu__item--title">Mô tả:</div>
                                 <div className="menu__item--input">
-                                    <textarea />
+                                    <textarea 
+                                    onChange={e => setData({
+                                        ...data,
+                                        description: e.target.value
+                                    })}
+                                    />
                                 </div>
                             </li>
                         </ul>
@@ -29,7 +55,9 @@ export default function ModalAdd({ show, handleClose }) {
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="success" onClick={handleClose}>
+                    <Button variant="success" onClick={() => {
+                        addNotification()
+                    }}>
                         Thêm
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>

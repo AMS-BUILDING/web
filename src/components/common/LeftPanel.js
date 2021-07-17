@@ -35,11 +35,7 @@ export default function LeftPanel({ page, handlePage }) {
                         }}>
                            <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
                         </li>
-                        <li className={handleClass("message")} onClick={() => {
-                            handlePage("message")
-                        }}>
-                            <i className="menu-icon fa fa-laptop"></i>Nhắn tin
-                        </li>
+                        
                         <li className={handleClass("employee")} onClick={() => {
                             handlePage("employee")
                         }}>
@@ -80,12 +76,7 @@ export default function LeftPanel({ page, handlePage }) {
 
                     <>
                         <h3 className="menu-title">Quản lý tài chính</h3>
-                        <li className={handleClass("fee-building")} onClick={() => {
-                            handlePage("fee-building")
-                        }}>
-                           <i className="menu-icon fa fa-laptop"></i>Phí tòa nhà
-                         
-                        </li>
+                        
                         <li className={handleClass("fee-department")} onClick={() => {
                             handlePage("fee-department")
                         }}>
@@ -101,11 +92,7 @@ export default function LeftPanel({ page, handlePage }) {
                             <i className="menu-icon fa fa-laptop"></i>Thẻ gửi xe
                          
                         </li>
-                        <li className={handleClass("card-department")} onClick={() => {
-                            handlePage("card-department")
-                        }}>
-                            <i className="menu-icon fa fa-table"></i>Thẻ căn hộ
-                        </li>
+                        
                     </>
 
                     <>

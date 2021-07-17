@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';
+import API from '../../../lib/API';
 import { doGet } from '../../../lib/DataSource';
 import '../../../style/style.scss'
 import Search from './Search';
@@ -21,16 +22,11 @@ export default function Service() {
     }, [activePage, serviceId])
 
     let searchSubService = async () => {
-        let path = `/sub-service/search?pageNo=${activePage - 1}&serviceId=${serviceId}&subService=${textSearch}`;
-        console.log("search", path)
-
-        try {
-            let resp = await doGet(path);
-            if (resp.status === 200) {
-                setData(resp.data)
-            }
-        } catch (error) {
-
+        let path = `/manager-service/service/search?pageNo=${activePage - 1}&serviceId=${serviceId}&subService=${textSearch}`;
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setData(response)
         }
     }
     let handleServiceId = (id) => {

@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
+import API from '../../../lib/API';
 import ModalDetail from './ModalDetail';
 import ModalUpdate from './ModalUpdate';
-export default function Item() {
-    const deleteItem = () => {
-        let message = window.confirm("Bạn có muốn xóa nhân viên không?")
+export default function Item({ data, index ,search}) {
+    const deleteItem = async () => {
+        let message = await window.confirm("Bạn có muốn xóa nhân viên không?")
+        console.log(data?.id)
+        if (message) {
+            let path = `/admin/employee/remove/${data?.id}`;
+            let resp = await API.authorizedJSONPost(path);
+            if (resp.ok) {
+                let response = await resp.json()
+                alert("Xoa thanh cong")
+                search()
+            } else {
+                let response = await resp.json()
+                alert(response?.message)
+            }
+
+
+        }
     }
     const [show, setShow] = useState(false);
 
@@ -16,13 +32,13 @@ export default function Item() {
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>Nguyễn Văn A</td>
-                <td>Nam</td>
-                <td>0972335594</td>
-                <td>Ha Noi</td>
-                <td>Nam@gmail.com</td>
-                <td>Nhan vien</td>
+                <td>{index}</td>
+                <td>{data?.name}</td>
+                <td>{data?.gender}</td>
+                <td>{data?.phone}</td>
+                <td>{data?.homeTown}</td>
+                <td>{data?.email}</td>
+                <td>{data?.positionName}</td>
 
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
@@ -46,10 +62,12 @@ export default function Item() {
             <ModalDetail
                 show={show}
                 handleClose={handleClose}
+                data={data}
             />
             <ModalUpdate
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
+                data={data}
             />
         </>
     )
