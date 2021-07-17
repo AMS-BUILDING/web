@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { doGet } from '../../../lib/DataSource';
 import Item from './Item';
 import Pagination from "react-js-pagination";
+import API from '../../../lib/API';
 
 export default function IsStaying() {
     const [data, setData] = useState();
@@ -16,17 +17,14 @@ export default function IsStaying() {
         getAbsent()
     }, [activePage])
     const getAbsent = async () => {
-        let path = `/absent/search?pageNo=${activePage - 1}&name=${name}&identifyCard=${identifyCard}&absentType=${absentType}`;
-        try {
-            let resp = await doGet(path);
-            if (resp.status === 200) {
-                setData(resp.data)
-            }
-        } catch (error) {
-            console.log(error)
+        let path = `/admin/absent/search?pageNo=${activePage - 1}&name=${name}&identifyCard=${identifyCard}&absentType=${absentType}`;
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setData(response)
         }
     }
-    console.log(absentType)
+    
     return (
         <>
             <div className="breadcrumbs">

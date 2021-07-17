@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';
+import API from '../../../lib/API';
 import { doGet } from '../../../lib/DataSource';
 import Item from './Item';
 import Search from './Search';
@@ -17,14 +18,11 @@ export default function FeedBack() {
     }, [activePage])
 
     let search = async () => {
-        let path = `/feedback/search?pageNo=${activePage - 1}&name=${textSearch}`;
-        try {
-            let resp = await doGet(path);
-            if (resp.status === 200) {
-                setData(resp.data)
-            }
-        } catch (error) {
-
+        let path = `/admin/feedback/search?pageNo=${activePage - 1}&name=${textSearch}`;
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setData(response)
         }
     }
     let handleTextSearch = (text) => {

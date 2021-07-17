@@ -14,7 +14,7 @@ export default function ServiceItem({ data, index }) {
         getDetail();
     },[data?.subSerivceId])
     let getDetail = async () => {
-        let path = `/sub-service/get-one/${data?.subSerivceId}`;
+        let path = `/manager-service/detail-service/get-one/${data?.subSerivceId}`;
         try {
             let resp = await doGet(path);
             if(resp.status === 200){
