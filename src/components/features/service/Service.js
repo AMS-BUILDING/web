@@ -24,7 +24,7 @@ export default function Service() {
     let searchSubService = async () => {
         let path = `/manager-service/service/search?pageNo=${activePage - 1}&serviceId=${serviceId}&subService=${textSearch}`;
         let resp = await API.authorizedJSONGET(path);
-        if(resp.ok){
+        if (resp.ok) {
             let response = await resp.json();
             setData(response)
         }
@@ -48,21 +48,11 @@ export default function Service() {
                         </div>
                     </div>
                 </div>
-                <Search search={searchSubService} handleServiceId={handleServiceId} handleActivePage={handleActivePage} handleTextSearch={handleTextSearch}
-                    serviceId={serviceId}
-                    textSearch={textSearch}
-                />
-
-                <div className="col-sm-8">
-                    <div className="page-header float-right">
-                        <div className="page-title">
-                            <ol className="breadcrumb text-right">
-                                <li className="active">Dịch vụ</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <Search search={searchSubService} handleServiceId={handleServiceId} handleActivePage={handleActivePage} handleTextSearch={handleTextSearch}
+                serviceId={serviceId}
+                textSearch={textSearch}
+            />
             <div className="main__table">
                 <table>
                     <tr>
@@ -80,8 +70,8 @@ export default function Service() {
                         :
                         <>
                             No data
-                        </>    
-                }
+                        </>
+                    }
                 </table>
             </div>
             {data?.totalElement > 0 ?

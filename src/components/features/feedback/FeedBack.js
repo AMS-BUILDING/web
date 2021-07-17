@@ -4,6 +4,8 @@ import API from '../../../lib/API';
 import { doGet } from '../../../lib/DataSource';
 import Item from './Item';
 import Search from './Search';
+import style from './feedback.module.css';
+
 export default function FeedBack() {
     const [data, setData] = useState();
     const [activePage, setActivePage] = useState(1);
@@ -20,7 +22,7 @@ export default function FeedBack() {
     let search = async () => {
         let path = `/admin/feedback/search?pageNo=${activePage - 1}&name=${textSearch}`;
         let resp = await API.authorizedJSONGET(path);
-        if(resp.ok){
+        if (resp.ok) {
             let response = await resp.json();
             setData(response)
         }
@@ -41,17 +43,8 @@ export default function FeedBack() {
                         </div>
                     </div>
                 </div>
-                <Search text={textSearch} handleTextSearch={handleTextSearch} search={search} handleActivePage={handleActivePage} />
-                <div className="col-sm-8">
-                    <div className="page-header float-right">
-                        <div className="page-title">
-                            <ol className="breadcrumb text-right">
-                                <li className="active">Phản hồi</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <Search text={textSearch} handleTextSearch={handleTextSearch} search={search} handleActivePage={handleActivePage} />
             <div className="main__table">
                 <table>
                     <tr>

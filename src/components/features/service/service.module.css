@@ -1,0 +1,34 @@
+.ipSearch {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #d2d6dd;
+    margin-right: 40px;
+}
+.btnSearch {
+    background-color: #5cb377;
+    color: white;
+    border: 1px solid #5cb377;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+.btnSearch:hover{
+    background-color: #74be8b;
+    border-color: #6cbb85;
+}
+
+.ipSearch:focus{
+   border-color: #86b7fe;
+   outline: none;
+}
+select:focus{
+    border-color: #86b7fe;
+    outline: none;
+}
+.wrapSearch {
+    padding: 10px;
+}
+input[type="text"] {
+    border: 1px solid;
+}
