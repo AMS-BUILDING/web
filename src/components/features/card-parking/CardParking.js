@@ -11,15 +11,6 @@ export default function CardParking() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-8">
-                    <div className="page-header float-right">
-                        <div className="page-title">
-                            <ol className="breadcrumb text-right">
-                                <li className="active">Thẻ gửi xe</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div className="main__table">
                 <table>

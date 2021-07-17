@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../../lib/API';
+import style from './employee.module.css';
 
 export default function Search({ handlePositionId }) {
     let [position, setPosition] = useState();
@@ -21,8 +22,9 @@ export default function Search({ handlePositionId }) {
 
             <select
                 onChange={e => handlePositionId(e.target.value)}
+                className={style.ipSearch}
             >
-                <option value={-1}>Vi tri</option>
+                <option value={-1}>Vị trí</option>
                 {position?.map((item, index) => {
                     return (
                         <option key={index} value={item?.id}>{item?.name}</option>

@@ -5397,9 +5397,8 @@ body.open .navbar .navbar-brand.hidden {
 .right-panel .page-header {
     min-height: 50px;
     margin: 0;
-    padding: 0 15px;
-    background: #ffffff;
     border-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .right-panel .page-header h1 {

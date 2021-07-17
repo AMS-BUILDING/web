@@ -3,8 +3,8 @@ import API from '../../../lib/API';
 import Item from './Item';
 import Pagination from 'react-js-pagination';
 export default function RequestService() {
-    const [data,setData] = useState();
-    const [activePage,setActivePage] = useState(1)
+    const [data, setData] = useState();
+    const [activePage, setActivePage] = useState(1)
     useEffect(() => {
         search()
     }, [])
@@ -13,14 +13,14 @@ export default function RequestService() {
     }, [activePage])
 
     let search = async () => {
-        let path = `/manager-service/request-service/search?pageNo=${activePage-1}`;
+        let path = `/manager-service/request-service/search?pageNo=${activePage - 1}`;
         let resp = await API.authorizedJSONGET(path);
-        if(resp.ok){
+        if (resp.ok) {
             let response = await resp.json();
             setData(response)
         }
     }
-    
+
     return (
         <>
             <div className="breadcrumbs">
@@ -31,20 +31,11 @@ export default function RequestService() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-8">
-                    <div className="page-header float-right">
-                        <div className="page-title">
-                            <ol className="breadcrumb text-right">
-                                <li className="active">Yêu cầu dịch vụ</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
             </div>
-           
+
             <div className="main__table">
                 <table>
-                <tr>
+                    <tr>
                         <th>STT</th>
                         <th>Tên</th>
                         <th>Tòa</th>
@@ -63,8 +54,8 @@ export default function RequestService() {
                         :
                         <>
                             No data
-                        </>    
-                }
+                        </>
+                    }
                 </table>
             </div>
             {data?.totalElement > 0 ?

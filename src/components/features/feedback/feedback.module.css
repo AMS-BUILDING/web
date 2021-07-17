@@ -1,0 +1,27 @@
+.wrapSearch {
+    padding: 10px;
+    display: flex;
+}
+.ipSearch {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #d2d6dd;
+    height: 40px;
+}
+.btnSearch {
+    background-color: #5cb377;
+    color: white;
+    border: 1px solid #5cb377;
+    margin-left: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btnSearch:hover{
+    background-color: #74be8b;
+    border-color: #6cbb85;
+}
+
+input:focus{
+   border-color: #86b7fe;
+   outline: none;
+}

@@ -16,15 +16,6 @@ export default function CardDepartment() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-8">
-                    <div className="page-header float-right">
-                        <div className="page-title">
-                            <ol className="breadcrumb text-right">
-                                <li className="active">Thẻ căn hộ</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div className="add">
                 <button onClick={handleShow}>

@@ -8,15 +8,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="col-sm-8">
-                <div className="page-header float-right">
-                    <div className="page-title">
-                        <ol className="breadcrumb text-right">
-                            <li className="active">Dashboard</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div className="content mt-3">
