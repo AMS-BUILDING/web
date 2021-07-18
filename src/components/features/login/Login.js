@@ -69,11 +69,6 @@ export default function Login() {
                         </div>
                     </div>
                 </div>
-                <footer className="footer">
-                    <p>
-                        © 2021 Copyright AMS Building
-                    </p>
-                </footer>
             </div>
 
         </>
