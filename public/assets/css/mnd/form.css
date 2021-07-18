@@ -1,37 +1,3 @@
-html {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    height: 100%;
-    font-size: 1rem;
-    color: #d0d5da;
-    background-color: #fff;
-    -webkit-user-select: none;
-    /* Chrome all / Safari all */
-    -moz-user-select: none;
-    /* Firefox all */
-    -ms-user-select: none;
-    /* IE 10+ */
-    user-select: none;
-}
-
-
-/*
- * ========== Common ==========
- */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #fff !important;
-    margin-bottom: 1rem;
-    font-weight: 400;
-}
 
 
 /*
@@ -45,7 +11,7 @@ h6 {
     position: absolute;
     background-color: #f0f3f6;
     background-size:cover ;
-    background-image: url(https://lh3.googleusercontent.com/proxy/wlcOlO5-bD_oBYlv2gImDYgetHjQZWXlyz0STZhhY-O8OZKtuwzlLqd7QB8lkxPP9iBYAEQqeUaC5F1aCl9ro9jMHMJusoAAD-YnIA=w3840-h2160-p-k-no-nd-mv?fbclid=IwAR0zmBFa7r3SawJZ_T7BQFcOjQ4dPivs6PEiGNxdJb8pt9y26wQFEjtftp8);
+    background-image: url(https://www.ieltsvietop.vn/wp-content/uploads/2020/07/hong_kong_skyline_green_building_in_asia.jpg);
 }
 
 #intro .middle {
@@ -65,7 +31,7 @@ h6 {
     padding: 1.5rem 2rem 1rem;
     margin-bottom: 30px;
     border-radius: .2rem;
-    background-color: #5d6c72;
+    background-color: #008634;
 }
 
 .logo {
@@ -113,6 +79,8 @@ input:-webkit-autofill {
 
 .form-group {
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .form-control {
@@ -279,43 +247,4 @@ input[type=checkbox] {
     .reminder-password .login-panel {
         width: calc(100%) !important;
     }
-}
-
-
-/*
- * ========== Footer ==========
- */
-
-footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background-color: transparent;
-    z-index: 1000;
-}
-
-footer p {
-    margin: 6px 15px;
-    text-align: right;
-    color: #fff;
-    font-size: 13px;
-}
-
-footer p a {
-    color: #fff;
-}
-
-footer p a:hover {
-    color: #fff;
-    text-decoration: none;
-}
-
-footer p a:focus {
-    outline: none;
-    text-decoration: none;
-    color: #B6B6B6;
-}
-
-.footer p{
-    text-align: center;
 }
