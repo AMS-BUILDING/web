@@ -13,7 +13,9 @@ export default function IsStaying() {
     let [absentType, setAbsentType] = useState(-1);
     useEffect(() => {
         getAbsent()
+        window.scrollTo(0, 0)
     }, [])
+
     useEffect(() => {
         getAbsent()
     }, [activePage])

@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setPageRedux } from '../../redux/PageSlice';
 
-export default function LeftPanel({ page, handlePage }) {
-
+export default function LeftPanel() {
+    let dispatch = useDispatch()
+    let page = useSelector(state => state.page);
     const handleClass = (currentPage) => {
-        if(page === currentPage){
+        if (page === currentPage) {
             return `menu-item menu-item__active`
-        }else{
+        } else {
             return `menu-item`
         }
     }
-
+   
+    let handleClick = (item) =>{
+        dispatch(setPageRedux(JSON.parse(JSON.stringify(item))))
+    }
     return <aside id="left-panel" className="left-panel">
         <nav className="navbar navbar-expand-sm navbar-default navbar navbar-inverse">
 
@@ -26,35 +31,35 @@ export default function LeftPanel({ page, handlePage }) {
                 <ul className="nav navbar-nav">
                     <>
                         <li className={handleClass("home")} onClick={() => {
-                            handlePage("home")
+                            handleClick("home")
                         }}>
-                             <i className="menu-icon fa fa-laptop"></i>Biểu đồ 
+                            <i className="menu-icon fa fa-laptop"></i>Biểu đồ
                         </li>
                         <li className={handleClass("isstay")} onClick={() => {
-                            handlePage("isstay")
+                            handleClick("isstay")
                         }}>
-                           <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
+                            <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
                         </li>
-                        
+
                         <li className={handleClass("employee")} onClick={() => {
-                            handlePage("employee")
+                            handleClick("employee")
                         }}>
-                             <i className="menu-icon fa fa-laptop"></i>Nhân viên
+                            <i className="menu-icon fa fa-laptop"></i>Nhân viên
                         </li>
                     </>
 
                     <>
                         <h3 className="menu-title">Quản lý dịch vụ </h3>
                         <li className={handleClass("service")} onClick={() => {
-                            handlePage("service")
+                            handleClick("service")
                         }}>
-                           <i className="menu-icon fa fa-table"></i>Dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Dịch vụ
 
                         </li>
                         <li className={handleClass("request-service")} onClick={() => {
-                            handlePage("request-service")
+                            handleClick("request-service")
                         }}>
-                           <i className="menu-icon fa fa-table"></i>Yêu cầu dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Yêu cầu dịch vụ
 
                         </li>
                     </>
@@ -62,13 +67,13 @@ export default function LeftPanel({ page, handlePage }) {
                     <>
                         <h3 className="menu-title">Quản lý cư dân</h3>
                         <li className={handleClass("department")} onClick={() => {
-                            handlePage("department")
+                            handleClick("department")
                         }}>
-                             <i className="menu-icon fa fa-laptop"></i>Căn hộ
-                           
+                            <i className="menu-icon fa fa-laptop"></i>Căn hộ
+
                         </li>
                         <li className={handleClass("resident")} onClick={() => {
-                            handlePage("resident")
+                            handleClick("resident")
                         }}>
                             <i className="menu-icon fa fa-table"></i>Cư dân
                         </li>
@@ -76,35 +81,35 @@ export default function LeftPanel({ page, handlePage }) {
 
                     <>
                         <h3 className="menu-title">Quản lý tài chính</h3>
-                        
+
                         <li className={handleClass("fee-department")} onClick={() => {
-                            handlePage("fee-department")
+                            handleClick("fee-department")
                         }}>
-                             <i className="menu-icon fa fa-table"></i>Phi căn hộ
+                            <i className="menu-icon fa fa-table"></i>Phi căn hộ
                         </li>
 
                     </>
-                    <>
+                    {/* <>
                         <h3 className="menu-title">Thẻ</h3>
                         <li className={handleClass("card-parking")} onClick={() => {
-                            handlePage("card-parking")
+                            handleClick("card-parking")
                         }}>
                             <i className="menu-icon fa fa-laptop"></i>Thẻ gửi xe
-                         
+
                         </li>
-                        
-                    </>
+
+                    </> */}
 
                     <>
                         <h3 className="menu-title">Thông báo</h3>
                         <li className={handleClass("notification")} onClick={() => {
-                            handlePage("notification")
+                            handleClick("notification")
                         }}>
                             <i className="menu-icon fa fa-laptop"></i>Thông báo
-                      
+
                         </li>
                         <li className={handleClass("feedback")} onClick={() => {
-                            handlePage("feedback")
+                            handleClick("feedback")
                         }}>
                             <i className="menu-icon fa fa-table"></i>Phản hồi
                         </li>

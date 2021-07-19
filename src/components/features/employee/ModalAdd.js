@@ -3,7 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import API from '../../../lib/API';
 import moment from 'moment';
-export default function ModalAdd({ show, handleClose }) {
+export default function ModalAdd({ show, handleClose, handleMessage,handleShowMessage }) {
+  
     const [data, setData] = useState();
     const handleData = (e) => {
         let { name, value } = e.target;
@@ -18,11 +19,17 @@ export default function ModalAdd({ show, handleClose }) {
     let add = async () => {
         let path = "/admin/employee/add";
         let resp = await API.authorizedJSONPost(path, data);
-        if (resp.status === 201) {
-            console.log('ok')
-        } else {
+       
+        if (resp.ok) {
+            handleShowMessage(true)
+            handleMessage("Thêm thành công!")
+            handleClose()
+        }else{
             let response = await resp.json();
-            alert(response.message)
+            handleShowMessage(true)
+            handleMessage(response.message);
+           
+           
         }
     }
     let [position, setPosition] = useState();
@@ -43,6 +50,7 @@ export default function ModalAdd({ show, handleClose }) {
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm nhân viên</Modal.Title>
                 </Modal.Header>
+               
                 <Modal.Body>
                     <ul className="menu">
                         <li className="menu__item">
@@ -154,7 +162,6 @@ export default function ModalAdd({ show, handleClose }) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="success" onClick={() => {
-
                         add()
                     }}>
                         Thêm

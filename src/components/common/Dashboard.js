@@ -14,10 +14,13 @@ import CardDepartment from '../features/card-department/CardDepartment';
 import Notification from '../features/notification/Notification';
 import FeedBack from '../features/feedback/FeedBack';
 import Home from '../features/home/Home';
-export default function Dashboard({ page }) {
+import { useSelector } from 'react-redux';
+export default function Dashboard() {
+    let page = useSelector(state => state.page);
+   
     return (
         <>
-
+            
             {page === "home" && <Home />}
             {page === "profile" && <Profile />}
             {page === "department" && <Department />}
@@ -34,7 +37,7 @@ export default function Dashboard({ page }) {
             {page === "notification" && <Notification />}
             {page === "feedback" && <FeedBack />}
 
-
+           
         </>
     )
 }

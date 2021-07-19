@@ -14,7 +14,7 @@ export default function Login() {
         if (resp.status === 200) {
             let response = await resp.json();
             localStorage.setItem("token", response.accessToken);
-            history.push('/admin')
+            window.location.reload();
         } else {
             alert("Tai khoan chua dung!")
         }

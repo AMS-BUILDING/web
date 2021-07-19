@@ -13,6 +13,7 @@ export default function FeedBack() {
     const [textSearch, setTextSearch] = useState("");
     useEffect(() => {
         search()
+        window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => {

@@ -84,7 +84,13 @@ export default function Header() {
                     <div className="user-menu dropdown-menu">
                         <Link className="nav-link" to="/profile"><i className="fa fa-user"></i> My Profile</Link>
 
-                        <a className="nav-link" href="login.html"><i className="fa fa-power-off"></i> Logout</a>
+                        <div
+                        onClick={() => {
+                            localStorage.removeItem("token")
+                            localStorage.removeItem("page")
+                            window.location.reload();
+                        }}
+                        ><i className="fa fa-power-off"></i> Logout</div>
                     </div>
                 </div>
 

@@ -10,11 +10,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="hang_nguyen_employee" />
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$/.." value="minh_hoang" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1uj4YiTfdhzquEW7D3PfqYyRDYO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,9 +43,9 @@
       <workItem from="1625165717439" duration="533000" />
       <workItem from="1625166438491" duration="168000" />
       <workItem from="1625373876986" duration="307000" />
-      <workItem from="1626105610303" duration="1073000" />
-      <workItem from="1626483316061" duration="1184000" />
-      <workItem from="1626538985158" duration="112000" />
+      <workItem from="1625971264378" duration="175000" />
+      <workItem from="1626655892690" duration="2442000" />
+      <workItem from="1626691293060" duration="477000" />
     </task>
     <servers />
   </component>

@@ -4,15 +4,13 @@ import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import API from '../../../lib/API';
 
-export default function ModalUpdate({ show, handleClose, data, search }) {
+export default function ModalUpdate({ show, handleClose, data, search, handleShowMessage, handleMessage }) {
     let [position, setPosition] = useState();
     useEffect(() => {
         fetchData()
     }, [])
-    // useEffect(() => {
-    //     fetchData()
-    // }, [data])
 
+   
 
 
     const [employee, setEmployee] = useState({
@@ -30,7 +28,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
         let path = `/manager-service/position/search?show=false`;
 
         let resp = await API.authorizedJSONGET(path);
-        if (resp.status === 200) {
+        if (resp.ok) {
             let response = await resp.json();
             setPosition(response);
             let arr = await response?.filter((item) => item.name == data?.positionName);
@@ -53,13 +51,16 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
         let path = `/admin/employee/update/${data?.id}`;
         let resp = await API.authorizedJSONPost(path, employee);
         if (resp.ok) {
-            let response = await resp.json();
-            alert("Sua thong tin thanh cong")
+            handleShowMessage(true)
+            handleMessage("Sửa thông tin thành công!");
             handleClose()
             search()
         } else {
             let response = await resp.json();
-            console.log(response)
+            handleShowMessage(true)
+            handleMessage(response?.message);
+            handleClose()
+            search()
         }
 
     }

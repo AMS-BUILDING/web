@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import API from '../../../lib/API';
-export default function ModalAdd({ show, handleClose, search }) {
+
+export default function ModalAdd({ show, handleClose, handleMessage, handleShowMessage }) {
+
+    // useEffect(() => {
+    //     handleClose()
+    // }, [showMessage])
+
     let [data, setData] = useState();
     let addNotification = async () => {
         let path = "/admin/notification/add";
         let resp = await API.authorizedJSONPost(path, data);
         if (resp.ok) {
-            let response = await resp.json();
-            console.log(response)
-            alert("Them Thanh Cong!")
+            handleShowMessage(true)
+            handleMessage("Thêm thành công!")
             handleClose()
-            search()
+
         } else {
             let response = await resp.json();
-            alert(response?.message)
+            handleShowMessage(true)
+            handleMessage(response.message);
+            handleClose()
+
         }
     }
     return (
@@ -42,11 +50,11 @@ export default function ModalAdd({ show, handleClose, search }) {
                             <li className="menu__item">
                                 <div className="menu__item--title">Mô tả:</div>
                                 <div className="menu__item--input">
-                                    <textarea 
-                                    onChange={e => setData({
-                                        ...data,
-                                        description: e.target.value
-                                    })}
+                                    <textarea
+                                        onChange={e => setData({
+                                            ...data,
+                                            description: e.target.value
+                                        })}
                                     />
                                 </div>
                             </li>
