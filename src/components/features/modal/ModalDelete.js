@@ -2,11 +2,13 @@ import Modal from 'react-bootstrap/Modal';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export default function ModalDelete({showDelete,handleCloseDeletem ,deleteItem,search }) {
+export default function ModalDelete({showDelete,handleCloseDelete ,deleteItem,search }) {
 
 
     return <>
-        <Modal show={showDelete} onHide={handleCloseDeletem} animation={false}>
+        <Modal show={showDelete} onHide={handleCloseDelete} animation={false}
+        centered
+        >
             <Modal.Header closeButton>
                 <Modal.Title>Thông báo</Modal.Title>
             </Modal.Header>
@@ -15,13 +17,15 @@ export default function ModalDelete({showDelete,handleCloseDeletem ,deleteItem,s
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => {
-                    handleCloseDeletem()
+                    handleCloseDelete()
                 }}>
                     Đóng
                 </Button>
                 <Button variant="primary" onClick={() => {
-                    handleCloseDeletem()
+                    handleCloseDelete()
                     deleteItem()
+                  
+                    search()
                 }}>
                    Tiếp tục
                 </Button>

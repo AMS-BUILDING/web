@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import API from "../../lib/API";
 
-export default function Header() {
+export default function Header({ handleClick }) {
+    const [data, setData] = useState();
+    useEffect(() => {
+        search()
+    }, [])
+    const search = async () => {
+        let path = `/member/account/profile`;
+        let resp = await API.authorizedJSONGET(path);
+        if (resp.ok) {
+            let response = await resp.json();
+            setData(response)
+        }
+    }
+    console.log(data)
     return <header id="header" className="header">
         <div className="header-menu">
             <div className="col-sm-7">
@@ -78,18 +92,20 @@ export default function Header() {
                 <div className="user-area dropdown float-right">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <img className="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar" />
+                        <img className="user-avatar rounded-circle" 
+                        src={` http://localhost:8081/download?image=${data?.image}` } alt="User Avatar" />
                     </a>
 
                     <div className="user-menu dropdown-menu">
-                        <Link className="nav-link" to="/profile"><i className="fa fa-user"></i> My Profile</Link>
+                        <div onClick={() => handleClick("profile")}><i className="fa fa-user"></i> My Profile</div>
 
                         <div
-                        onClick={() => {
-                            localStorage.removeItem("token")
-                            localStorage.removeItem("page")
-                            window.location.reload();
-                        }}
+                            onClick={() => {
+                                localStorage.removeItem("token")
+                                localStorage.removeItem("page")
+                                localStorage.removeItem("roleId")
+                                window.location.reload();
+                            }}
                         ><i className="fa fa-power-off"></i> Logout</div>
                     </div>
                 </div>

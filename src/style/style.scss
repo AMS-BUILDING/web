@@ -38,6 +38,13 @@ th {
             .ipt{
                 width: 700px;
             }
+
+        }
+        &--error{
+            width: 200px;
+            display: flex;
+            justify-content: flex-end;
+            color: red;
         }
     }
 }

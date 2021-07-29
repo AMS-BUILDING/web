@@ -1,5 +1,5 @@
 
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "http://localhost:8081/api";
 const token = localStorage.getItem("token");
 const API = {
     authorizedJSONPost: async (path, data) => {
@@ -133,7 +133,20 @@ const API = {
             return { status: 500 }
         }))
     },
+    authorizedJSONGETAVATAR: async (path) => {
+        // const token = await AuthVerification.token()
 
+        return (fetch("http://localhost:8080" + path, {
+            method: "GET",
+            headers: {
+                Accept: "*/*",
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: "Bearer " + token
+            }
+        }).catch(e => {
+            return { status: 500 }
+        }))
+    },
     // anonymousFilePost: async (path, formData) => {
     //     const token = await AuthVerification.token()
 

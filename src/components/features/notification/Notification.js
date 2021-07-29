@@ -3,7 +3,6 @@ import API from '../../../lib/API';
 import Item from './Item';
 import ModalAdd from './ModalAdd';
 import Pagination from 'react-js-pagination';
-import ModalMessage from '../modal/ModalMessage';
 
 export default function Notification() {
     const [show, setShow] = useState(false);
@@ -12,20 +11,9 @@ export default function Notification() {
     const handleShow = () => setShow(true);
     const [data, setData] = useState();
     const [activePage, setActivePage] = useState(1)
+    const [textSearch, setTextSearch] = useState("")
 
-
-    const [showMessage, setShowMessage] = useState(false);
-    const [message, setMessage] = useState("");
-    const handleCloseMessage = () => {
-        setShowMessage(false)
-    }
-    const handleShowMessage = () => {
-        setShowMessage(true)
-    }
-    const handleMessage = (text) => {
-        setMessage(text)
-    }
-
+    
 
     useEffect(() => {
         search()
@@ -34,9 +22,8 @@ export default function Notification() {
     useEffect(() => {
         search()
     }, [activePage])
-
     let search = async () => {
-        let path = `/tenant/notification/search?pageNo=${activePage - 1}`;
+        let path = `/tenant/notification/search?pageNo=${activePage - 1}&title=${textSearch}`;
         let resp = await API.authorizedJSONGET(path);
         if (resp.ok) {
             let response = await resp.json();
@@ -64,6 +51,21 @@ export default function Notification() {
                     </div>
                 </div>
             </div>
+            <div>
+                <input
+                    type="text"
+                    value={textSearch}
+                    onChange={e => {
+                        setTextSearch(e.target.value)
+                    }}
+                />
+                <button onClick={() => {
+                    search()
+                    setActivePage(1)
+                }}>
+                    Button
+                </button>
+            </div>
             <div className="add">
                 <button onClick={handleShow}>
                     Thêm thông báo
@@ -73,10 +75,8 @@ export default function Notification() {
                 show={show}
                 handleClose={handleClose}
                 handleShow={handleShow}
-                handleMessage={handleMessage}
-                handleShowMessage={handleShowMessage}
+                search={search}
             />
-            <ModalMessage message={message} showMessage={showMessage} handleCloseMessage={handleCloseMessage} search={search} />
             <div className="main__table">
                 <table>
                     <tr>
@@ -94,7 +94,11 @@ export default function Notification() {
                         })
                         :
                         <>
-                            No data
+                            <tbody >
+                                <tr >
+                                    <td colSpan="3">Không có dữ liệu</td>
+                                </tr>
+                            </tbody>
                         </>
                     }
                 </table>

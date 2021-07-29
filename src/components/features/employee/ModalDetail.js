@@ -47,7 +47,7 @@ export default function ModalDetail({ show, handleClose,data }) {
                         <li className="menu__item">
                             <div className="menu__item--title">Số CCCD</div>
                             <div className="menu__item--input">
-                                <input type="text" value={data?.identityCard} />
+                                <input type="text" value={data?.identifyCard} />
                             </div>
                         </li>
                         <li className="menu__item">

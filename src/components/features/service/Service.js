@@ -20,7 +20,7 @@ export default function Service() {
     }, [])
     useEffect(() => {
         searchSubService()
-    }, [activePage, serviceId])
+    }, [activePage])
 
     let searchSubService = async () => {
         let path = `/manager-service/service/search?pageNo=${activePage - 1}&serviceId=${serviceId}&subService=${textSearch}`;

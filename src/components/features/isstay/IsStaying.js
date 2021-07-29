@@ -106,9 +106,11 @@ export default function IsStaying() {
                             )
                         }) :
                         <>
-                            <div>
-                                No data
-                            </div>
+                            <tbody >
+                                <tr >
+                                    <td colSpan="10">Không có dữ liệu</td>
+                                </tr>
+                            </tbody>
                         </>
                     }
                 </table>

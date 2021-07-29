@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setPageRedux } from '../../redux/PageSlice';
 
-export default function LeftPanel() {
+export default function LeftPanel({ roleId, handleRoomName }) {
     let dispatch = useDispatch()
     let page = useSelector(state => state.page);
     const handleClass = (currentPage) => {
@@ -11,9 +11,10 @@ export default function LeftPanel() {
             return `menu-item`
         }
     }
-   
-    let handleClick = (item) =>{
+
+    let handleClick = (item) => {
         dispatch(setPageRedux(JSON.parse(JSON.stringify(item))))
+        localStorage.removeItem("apartmentId")
     }
     return <aside id="left-panel" className="left-panel">
         <nav className="navbar navbar-expand-sm navbar-default navbar navbar-inverse">
@@ -30,16 +31,20 @@ export default function LeftPanel() {
             <div id="main-menu" className="main-menu collapse navbar-collapse">
                 <ul className="nav navbar-nav">
                     <>
+
                         <li className={handleClass("home")} onClick={() => {
                             handleClick("home")
                         }}>
                             <i className="menu-icon fa fa-laptop"></i>Biểu đồ
                         </li>
-                        <li className={handleClass("isstay")} onClick={() => {
-                            handleClick("isstay")
-                        }}>
-                            <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
-                        </li>
+
+                        {roleId == 1 && <>
+                            <li className={handleClass("isstay")} onClick={() => {
+                                handleClick("isstay")
+                            }}>
+                                <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
+                            </li>
+                        </>}
 
                         <li className={handleClass("employee")} onClick={() => {
                             handleClick("employee")
@@ -64,32 +69,40 @@ export default function LeftPanel() {
                         </li>
                     </>
 
-                    <>
-                        <h3 className="menu-title">Quản lý cư dân</h3>
-                        <li className={handleClass("department")} onClick={() => {
-                            handleClick("department")
-                        }}>
-                            <i className="menu-icon fa fa-laptop"></i>Căn hộ
+                    {roleId == 1 &&
 
-                        </li>
-                        <li className={handleClass("resident")} onClick={() => {
-                            handleClick("resident")
-                        }}>
-                            <i className="menu-icon fa fa-table"></i>Cư dân
-                        </li>
-                    </>
+                        <>
+                            <>
+                                <h3 className="menu-title">Quản lý cư dân</h3>
+                                <li className={handleClass("department")} onClick={() => {
+                                    handleClick("department")
+                                }}>
+                                    <i className="menu-icon fa fa-laptop"></i>Căn hộ
 
-                    <>
-                        <h3 className="menu-title">Quản lý tài chính</h3>
+                                </li>
+                                <li className={handleClass("resident")} onClick={() => {
+                                    handleClick("resident")
+                                    handleRoomName("")
+                                    localStorage.removeItem("status")
+                                }}>
+                                    <i className="menu-icon fa fa-table"></i>Cư dân
+                                </li>
+                            </>
 
-                        <li className={handleClass("fee-department")} onClick={() => {
-                            handleClick("fee-department")
-                        }}>
-                            <i className="menu-icon fa fa-table"></i>Phi căn hộ
-                        </li>
+                            <>
+                                <h3 className="menu-title">Quản lý tài chính</h3>
 
-                    </>
-                    {/* <>
+                                <li className={handleClass("fee-department")} onClick={() => {
+                                    handleClick("fee-department")
+                                }}>
+                                    <i className="menu-icon fa fa-table"></i>Phi căn hộ
+                                </li>
+
+                            </>
+                        </>
+                    }
+
+                    {roleId == 1 && <>
                         <h3 className="menu-title">Thẻ</h3>
                         <li className={handleClass("card-parking")} onClick={() => {
                             handleClick("card-parking")
@@ -98,7 +111,7 @@ export default function LeftPanel() {
 
                         </li>
 
-                    </> */}
+                    </>}
 
                     <>
                         <h3 className="menu-title">Thông báo</h3>
@@ -108,11 +121,12 @@ export default function LeftPanel() {
                             <i className="menu-icon fa fa-laptop"></i>Thông báo
 
                         </li>
-                        <li className={handleClass("feedback")} onClick={() => {
+                        {roleId == 1 && <li className={handleClass("feedback")} onClick={() => {
                             handleClick("feedback")
                         }}>
                             <i className="menu-icon fa fa-table"></i>Phản hồi
-                        </li>
+                        </li>}
+
                     </>
 
                 </ul>

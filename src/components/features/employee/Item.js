@@ -6,13 +6,10 @@ import ModalDelete from '../modal/ModalDelete';
 import ModalMessage from '../modal/ModalMessage';
 
 export default function Item({ data, index, search }) {
-
     const [showDelete, setShowDelete] = useState(false);
-
     const handleCloseDelete = () => {
         setShowDelete(false)
     }
-
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const handleCloseMessage = () => {
@@ -61,7 +58,7 @@ export default function Item({ data, index, search }) {
                 <td>{data?.homeTown}</td>
                 <td>{data?.email}</td>
                 <td>{data?.positionName}</td>
-                <ModalDelete showDelete={showDelete} handleCloseDeletem={handleCloseDelete} deleteItem={deleteItem} search={search} />
+                <ModalDelete showDelete={showDelete} handleCloseDelete={handleCloseDelete} deleteItem={deleteItem} search={search} />
                 <ModalMessage message={message} showMessage={showMessage} handleCloseMessage={handleCloseMessage} search={search} />
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"

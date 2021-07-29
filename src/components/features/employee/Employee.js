@@ -29,7 +29,7 @@ export default function Employee() {
     const handleMessage = (text) => {
         setMessage(text)
     }
-
+    console.log(data?.data)
     useEffect(() => {
         search()
     }, [])
@@ -39,9 +39,8 @@ export default function Employee() {
     }, [activePage])
     let search = async () => {
         let path = `/manager-service/employee/search?pageNo=${activePage - 1}&name=${name}&phoneNumber=${phone}&identifyCard=${identifyCard}&positionId=${positionId}`;
-        console.log("a")
         let resp = await API.authorizedJSONGET(path);
-        if (resp.status === 200) {
+        if (resp.ok) {
             let response = await resp.json();
             setData(response);
         }
@@ -112,10 +111,12 @@ export default function Employee() {
                         )
                     }) :
                     <>
-                        <div>
-                            No data
-                        </div>
-                    </>
+                    <tbody >
+                        <tr >
+                            <td colSpan="8">Không có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </>
                 }
             </table>
         </div>
@@ -136,8 +137,7 @@ export default function Employee() {
             show={show}
             handleClose={handleClose}
             handleShow={handleShow}
-            handleMessage={handleMessage}
-            handleShowMessage={handleShowMessage}
+            search={search}
         />
     </>
 }
