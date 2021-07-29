@@ -1,0 +1,42 @@
+/*
+ * ========== Footer ==========
+ */
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: white;
+    text-align: center;
+    padding-right: 140px;
+    background-color: #272c33;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 6px 15px;
+    text-align: right;
+    color: #fff;
+    font-size: 13px;
+}
+
+footer p a {
+    color: #fff;
+}
+
+footer p a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #B6B6B6;
+}
+
+.footer p {
+    text-align: center;
+}

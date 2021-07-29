@@ -1,0 +1,250 @@
+
+
+/*
+ * ========== Intro ==========
+ */
+
+#intro {
+    width: 100%;
+    height: 100%;
+    display: table;
+    position: absolute;
+    background-color: #f0f3f6;
+    background-size:cover ;
+    background-image: url(https://www.ieltsvietop.vn/wp-content/uploads/2020/07/hong_kong_skyline_green_building_in_asia.jpg);
+}
+
+#intro .middle {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1000;
+}
+
+#intro .middle .login-panel {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+    max-width: 340px;
+    width: calc(100% - 40px);
+    padding: 1.5rem 2rem 1rem;
+    margin-bottom: 30px;
+    border-radius: .2rem;
+    background-color: #008634;
+}
+
+.logo {
+    margin: 0 0 .75rem;
+}
+
+.logo a {
+    font-size: 2.75rem;
+    letter-spacing: 3px;
+    color: #fff;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.logo p{
+    font-size: 35px;
+}
+.col {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.notification {
+    color: #ffed00;
+    font-size: 14px;
+    margin: 0 0 1.25rem;
+    text-align: center;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    padding: .35rem 1.25rem .4rem 2.75rem;
+    font-size: .915rem;
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 2rem;
+}
+
+.form-control::placeholder {
+    color: #ececec;
+    opacity: 1;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.4);
+}
+
+label {
+    position: absolute;
+    margin-top: .60rem;
+    margin-left: 1rem;
+    color: #ececec;
+}
+
+label i {
+    font-size: .915rem;
+}
+
+
+/*
+ * ========== Style radio box ==========
+ */
+
+.col label {
+    margin: 0;
+}
+
+.custom-control {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.custom-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-control-input:checked~.custom-control-indicator {
+    color: #fff;
+    background-color: #ffed00;
+}
+
+.custom-checkbox .custom-control-indicator {
+    border-radius: 50%;
+}
+
+.custom-control-indicator {
+    top: 3px;
+}
+
+.custom-control-indicator {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-control-description {
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+
+/*
+ * ========== Style button ==========
+ */
+
+.btn-sm {
+    background: #fff;
+    font-size: .95rem;
+    padding: .535rem 1.8rem;
+    color: #5d6c72;
+    border-radius: 2rem;
+    width: 100%;
+    font-weight: 500;
+    border: none;
+}
+
+.btn-sm:hover {
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.4);
+    color: #fff;
+    transition: .5s;
+}
+
+
+/*
+ * ========== Style link ==========
+ */
+
+.link-effect {
+    font-size: .9rem;
+    color: #fff;
+    padding: 6px 0;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.link-effect:hover {
+    border-bottom: 1px solid #ffed00;
+    color: #ffed00;
+    text-decoration: none;
+    transition: 0.6s;
+}
+
+.link-effect:focus {
+    color: #ff9916;
+    text-decoration: none;
+    outline: none;
+}
+
+@media (max-width: 480px) {
+    .signin {
+        background-color: #3bac47 !important;
+    }
+    .signin .login-panel {
+        width: calc(100%) !important;
+    }
+    .signup {
+        background-color: #3bac47 !important;
+    }
+    .signup .login-panel {
+        overflow-y: scroll;
+        width: calc(100%) !important;
+    }
+    .reminder-password {
+        background-color: #3bac47 !important;
+    }
+    .reminder-password .login-panel {
+        width: calc(100%) !important;
+    }
+}
