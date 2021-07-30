@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Controller, useForm } from "react-hook-form";
 import API from '../../../lib/API';
+import style from './profile.module.css';
 
 export default function UpdateProfile({ data, search }) {
     const [user, setUser] = useState(data);
@@ -22,7 +23,7 @@ export default function UpdateProfile({ data, search }) {
         if (response.ok) {
             console.log("ok")
             search()
-            
+
         } else {
             console.log("error")
         }
@@ -38,6 +39,7 @@ export default function UpdateProfile({ data, search }) {
                             control={control}
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <input
+                                    type="text"
                                     onBlur={onBlur}
                                     className=""
                                     onChange={e => {
@@ -90,6 +92,7 @@ export default function UpdateProfile({ data, search }) {
                             control={control}
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <input
+                                    type="text"
                                     onBlur={onBlur}
                                     className=""
                                     onChange={e => {
@@ -116,6 +119,7 @@ export default function UpdateProfile({ data, search }) {
                             control={control}
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <input
+                                    type="text"
                                     onBlur={onBlur}
                                     className=""
                                     onChange={e => {
@@ -141,6 +145,7 @@ export default function UpdateProfile({ data, search }) {
                             control={control}
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <input
+                                    type="text"
                                     onBlur={onBlur}
                                     className=""
                                     onChange={e => {
@@ -166,6 +171,7 @@ export default function UpdateProfile({ data, search }) {
                             control={control}
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <input
+                                    type="text"
                                     onBlur={onBlur}
                                     className=""
                                     onChange={e => {
@@ -226,7 +232,7 @@ export default function UpdateProfile({ data, search }) {
 
 
             </ul>
-            <button variant="success" onClick={handleSubmit(submitHandler)}>
+            <button className={style.btnConfirm} variant="success" onClick={handleSubmit(submitHandler)}>
                 Xác nhận
             </button>
         </>

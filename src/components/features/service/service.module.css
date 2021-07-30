@@ -30,5 +30,14 @@ select:focus{
     padding: 10px;
 }
 input[type="text"] {
-    border: 1px solid;
+    border: 1px solid #d2d6dd;
+}
+input[type="date"] {
+    border: 1px solid #d2d6dd;
+}
+input[type="password"] {
+    border: 1px solid #d2d6dd;
+}
+select{
+    border: 1px solid #d2d6dd;
 }
