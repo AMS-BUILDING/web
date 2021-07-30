@@ -22,13 +22,12 @@ export default function Profile() {
 
     const [tab, setTab] = useState("infor")
 
-
     return <>
         <div className="breadcrumbs">
             <div className="col-sm-4">
                 <div className="page-header float-left">
                     <div className="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Thông tin cá nhân</h1>
                     </div>
                 </div>
             </div>
@@ -42,7 +41,7 @@ export default function Profile() {
                         <div className="profile-img">
                             <img src={data?.image ? `http://localhost:8080/download?image=${data?.image}` : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"}
                                 alt="HangNT" />
-                           
+
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -79,7 +78,6 @@ export default function Profile() {
                         {tab == "infor" && <InforProfile data={data} />}
                         {tab == "update" && <UpdateProfile data={data} search={search} />}
                         {tab == "change" && <ChangePassword data={data} search={search} />}
-
                     </div>
                 </div>
             </form>
