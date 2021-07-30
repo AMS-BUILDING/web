@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalDetail from './ModalDetail';
 import ModalUpdate from './ModalUpdate';
-export default function Item() {
+export default function Item({ data, index, search }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -13,13 +13,14 @@ export default function Item() {
     const deleteItem = () => {
         let message = window.confirm("Bạn có muốn xóa cư dân không?")
     }
+    console.log(data)
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>Nguyễn Văn A</td>
-                <td>0134451</td>
-                <td>A102</td>
+                <td>{index}</td>
+                <td>{data?.name}</td>
+                <td>{data?.phone}</td>
+                <td>{data?.roomNumber}</td>
 
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
@@ -32,11 +33,11 @@ export default function Item() {
                     >
                         <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
                     </svg>
-                    <svg style={{ width: 25, height: 25, backgroundColor: '#dc3545', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
+                    {/* <svg style={{ width: 25, height: 25, backgroundColor: '#dc3545', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
                         onClick={deleteItem}
                     >
                         <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
-                    </svg>
+                    </svg> */}
                 </td>
 
             </tr>
@@ -44,11 +45,14 @@ export default function Item() {
                 show={show}
                 handleClose={handleClose}
                 handleShow={handleShow}
+                data={data}
             />
             <ModalUpdate
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
                 handleShow={handleShowUpdate}
+                data={data}
+                search={search}
             />
         </>
     )

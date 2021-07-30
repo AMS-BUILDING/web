@@ -13,7 +13,9 @@ export default function IsStaying() {
     let [absentType, setAbsentType] = useState(-1);
     useEffect(() => {
         getAbsent()
+        window.scrollTo(0, 0)
     }, [])
+
     useEffect(() => {
         getAbsent()
     }, [activePage])
@@ -104,9 +106,11 @@ export default function IsStaying() {
                             )
                         }) :
                         <>
-                            <div>
-                                No data
-                            </div>
+                            <tbody >
+                                <tr >
+                                    <td colSpan="10">Không có dữ liệu</td>
+                                </tr>
+                            </tbody>
                         </>
                     }
                 </table>

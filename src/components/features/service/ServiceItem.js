@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API from '../../../lib/API';
 import { doGet } from '../../../lib/DataSource';
 import ModalDetailService from './ModalDetailService';
 export default function ServiceItem({ data, index }) {
@@ -15,19 +16,17 @@ export default function ServiceItem({ data, index }) {
     },[data?.subSerivceId])
     let getDetail = async () => {
         let path = `/manager-service/detail-service/get-one/${data?.subSerivceId}`;
-        try {
-            let resp = await doGet(path);
-            if(resp.status === 200){
-                setSubService(resp.data)
-            }
-        } catch (error) {
-            
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setSubService(response)
         }
     }
     return (
         <>
             <tr>
                 <td>{index}</td>
+               
                 <td>{data?.serviceName}</td>
                 <td>{data?.subServiceName}</td>
                 <td>

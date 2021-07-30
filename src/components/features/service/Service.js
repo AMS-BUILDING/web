@@ -16,10 +16,11 @@ export default function Service() {
 
     useEffect(() => {
         searchSubService()
+        window.scrollTo(0, 0)
     }, [])
     useEffect(() => {
         searchSubService()
-    }, [activePage, serviceId])
+    }, [activePage])
 
     let searchSubService = async () => {
         let path = `/manager-service/service/search?pageNo=${activePage - 1}&serviceId=${serviceId}&subService=${textSearch}`;

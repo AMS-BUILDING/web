@@ -13,6 +13,7 @@ export default function FeedBack() {
     const [textSearch, setTextSearch] = useState("");
     useEffect(() => {
         search()
+        window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => {
@@ -60,7 +61,11 @@ export default function FeedBack() {
                         }) :
 
                         <>
-                            No data
+                            <tbody >
+                                <tr >
+                                    <td colSpan="4">Không có dữ liệu</td>
+                                </tr>
+                            </tbody>
                         </>
                     }
 

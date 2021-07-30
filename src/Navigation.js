@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,19 +11,30 @@ import Dashboard from "./components/common/Dashboard";
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import LeftPanel from './components/common/LeftPanel';
+import ForgotPassword from "./components/features/forgot-password/ForgotPassword";
+import ResetPassword from "./components/features/forgot-password/ResetPassword";
 import Login from "./components/features/login/Login";
+import API from "./lib/API";
+import { setPageRedux } from "./redux/PageSlice";
 
+const token = localStorage.getItem("token");
+const roleId = localStorage.getItem("roleId")
 function Navigation() {
-
   return (
     <>
       <Router>
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route exact path="/" render={() => {
+            return (
+              (token ? <Admin roleId={roleId} /> : <Login />)
+            )
+          }} >
           </Route>
-          <Route path="/admin">
-            <Admin />
+          <Route exact path="/forward-password">
+            <ResetPassword />
+          </Route>
+          <Route exact path="/forgot">
+            <ForgotPassword />
           </Route>
         </Switch>
       </Router>
@@ -31,19 +43,25 @@ function Navigation() {
   );
 }
 
-function Admin() {
-  const [page, setPage] = useState("home");
-  const handlePage = (text) => {
-    setPage(text)
+function Admin({ roleId }) {
+  const [roomName, setRoomName] = useState("");
+  let handleRoomName = (room) => {
+    setRoomName(room)
+  }
+  let dispatch = useDispatch()
+
+  let handleClick = (item) => {
+    dispatch(setPageRedux(JSON.parse(JSON.stringify(item))))
   }
   return (
     <>
-      <LeftPanel page={page} handlePage={handlePage} />
+      <LeftPanel roleId={roleId} handleRoomName={handleRoomName} />
       <div id="right-panel" className="right-panel">
-        <Header />
-        <Dashboard page={page} />
+        <Header handleClick={handleClick} />
+        <Dashboard roomName={roomName} handleRoomName={handleRoomName} />
         <Footer />
       </div>
+
     </>
   )
 }

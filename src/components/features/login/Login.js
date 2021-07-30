@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../../lib/API';
 import { doPost } from '../../../lib/DataSource';
 
 
-export default function Login() {
-    let history = useHistory();
+export default function Login({ messageError }) {
     const [account, setAccount] = useState();
+    let history = useHistory()
+    const [message, setMessage] = useState();
+    useEffect(() => {
+        localStorage.removeItem("page")
+        localStorage.removeItem("token")
+        localStorage.removeItem("roleId")
+    }, [])
 
     let login = async () => {
         let path = "/login";
         let resp = await API.anonymousJSONPost(path, account);
         if (resp.status === 200) {
             let response = await resp.json();
-            localStorage.setItem("token", response.accessToken);
-            history.push('/admin')
+
+            if (response.roleId < 3) {
+                localStorage.setItem("token", response.accessToken);
+                localStorage.setItem("roleId", response.roleId);
+                window.location.reload()
+            } else {
+                setMessage("Từ chối truy cập!")
+            }
         } else {
-            alert("Tai khoan chua dung!")
+            setMessage("Tài khoản chưa đúng!")
         }
     }
 
@@ -49,6 +61,9 @@ export default function Login() {
                                 })} />
                             </div>
                             <br />
+                            <div>
+                                <p>{message && message}</p>
+                            </div>
                             <div className="form-group">
                                 <div className="col">
                                     <button className="btn btn-sm" onClick={() => login()}>
@@ -60,7 +75,9 @@ export default function Login() {
                                 <div className="col">
                                     <a className="link-effect" href="#">
                                     </a>
-                                    <a className="link-effect float-right" href="forgotPassword.html">
+                                    <a className="link-effect float-right" onClick={() => {
+                                        history.push('/forgot')
+                                    }}>
                                         <i className="fas fa-question fa-fw mr-1" />Forgot password
                                     </a><br /><br />
                                 </div>

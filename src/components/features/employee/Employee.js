@@ -5,6 +5,7 @@ import Item from "./Item";
 import ModalAdd from "./ModalAdd";
 import Search from "./Search";
 import style from './employee.module.css'
+import ModalMessage from '../modal/ModalMessage';
 
 
 export default function Employee() {
@@ -17,17 +18,29 @@ export default function Employee() {
     let [identifyCard, setIdentifyCard] = useState("");
     const [phone, setPhone] = useState("");
     const [positionId, setPositionId] = useState(-1);
+    const [showMessage, setShowMessage] = useState(false);
+    const [message, setMessage] = useState("");
+    const handleCloseMessage = () => {
+        setShowMessage(false)
+    }
+    const handleShowMessage = () => {
+        setShowMessage(true)
+    }
+    const handleMessage = (text) => {
+        setMessage(text)
+    }
+    console.log(data?.data)
     useEffect(() => {
         search()
     }, [])
     useEffect(() => {
         search()
+        window.scrollTo(0, 0)
     }, [activePage])
     let search = async () => {
         let path = `/manager-service/employee/search?pageNo=${activePage - 1}&name=${name}&phoneNumber=${phone}&identifyCard=${identifyCard}&positionId=${positionId}`;
-        console.log("a")
         let resp = await API.authorizedJSONGET(path);
-        if (resp.status === 200) {
+        if (resp.ok) {
             let response = await resp.json();
             setData(response);
         }
@@ -98,10 +111,12 @@ export default function Employee() {
                         )
                     }) :
                     <>
-                        <div>
-                            No data
-                        </div>
-                    </>
+                    <tbody >
+                        <tr >
+                            <td colSpan="8">Không có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </>
                 }
             </table>
         </div>
@@ -116,11 +131,13 @@ export default function Employee() {
                 />
             </div> : <></>
         }
-
+        <ModalMessage message={message} showMessage={showMessage} handleCloseMessage={handleCloseMessage} search={search} />
 
         <ModalAdd
             show={show}
             handleClose={handleClose}
+            handleShow={handleShow}
+            search={search}
         />
     </>
 }
