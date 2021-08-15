@@ -21,8 +21,8 @@ export default function ModalDetail({ show, handleClose, data }) {
                             <div className="menu__item--title">Giới tính:</div>
                             <div className="menu__item--input">
                                 <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}><input type="radio" name="gender" style={{ width: 20 }} checked={data?.gender == 'nam'} /> <span style={{ marginLeft: 5 }}>Nam</span></div>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }} checked={data?.gender == 'nữ'} /><span style={{ marginLeft: 5 }}>Nữ</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}><input type="radio" name="gender" style={{ width: 20 }} checked={data?.gender == 'nam'} /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }} checked={data?.gender == 'nữ'} /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
                                 </div>
                             </div>
                         </li>

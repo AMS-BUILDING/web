@@ -5,7 +5,7 @@ import ModalAddSumbit from './ModalAddSumbit';
 import { useForm } from "react-hook-form";
 import API from '../../../lib/API';
 
-export default function ModalAddDepend({ showDepend, handleCloseDepend, handleShowDepend, handleShowAdd, ownPerson, apartmentId, blockId, floorId ,search}) {
+export default function ModalAddDepend({ showDepend, handleCloseDepend, handleShowDepend, handleShowAdd, ownPerson, apartmentId, blockId, floorId, search }) {
     const [showSumbit, setShowSumbit] = useState(false);
     let [position, setPosition] = useState([]);
 
@@ -113,6 +113,9 @@ export default function ModalAddDepend({ showDepend, handleCloseDepend, handleSh
 function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmentId, handleDepend, depend, handleShowSumbit, handleCloseDepend, handleShowAdd }) {
     let [position, setPosition] = useState();
     const [message, setMessage] = useState();
+    let [positionId, setPositionId] = useState(5);
+    const [gender, setGender] = useState(true)
+   
     useEffect(() => {
         fetchData()
     }, [])
@@ -125,7 +128,18 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
         }
 
     }
-    let onSubmit = async (data) => {
+    let onSubmit = async (form) => {
+       
+        let data = {
+            name: form?.name,
+            identifyCard: form?.identifyCard,
+            phone: form?.phone,
+            email: form?.email,
+            gender: gender,
+            dob: form?.dob,
+            positionId: positionId
+        }
+       
         let path = '/admin/validate/resident';
         let objData = {
             apartmentId: apartmentId,
@@ -143,8 +157,18 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
         }
     }
 
-    let onSubmitButton = async data => {
+    let onSubmitButton = async form => {
         let path = '/admin/validate/resident';
+        let data = {
+            name: form?.name,
+            identifyCard: form?.identifyCard,
+            phone: form?.phone,
+            email: form?.email,
+            gender: gender,
+            dob: form?.dob,
+            positionId: positionId
+        }
+       
         let objData = {
             apartmentId: apartmentId,
             residentRequestList: index == 0 ? [data] : [...depend, data],
@@ -186,14 +210,15 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <input type="radio" style={{ width: 50 }}
 
-                                            {...register("gender", { required: true })}
-                                            value={true}
-                                            defaultChecked={true}
-                                            defaultValue={true}
+                                            onClick={() => setGender(true)}
+                                            checked={gender}
+
+                                            name={`${index}`}
                                         /> Nam</div>
                                     <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
-                                        {...register("gender", { required: true })}
-                                        value={false}
+                                        onClick={() => setGender(false)}
+                                        checked={!gender}
+                                        name={`${index}`}
                                     />Nữ</div>
                                 </div>
                             </div>
@@ -215,11 +240,11 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                             <div className="menu__item--title">Số ĐT:</div>
                             <div className="menu__item--input">
                                 <input type="text"
-                                    name="phoneNumber"
-                                    {...register("phoneNumber")}
+                                    name="phone"
+                                    {...register("phone")}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.phoneNumber && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"></div>
 
                         </li>
                         <li className="menu__item">
@@ -227,10 +252,10 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                             <div className="menu__item--input">
                                 <input type="text"
                                     name="currentAddress"
-                                    {...register("currentAddress", { required: true })}
+                                // {...register("currentAddress", { required: true })}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.currentAdress && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> </div>
 
                         </li>
                         <li className="menu__item">
@@ -238,10 +263,10 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                             <div className="menu__item--input">
                                 <input type="text"
                                     name="homeTown"
-                                    {...register("homeTown", { required: true })}
+                                    {...register("homeTown")}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.homeTown && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> </div>
 
                         </li>
                         <li className="menu__item">
@@ -252,7 +277,7 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                                     {...register("email")}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.email && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> </div>
 
                         </li>
                         <li className="menu__item">
@@ -260,17 +285,18 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                             <div className="menu__item--input">
                                 <input type="text"
                                     name="identifyCard"
-                                    {...register("identifyCard", { required: true })}
+                                    {...register("identifyCard")}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.identifyCard && <span>Trường này không được để trống</span>}</div>
-
+                            <div className="menu__item--error"> </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Vị trí:</div>
                             <div className="menu__item--input">
-                                <select {...register("positionId", { required: true })}
-                                defaultValue={position?.[0]?.id}
+                                <select
+                                    value={positionId}
+                                    onChange={(e) => setPositionId(e.target.value)}
+
                                 >
                                     {position?.map((item, index) => {
                                         return (
@@ -279,7 +305,7 @@ function PersonDepend({ addEvent, minusEvent, index, length, ownPerson, apartmen
                                     })}
                                 </select>
                             </div>
-                            <div className="menu__item--error"> {errors.positionId && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"></div>
 
                         </li>
                         {length == (index + 1) && <>

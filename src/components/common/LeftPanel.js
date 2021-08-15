@@ -35,21 +35,21 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("home")} onClick={() => {
                             handleClick("home")
                         }}>
-                            <i class="menu-icon fas fa-chart-bar"></i>Biểu đồ
+                            <i className="menu-icon fa fa-laptop"></i>Biểu đồ
                         </li>
 
                         {roleId == 1 && <>
                             <li className={handleClass("isstay")} onClick={() => {
                                 handleClick("isstay")
                             }}>
-                                <i class="menu-icon fas fa-file-signature"></i>Tạm trú - tạm vắng
+                                <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
                             </li>
                         </>}
 
                         <li className={handleClass("employee")} onClick={() => {
                             handleClick("employee")
                         }}>
-                            <i class="menu-icon fas fa-user-tie"></i>Nhân viên
+                            <i className="menu-icon fa fa-laptop"></i>Nhân viên
                         </li>
                     </>
 
@@ -58,13 +58,13 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("service")} onClick={() => {
                             handleClick("service")
                         }}>
-                            <i class="menu-icon fas fa-boxes"></i>Dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Dịch vụ
 
                         </li>
                         <li className={handleClass("request-service")} onClick={() => {
                             handleClick("request-service")
                         }}>
-                            <i class="menu-icon fas fa-hand-holding-usd"></i>Yêu cầu dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Yêu cầu dịch vụ
 
                         </li>
                     </>
@@ -77,7 +77,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                                 <li className={handleClass("department")} onClick={() => {
                                     handleClick("department")
                                 }}>
-                                    <i class="menu-icon fas fa-building"></i>Căn hộ
+                                    <i className="menu-icon fa fa-laptop"></i>Căn hộ
 
                                 </li>
                                 <li className={handleClass("resident")} onClick={() => {
@@ -85,7 +85,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                                     handleRoomName("")
                                     localStorage.removeItem("status")
                                 }}>
-                                    <i class="menu-icon fas fa-users"></i>Cư dân
+                                    <i className="menu-icon fa fa-table"></i>Cư dân
                                 </li>
                             </>
 
@@ -95,7 +95,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                                 <li className={handleClass("fee-department")} onClick={() => {
                                     handleClick("fee-department")
                                 }}>
-                                    <i class="menu-icon fas fa-wallet"></i>Phi căn hộ
+                                    <i className="menu-icon fa fa-table"></i>Phi căn hộ
                                 </li>
 
                             </>
@@ -107,7 +107,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("card-parking")} onClick={() => {
                             handleClick("card-parking")
                         }}>
-                            <i class="menu-icon fas fa-id-card"></i>Thẻ gửi xe
+                            <i className="menu-icon fa fa-laptop"></i>Thẻ gửi xe
 
                         </li>
 
@@ -118,13 +118,13 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("notification")} onClick={() => {
                             handleClick("notification")
                         }}>
-                            <i class="menu-icon fas fa-globe-europe"></i>Thông báo
+                            <i className="menu-icon fa fa-laptop"></i>Thông báo
 
                         </li>
                         {roleId == 1 && <li className={handleClass("feedback")} onClick={() => {
                             handleClick("feedback")
                         }}>
-                            <i class="menu-icon fas fa-mail-bulk"></i>Phản hồi
+                            <i className="menu-icon fa fa-table"></i>Phản hồi
                         </li>}
 
                     </>

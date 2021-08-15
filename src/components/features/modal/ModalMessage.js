@@ -1,6 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
-import React from 'react';
 import { Button } from 'react-bootstrap';
+
+import React from 'react';
 
 export default function ModalMessage({ message, showMessage, handleCloseMessage,search }) {
 

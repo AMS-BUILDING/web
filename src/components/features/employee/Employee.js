@@ -111,12 +111,12 @@ export default function Employee() {
                         )
                     }) :
                     <>
-                    <tbody >
-                        <tr >
-                            <td colSpan="8">Không có dữ liệu</td>
-                        </tr>
-                    </tbody>
-                </>
+                        <tbody >
+                            <tr >
+                                <td colSpan="8">Không có dữ liệu</td>
+                            </tr>
+                        </tbody>
+                    </>
                 }
             </table>
         </div>

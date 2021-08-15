@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../../lib/API";
+import API, { BASE_DOWNLOAD_URL } from "../../lib/API";
 
 export default function Header({ handleClick }) {
     const [data, setData] = useState();
@@ -93,7 +93,7 @@ export default function Header({ handleClick }) {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <img className="user-avatar rounded-circle" 
-                        src={` http://localhost:8081/download?image=${data?.image}` } alt="User Avatar" />
+                        src={`${BASE_DOWNLOAD_URL}=${data?.image}` } alt="User Avatar" />
                     </a>
 
                     <div className="user-menu dropdown-menu">
