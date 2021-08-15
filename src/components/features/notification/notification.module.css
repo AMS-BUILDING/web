@@ -1,9 +1,8 @@
-.wrapSearch {
+.wrapSearch{
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
     align-items: center;
-   
+    padding: 10px;
 }
 .ipSearch {
     border-radius: 5px;
@@ -19,7 +18,7 @@
     margin-left: 10px;
     border-radius: 10px;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 30px;
 }
 
 .btnSearch:hover{

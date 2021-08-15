@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../../lib/API';
 import { doPost } from '../../../lib/DataSource';
-
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 
 export default function ResetPassword() {
 
@@ -18,24 +19,33 @@ export default function ResetPassword() {
             [name]: value
         })
     }
+    const [show,setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false)
+    }
     let reset = async () => {
         let path = '/reset-password';
         let resp = await API.anonymousJSONPost(path,account);
         if(resp.ok){
-            setMessage("Ban da doi mat khau thanh cong!")
+            setShow(true)
+
         }else{
             let response = await resp.json();
             setMessage(response?.message)
         }
     }
+    let history = useHistory();
     return (
         <>
+           <ModalSuccess show={show} handleClose={handleClose} />
             <div>
                 <div id="intro">
                     <div className="middle signin">
                         <div className="login-panel">
                             <div className="logo text-center"><br />
-                                <a href="#"><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></a><br /><br />
+                                <div onClick={() => {
+                                    history.push('/login')
+                                }}><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
                             </div>
 
                             <div className="form-group">
@@ -79,4 +89,33 @@ export default function ResetPassword() {
 
         </>
     )
+}
+
+
+
+function ModalSuccess({ show, handleClose }) {
+    let history = useHistory()
+    return <>
+        <Modal show={show} onHide={handleClose} animation={false}
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title>Thông báo</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+               Bạn đã đổi mật khẩu thành công!. Ấn tiếp tục để quay về đăng nhập
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={() => {
+                    history.push('/login')
+                    handleClose()
+                }}>
+                    Tiếp tục
+                </Button>
+                {/* <Button variant="primary" onClick={handleCloseMessage}>
+                    Save Changes
+                </Button> */}
+            </Modal.Footer>
+        </Modal>
+    </>
 }

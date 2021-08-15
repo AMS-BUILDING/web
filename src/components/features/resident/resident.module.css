@@ -1,9 +1,8 @@
-.wrapSearch {
-    display: flex;
-    justify-content: space-between;
+.wrapSearch{
     padding: 10px;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-   
 }
 .ipSearch {
     border-radius: 5px;
@@ -29,13 +28,4 @@
 input:focus{
    border-color: #86b7fe;
    outline: none;
-}
-.btnAdd{
-    display: inline-block;
-    background-color: #5cb377;
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-    border: 1px solid #5cb377;
-    cursor: pointer;
 }

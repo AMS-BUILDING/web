@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import moment from 'moment';
 export default function ModalDetail({ show, handleClose, handleShow, data }) {
-    console.log("address", data)
+        console.log("address",data)
     return (
         <>
             <Modal show={show} onHide={handleClose} animation={false} centered>
@@ -25,12 +25,12 @@ export default function ModalDetail({ show, handleClose, handleShow, data }) {
                             <div className="menu__item--title">Giới tính:</div>
                             <div className="menu__item--input">
                                 <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}><input type="radio" name="gender" style={{ width: 20 }}
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                        defaultChecked={data?.gender} 
+                                    /> Nam</div>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
                                         defaultChecked={data?.gender}
-                                    /> <span style={{ marginLeft: 5 }}>Nam</span></div>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
-                                        defaultChecked={data?.gender}
-                                    /><span style={{ marginLeft: 5 }}>Nữ</span></div>
+                                    />Nữ</div>
                                 </div>
                             </div>
                         </li>

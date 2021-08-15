@@ -69,7 +69,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
-                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -95,8 +94,8 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
-                                                <input type="radio" style={{ width: 20 }}
+                                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                                <input type="radio" style={{ width: 50 }}
                                                     value={true}
                                                     onClick={() => {
                                                         onChange(true)
@@ -107,8 +106,8 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                                     }}
                                                     name="gender"
                                                     defaultChecked={employee?.gender}
-                                                /> <span style={{ marginLeft: 5 }}>Nam</span></div>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
+                                                /> Nam</div>
+                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
                                                 value={false}
                                                 onClick={() => {
                                                     onChange(false)
@@ -118,7 +117,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                                     })
                                                 }}
                                                 defaultChecked={!employee?.gender}
-                                            /><span style={{ marginLeft: 5 }}>Nữ</span></div>
+                                            />Nữ</div>
                                         </div>
 
                                     )}
@@ -157,11 +156,9 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                             <div className="menu__item--title">Số điện thoại:</div>
                             <div className="menu__item--input">
                                 <Controller
-
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
-                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -187,7 +184,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
-                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -213,7 +209,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
-                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -239,7 +234,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
-                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -282,6 +276,15 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     defaultValue={employee?.position}
                                 />
                             </div>
+
+
+                            <div className="menu__item--input">
+                                {/* <input type="text"
+                                        {...register("name")}
+
+                                    /> */}
+                            </div>
+                            {/* <div className="menu__item--error"> {errors.name && <span>This field is required</span>}</div> */}
                         </li>
 
                     </ul>

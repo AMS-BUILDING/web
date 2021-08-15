@@ -21,7 +21,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
 
             <div className="navbar-header">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
-                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="fa fa-bars"></i>
                 </button>
                 <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo" /></a>
@@ -71,35 +71,35 @@ export default function LeftPanel({ roleId, handleRoomName }) {
 
                     {roleId == 1 &&
 
+                    <>
                         <>
-                            <>
-                                <h3 className="menu-title">Quản lý cư dân</h3>
-                                <li className={handleClass("department")} onClick={() => {
-                                    handleClick("department")
-                                }}>
-                                    <i class="menu-icon fas fa-building"></i>Căn hộ
+                            <h3 className="menu-title">Quản lý cư dân</h3>
+                            <li className={handleClass("department")} onClick={() => {
+                                handleClick("department")
+                            }}>
+                                <i class="menu-icon fas fa-building"></i>Căn hộ
 
-                                </li>
-                                <li className={handleClass("resident")} onClick={() => {
-                                    handleClick("resident")
-                                    handleRoomName("")
-                                    localStorage.removeItem("status")
-                                }}>
-                                    <i class="menu-icon fas fa-users"></i>Cư dân
-                                </li>
-                            </>
-
-                            <>
-                                <h3 className="menu-title">Quản lý tài chính</h3>
-
-                                <li className={handleClass("fee-department")} onClick={() => {
-                                    handleClick("fee-department")
-                                }}>
-                                    <i class="menu-icon fas fa-wallet"></i>Phi căn hộ
-                                </li>
-
-                            </>
+                            </li>
+                            <li className={handleClass("resident")} onClick={() => {
+                                handleClick("resident")
+                                handleRoomName("")
+                                localStorage.removeItem("status")
+                            }}>
+                                <i class="menu-icon fas fa-users"></i>Cư dân
+                            </li>
                         </>
+
+                        <>
+                            <h3 className="menu-title">Quản lý tài chính</h3>
+
+                            <li className={handleClass("fee-department")} onClick={() => {
+                                handleClick("fee-department")
+                            }}>
+                                <i class="menu-icon fas fa-wallet"></i>Phi căn hộ
+                            </li>
+
+                        </>
+                    </>
                     }
 
                     {roleId == 1 && <>
