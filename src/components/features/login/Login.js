@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import API from '../../../lib/API';
 import { doPost } from '../../../lib/DataSource';
 
-
 export default function Login({ messageError }) {
     const [account, setAccount] = useState();
     let history = useHistory()
@@ -28,7 +27,7 @@ export default function Login({ messageError }) {
                 setMessage("Từ chối truy cập!")
             }
         } else {
-            setMessage("Tài khoản chưa đúng!")
+            setMessage("Tài khoản hoặc mật khẩu chưa đúng!")
         }
     }
 
@@ -39,26 +38,35 @@ export default function Login({ messageError }) {
                     <div className="middle signin">
                         <div className="login-panel">
                             <div className="logo text-center"><br />
-                                <a href="#"><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></a><br /><br />
+                                <div
+                                    onClick={() => {
+                                        history.push('/')
+                                    }}
+                                    style={{ cursor: 'pointer' }}
+                                ><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
                             </div>
 
                             <div className="form-group">
                                 <label>
-                                    <i className="fas fa-user fa-fw" />
+                                    <i class="fas fa-user fa-fw"></i>
                                 </label>
-                                <input type="text" className="form-control" placeholder="Username" name="username" required onChange={(e) => setAccount({
+                                <input type="text" className="form-control" placeholder="Tên đăng nhập" name="username" required onChange={(e) => setAccount({
                                     ...account,
                                     username: e.target.value
-                                })} />
+                                })}
+                                // style={{ paddingLeft: 8 }}
+                                />
                             </div>
                             <div className="form-group">
                                 <label>
-                                    <i className="fas fa-key fa-fw" />
+                                    <i class="fas fa-key fa-fw"></i>
                                 </label>
-                                <input type="password" className="form-control" placeholder="Password" name="password" required onChange={(e) => setAccount({
+                                <input type="password" className="form-control" placeholder="Mật khẩu" name="password" required onChange={(e) => setAccount({
                                     ...account,
                                     password: e.target.value
-                                })} />
+                                })}
+                                // style={{ paddingLeft: 8 }}
+                                />
                             </div>
                             <br />
                             <div>
@@ -67,7 +75,7 @@ export default function Login({ messageError }) {
                             <div className="form-group">
                                 <div className="col">
                                     <button className="btn btn-sm" onClick={() => login()}>
-                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Login
+                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Đăng nhập
                                     </button>
                                 </div>
                             </div>
@@ -77,8 +85,10 @@ export default function Login({ messageError }) {
                                     </a>
                                     <a className="link-effect float-right" onClick={() => {
                                         history.push('/forgot')
-                                    }}>
-                                        <i className="fas fa-question fa-fw mr-1" />Forgot password
+                                    }}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <i className="fas fa-question fa-fw mr-1" />Quên mật khẩu
                                     </a><br /><br />
                                 </div>
                             </div>

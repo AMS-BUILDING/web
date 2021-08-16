@@ -3,7 +3,7 @@ import API from '../../../../lib/API';
 import Pagination from "react-js-pagination";
 import Item from "./Item";
 
-export default function ResidentCard({ accountId }) {
+export default function ResidentCard({ accountId, isAdd }) {
     const [data, setData] = useState();
     const [activePage, setActivePage] = useState(1);
     useEffect(() => {
@@ -11,7 +11,7 @@ export default function ResidentCard({ accountId }) {
     }, [])
     useEffect(() => {
         search()
-    }, [accountId])
+    }, [accountId, isAdd])
     let search = async () => {
         let path = `/admin/resident-card/search?accountId=${accountId}&pageNo=${activePage - 1}`;
         let resp = await API.authorizedJSONGET(path);

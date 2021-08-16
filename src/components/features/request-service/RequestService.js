@@ -37,6 +37,7 @@ export default function RequestService() {
             setStatus(response);
         }
     }
+    console.log(data)
     return (
         <>
             <div className="breadcrumbs">

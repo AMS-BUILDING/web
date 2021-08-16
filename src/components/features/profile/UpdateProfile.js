@@ -69,6 +69,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -159,6 +160,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -184,6 +186,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -209,6 +212,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
@@ -234,6 +238,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {

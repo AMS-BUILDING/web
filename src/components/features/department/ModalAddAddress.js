@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import ModalAdd from './ModalAdd'
 import API from '../../../lib/API';
-export default function ModalAddAddress({ show, handleClose, handleShow,search }) {
+export default function ModalAddAddress({ show, handleClose, handleShow, search }) {
     const [showAdd, setShowAdd] = useState(false);
 
     const handleCloseAdd = () => setShowAdd(false);
@@ -12,7 +12,7 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
     let [blocks, setBlocks] = useState([]);
     let [floors, setFloors] = useState([]);
     let [floorId, setFloorId] = useState(1);
-    const [message,setMessage] = useState();
+    const [message, setMessage] = useState();
     useEffect(() => {
         searchBlocks()
         searchFloors()
@@ -36,25 +36,28 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
             setFloors(response)
         }
     }
-   
+
     let onSumbit = () => {
-        if(floorId){
+        if (floorId) {
             setMessage(null)
             handleClose();
             handleShowAdd()
-        }else{
+        } else {
             setMessage("Bạn vui lòng chọn tầng/tòa")
         }
     }
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={() => {
+                handleClose()
+                window.location.reload()
+            }} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Thêm cư dân vào căn hộ</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <div className="menu__item--error" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> {message && <span>{message}</span>}</div>
+                    <div className="menu__item--error" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> {message && <span>{message}</span>}</div>
 
                     <ul className="menu">
 
@@ -66,7 +69,7 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
                                     onChange={e => setBlockId(e.target.value)}
                                     defaultValue={blocks[0]?.id}
                                 >
-                                   
+
                                     {blocks?.map((item, index) => {
                                         return (
                                             <option key={index} value={item?.id}>{item?.blockName}</option>
@@ -78,12 +81,12 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
                         <li className="menu__item">
                             <div className="menu__item--title">Tầng:</div>
                             <div className="menu__item--input">
-                            <select
+                                <select
                                     value={floorId}
                                     onChange={e => setFloorId(e.target.value)}
                                     defaultValue={floors[0]?.id}
                                 >
-                                   
+
                                     {floors?.map((item, index) => {
                                         return (
                                             <option key={index} value={item?.id}>{item?.floorName}</option>
@@ -97,11 +100,14 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="success" onClick={() => {
-                       onSumbit()
+                        onSumbit()
                     }}>
                         Tiếp
                     </Button>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={() => {
+                        handleClose()
+                        window.location.reload()
+                    }} >
                         Đóng
                     </Button>
                 </Modal.Footer>
@@ -114,7 +120,7 @@ export default function ModalAddAddress({ show, handleClose, handleShow,search }
                 blockId={blockId}
                 floorId={floorId}
                 search={search}
-                
+
             />
         </>
     )

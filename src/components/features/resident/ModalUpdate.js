@@ -44,10 +44,12 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
             accountId: data?.accountId,
             name: form?.name,
             gender: form?.gender,
-            dob: form?.dob,
+            dob: moment(form?.dob,"YYYY-MM-DD").format("DD/MM/YYYY"),
             phone: form?.phone,
             email: form?.email,
-            identifyCard: form?.identifyCard
+            identifyCard: form?.identifyCard,
+            currentAddress: form?.currentAddress,
+            homeTown: form?.homeTown
         }
         console.log(objForm)
         let path = `/admin/resident/update`;

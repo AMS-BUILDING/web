@@ -20,6 +20,10 @@ export default function Department({ handleRoomName }) {
     let [activePage, setActivePage] = useState(1)
     const handleCloseAdd = () => setShowAdd(false);
     let [accountId, setAccountId] = useState();
+    const [isAdd, setIsAdd] = useState(false);
+    let handleAdd = () => {
+        setIsAdd(!isAdd)
+    }
     let handleAccountId = (id) => {
         setAccountId(id)
     }
@@ -89,6 +93,7 @@ export default function Department({ handleRoomName }) {
             show={showAdd}
             handleCloseAdd={handleCloseAdd}
             search={search}
+            handleAdd={handleAdd}
         />
 
         <div className="main__table">
@@ -133,7 +138,7 @@ export default function Department({ handleRoomName }) {
         <div>
 
         </div>
-        {accountId && <ResidentCard accountId={accountId} />}
+        {accountId && <ResidentCard accountId={accountId} isAdd={isAdd} />}
 
     </>
 }

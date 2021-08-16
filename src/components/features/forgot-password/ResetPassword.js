@@ -7,10 +7,7 @@ import { Button } from 'react-bootstrap';
 
 export default function ResetPassword() {
 
-    const [account, setAccount] = useState({
-        token: null,
-        password: null
-    });
+    const [account, setAccount] = useState();
     let [message,setMessage] = useState();
     const handleAccount = (e) => {
         let { name, value } = e.target;
@@ -44,28 +41,29 @@ export default function ResetPassword() {
                         <div className="login-panel">
                             <div className="logo text-center"><br />
                                 <div onClick={() => {
-                                    history.push('/login')
-                                }}><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
+                                    history.push('/')
+                                }}
+                                style={{cursor:'pointer'}}
+                                ><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
                             </div>
 
-                            <div className="form-group">
-                                <div>Ma token</div>
-                                <label>
-                                    <i className="fas fa-user fa-fw" />
-                                </label>
+                            <div className="form-group" style={{flexDirection:'column',alignItems:'flex-start',justifyContent:'flex-start'}}>
+                                <div style={{color:'#fff',marginBottom:15}}>Mã xác minh</div>
+                               
                                 <input type="text"
                                     value={account?.token}
                                     name="token"
                                     onChange={e => handleAccount(e)}
+                                    style={{width:'100%'}}
+                                    className="form-control"
+                                    style={{paddingLeft:8}}
                                 />
                             </div>
                             <div className="form-group">
-                                <label>
-                                    <i className="fas fa-key fa-fw" />
-                                </label>
+                               
                                 <input type="password" className="form-control" placeholder="Password" name="password" required 
                                 onChange={e => handleAccount(e)}
-                            
+                                style={{paddingLeft:8}}
                                 />
                             </div>
                             <div>{message && <>{message}</>}</div>
@@ -107,7 +105,7 @@ function ModalSuccess({ show, handleClose }) {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => {
-                    history.push('/login')
+                    history.push('/')
                     handleClose()
                 }}>
                     Tiếp tục

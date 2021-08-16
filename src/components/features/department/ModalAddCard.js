@@ -7,7 +7,7 @@ import Search from './Search';
 import API from '../../../lib/API';
 import { generatePath } from 'react-router-dom';
 
-export default function ModalAddCard({ show, handleCloseAdd, search }) {
+export default function ModalAddCard({ show, handleCloseAdd, search, handleAdd }) {
 
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
@@ -20,6 +20,7 @@ export default function ModalAddCard({ show, handleCloseAdd, search }) {
         let resp = await API.authorizedJSONPost(path);
         if (resp.ok) {
             handleCloseAdd()
+            handleAdd()
             search()
             reset({
                 email: null
