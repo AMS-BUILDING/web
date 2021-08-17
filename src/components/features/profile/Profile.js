@@ -77,7 +77,7 @@ export default function Profile() {
                 </tbody>
             </table> */}
             <div className="container">
-                <div className="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+                <div className="app-card app-card-account shadow-sm d-flex flex-column align-items-start" style={{ backgroundColor: 'white' }}>
                     <div className="app-card-header p-3 border-bottom-0">
                         <div className="row align-items-center gx-3">
                             <div className="col-auto">
