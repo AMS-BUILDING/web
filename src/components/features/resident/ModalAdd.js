@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import API from '../../../lib/API';
 
-export default function ModalAdd({ show, handleClose, handleShow, search, apartmentId}) {
+export default function ModalAdd({ show, handleClose, handleShow, search, apartmentId }) {
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     let [position, setPosition] = useState();
@@ -22,7 +22,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
 
     }
 
-    
+
     let onSubmit = async (data) => {
         let path = '/admin/a/apartment/add';
         let objData = {
@@ -85,18 +85,18 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                     <div className="menu__item--title">Giới tính:</div>
                                     <div className="menu__item--input">
                                         <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                <input type="radio" style={{ width: 50 }}
+                                            <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
+                                                <input type="radio" style={{ width: 20 }}
 
                                                     {...register("gender", { required: true })}
                                                     value={true}
                                                     defaultChecked={true}
                                                     defaultValue={true}
-                                                /> Nam</div>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                                /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
+                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
                                                 {...register("gender", { required: true })}
                                                 value={false}
-                                            />Nữ</div>
+                                            /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
                                         </div>
                                     </div>
                                     <div className="menu__item--error"> {errors.gender && <span>Trường này không được để trống</span>}</div>

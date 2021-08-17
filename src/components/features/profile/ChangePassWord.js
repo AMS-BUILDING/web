@@ -55,7 +55,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                             {...register("password", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.password && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.password && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Mật khẩu mới:</div>
@@ -64,7 +64,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                             {...register("newPassword", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.newPassword && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.newPassword && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                             </ul>
                             <br />

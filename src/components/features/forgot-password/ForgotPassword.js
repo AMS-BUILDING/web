@@ -54,7 +54,7 @@ export default function ForgotPassword() {
                                     username: e.target.value
                                 })} /> */}
                             </div>
-                            <div>{message && <>{message}</>}</div>
+                            <div style={{ color: 'yellow' }}>{message && <>{message}</>}</div>
                             {/* <div className="form-group">
                                 <label>
                                     <i className="fas fa-key fa-fw" />

@@ -4,12 +4,12 @@ import { Button } from 'react-bootstrap';
 import API from '../../../lib/API';
 import { useForm } from "react-hook-form";
 
-export default function ModalAdd({ show, handleClose,search }) {
+export default function ModalAdd({ show, handleClose, search }) {
 
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     let [message, setMessage] = useState()
-    
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -70,27 +70,27 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("name", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.name && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.name && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Giới tính:</div>
                                 <div className="menu__item--input">
                                     <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <input type="radio" style={{ width: 50 }}
+                                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
+                                            <input type="radio" style={{ width: 20 }}
 
                                                 {...register("gender", { required: true })}
                                                 value={true}
                                                 defaultChecked={true}
                                                 defaultValue={true}
-                                            /> Nam</div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                            /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
                                             {...register("gender", { required: true })}
                                             value={false}
-                                        />Nữ</div>
+                                        /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
                                     </div>
                                 </div>
-                                <div className="menu__item--error"> {errors.gender && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.gender && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -101,7 +101,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("dob", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.dob && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.dob && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -112,7 +112,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("phoneNumber", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.phoneNumber && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.phoneNumber && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -123,7 +123,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("email", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.email && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -134,7 +134,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("identifyCard", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.identifyCard && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.identifyCard && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -145,7 +145,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("currentAddress", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.currentAddress && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.currentAddress && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -156,7 +156,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         {...register("homeTown", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.homeTown && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.homeTown && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -170,7 +170,7 @@ export default function ModalAdd({ show, handleClose,search }) {
                                         })}
                                     </select>
                                 </div>
-                                <div className="menu__item--error"> {errors.position && <span>Trường này không được để trống</span>}</div>
+                                <div className="menu__item--error"> {errors.position && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                         </ul>

@@ -42,3 +42,6 @@ select {
 input[type="password"] {
     border: 1px solid #d2d6dd;
 }
+textarea {
+    border: 1px solid #d2d6dd;
+}

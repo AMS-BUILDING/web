@@ -72,7 +72,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.name && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.name && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -92,7 +92,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         })}
                                     </select>
                                 </div>
-                                <div className="menu__item--error"> {errors.apartmentId && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.apartmentId && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Giới tính:</div>
@@ -112,7 +112,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                     </div>
                                 </div>
-                                <div className="menu__item--error"> {errors.gender && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.gender && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -123,7 +123,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         {...register("dob", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.dob && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.dob && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -137,7 +137,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.phone && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.phone && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -154,7 +154,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.email && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -168,7 +168,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.identifyCard && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.identifyCard && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -182,7 +182,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.currentAddress && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.currentAddress && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -196,7 +196,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.homeTown && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.homeTown && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                         </ul>

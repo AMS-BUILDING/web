@@ -70,7 +70,7 @@ export default function Login({ messageError }) {
                             </div>
                             <br />
                             <div>
-                                <p>{message && message}</p>
+                                <p style={{ color: 'yellow' }}>{message && message}</p>
                             </div>
                             <div className="form-group">
                                 <div className="col">

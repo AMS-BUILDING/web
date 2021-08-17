@@ -51,7 +51,7 @@ export default function ModalAddCard({ show, handleCloseAdd, search, handleAdd }
                                         {...register("email", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.email && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                             </li>
                         </ul>
                     </Modal.Body>
