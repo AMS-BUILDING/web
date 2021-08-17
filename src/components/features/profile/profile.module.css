@@ -8,7 +8,8 @@
     cursor: pointer;
 }
 .wrapChange{
-    margin: 20px 0;
+   padding: 0 15px;
+   margin-bottom: 20px;
 }
 .wrapProfile{
     padding: 10px;

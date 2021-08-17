@@ -79,7 +79,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("name", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.name && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.name && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Giới tính:</div>
@@ -99,7 +99,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
                                         </div>
                                     </div>
-                                    <div className="menu__item--error"> {errors.gender && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.gender && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -110,7 +110,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("dob", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.dob && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.dob && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -121,7 +121,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("phone", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.phone && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.phone && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -132,7 +132,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("currentAddress", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.currentAdress && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.currentAdress && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -143,7 +143,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("homeTown", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.homeTown && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.homeTown && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -154,7 +154,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("email", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.email && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -165,7 +165,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("identifyCard", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.identifyCard && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.identifyCard && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -179,7 +179,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             })}
                                         </select>
                                     </div>
-                                    <div className="menu__item--error"> {errors.positionId && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.positionId && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
 
