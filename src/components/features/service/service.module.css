@@ -27,7 +27,7 @@ select:focus{
     outline: none;
 }
 .wrapSearch {
-    padding: 10px;
+    padding: 20px 10px;
 }
 
 input[type="text"] {
@@ -44,4 +44,9 @@ input[type="password"] {
 }
 textarea {
     border: 1px solid #d2d6dd;
+}
+.wrapContent{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 3px
 }
