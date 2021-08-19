@@ -15,19 +15,26 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
         setShowSuccess(false)
     }
     let onSubmit = async (data) => {
-        console.log(data)
-        let path = '/tenant/change-password-web';
-        let resp = await API.authorizedJSONPost(path, data);
-        if (resp.ok) {
-            reset()
-            setMessage("")
-            handleClose()
-            search()
-            setShowSuccess(true)
+        if (data?.newPassword !== data?.overPassword) {
+            setMessage("Mật khẩu bạn nhập lại chưa đúng!")
         } else {
-            let response = await resp.json();
-            setMessage(response?.message)
+            let path = '/tenant/change-password';
+            let resp = await API.authorizedJSONPost(path, {
+                password: data?.password,
+                newPassword: data?.newPassword
+            });
+            if (resp.ok) {
+                reset()
+                setMessage("")
+                handleClose()
+                search()
+                setShowSuccess(true)
+            } else {
+                let response = await resp.json();
+                setMessage(response?.message)
+            }
         }
+
     }
     return (
         <>
@@ -36,6 +43,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                 onHide={() => {
                     handleClose()
                     setMessage(null)
+                    reset()
                 }}
                 animation={false} centered>
                 <form
@@ -55,7 +63,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                             {...register("password", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.password && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.password && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Mật khẩu mới:</div>
@@ -64,7 +72,16 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                             {...register("newPassword", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.newPassword && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.newPassword && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
+                                </li>
+                                <li className="menu__item">
+                                    <div className="menu__item--title">Nhập lại mật khẩu mới:</div>
+                                    <div className="menu__item--input">
+                                        <input type="password"
+                                            {...register("overPassword", { required: true })}
+                                        />
+                                    </div>
+                                    <div className="menu__item--error"> {errors.overPassword && <span>Trường này không được để trống</span>}</div>
                                 </li>
                             </ul>
                             <br />
@@ -78,6 +95,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
 
                             handleClose()
                             setMessage(null)
+                            reset()
                         }}>
                             Quay lại
 

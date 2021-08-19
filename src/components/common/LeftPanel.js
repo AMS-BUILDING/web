@@ -21,7 +21,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
 
             <div className="navbar-header">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
-                        aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="fa fa-bars"></i>
                 </button>
                 <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo" /></a>
@@ -35,21 +35,21 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("home")} onClick={() => {
                             handleClick("home")
                         }}>
-                            <i class="menu-icon fas fa-chart-bar"></i>Biểu đồ
+                            <i className="menu-icon fa fa-laptop"></i>Biểu đồ
                         </li>
 
                         {roleId == 1 && <>
                             <li className={handleClass("isstay")} onClick={() => {
                                 handleClick("isstay")
                             }}>
-                                <i class="menu-icon fas fa-file-signature"></i>Tạm trú - tạm vắng
+                                <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
                             </li>
                         </>}
 
                         <li className={handleClass("employee")} onClick={() => {
                             handleClick("employee")
                         }}>
-                            <i class="menu-icon fas fa-user-tie"></i>Nhân viên
+                            <i className="menu-icon fa fa-laptop"></i>Nhân viên
                         </li>
                     </>
 
@@ -58,48 +58,48 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("service")} onClick={() => {
                             handleClick("service")
                         }}>
-                            <i class="menu-icon fas fa-boxes"></i>Dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Dịch vụ
 
                         </li>
                         <li className={handleClass("request-service")} onClick={() => {
                             handleClick("request-service")
                         }}>
-                            <i class="menu-icon fas fa-hand-holding-usd"></i>Yêu cầu dịch vụ
+                            <i className="menu-icon fa fa-table"></i>Yêu cầu dịch vụ
 
                         </li>
                     </>
 
                     {roleId == 1 &&
 
-                    <>
                         <>
-                            <h3 className="menu-title">Quản lý cư dân</h3>
-                            <li className={handleClass("department")} onClick={() => {
-                                handleClick("department")
-                            }}>
-                                <i class="menu-icon fas fa-building"></i>Căn hộ
+                            <>
+                                <h3 className="menu-title">Quản lý cư dân</h3>
+                                <li className={handleClass("department")} onClick={() => {
+                                    handleClick("department")
+                                }}>
+                                    <i className="menu-icon fa fa-laptop"></i>Căn hộ
 
-                            </li>
-                            <li className={handleClass("resident")} onClick={() => {
-                                handleClick("resident")
-                                handleRoomName("")
-                                localStorage.removeItem("status")
-                            }}>
-                                <i class="menu-icon fas fa-users"></i>Cư dân
-                            </li>
+                                </li>
+                                <li className={handleClass("resident")} onClick={() => {
+                                    handleClick("resident")
+                                    handleRoomName("")
+                                    localStorage.removeItem("status")
+                                }}>
+                                    <i className="menu-icon fa fa-table"></i>Cư dân
+                                </li>
+                            </>
+
+                            <>
+                                <h3 className="menu-title">Quản lý tài chính</h3>
+
+                                <li className={handleClass("fee-department")} onClick={() => {
+                                    handleClick("fee-department")
+                                }}>
+                                    <i className="menu-icon fa fa-table"></i>Phi căn hộ
+                                </li>
+
+                            </>
                         </>
-
-                        <>
-                            <h3 className="menu-title">Quản lý tài chính</h3>
-
-                            <li className={handleClass("fee-department")} onClick={() => {
-                                handleClick("fee-department")
-                            }}>
-                                <i class="menu-icon fas fa-wallet"></i>Phi căn hộ
-                            </li>
-
-                        </>
-                    </>
                     }
 
                     {roleId == 1 && <>
@@ -107,7 +107,7 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("card-parking")} onClick={() => {
                             handleClick("card-parking")
                         }}>
-                            <i class="menu-icon fas fa-id-card"></i>Thẻ gửi xe
+                            <i className="menu-icon fa fa-laptop"></i>Thẻ gửi xe
 
                         </li>
 
@@ -118,13 +118,13 @@ export default function LeftPanel({ roleId, handleRoomName }) {
                         <li className={handleClass("notification")} onClick={() => {
                             handleClick("notification")
                         }}>
-                            <i class="menu-icon fas fa-globe-europe"></i>Thông báo
+                            <i className="menu-icon fa fa-laptop"></i>Thông báo
 
                         </li>
                         {roleId == 1 && <li className={handleClass("feedback")} onClick={() => {
                             handleClick("feedback")
                         }}>
-                            <i class="menu-icon fas fa-mail-bulk"></i>Phản hồi
+                            <i className="menu-icon fa fa-table"></i>Phản hồi
                         </li>}
 
                     </>

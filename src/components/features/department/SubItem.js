@@ -17,7 +17,7 @@ export default function SubItem({ index, data, positionId }) {
         <tr>
             <td>{index}</td>
             <td>{data?.name}</td>
-            <td>{data?.phoneNumber}</td>
+            <td>{data?.phone}</td>
             <td>{data?.currentAddress}</td>
             <td>{data?.email}</td>
             <td>{data?.identifyCard}</td>

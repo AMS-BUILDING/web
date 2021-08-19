@@ -3,8 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import SubItem from './SubItem';
 import API from '../../../lib/API';
-export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, depend, ownPerson, apartmentId, blockId, floorId ,search}) {
-   
+export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, depend, ownPerson, apartmentId, blockId, floorId, search }) {
+
     let [blockName, setBlockName] = useState();
     let [roomName, setRoomName] = useState();
 
@@ -31,7 +31,7 @@ export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, de
     let addApartment = async () => {
         let path = `/admin/apartment/add/owner`;
         let resp = await API.authorizedJSONPost(path, ownPerson);
-       
+
         if (resp.ok) {
             let pathDepend = `/admin/apartment/add/resident`;
             let objData = {
@@ -78,13 +78,13 @@ export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, de
                             <li className="menu__item">
                                 <div className="menu__item--title">Giới tính:</div>
                                 <div className="menu__item--input">
-                                    <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                    <div style={{ display: 'flex', alignItems: 'center', width: 700 }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}><input type="radio" name="gender" style={{ width: 20 }}
                                             checked={ownPerson?.gender}
-                                        /> Nam</div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                        /> <span style={{ marginLeft: 5 }}>Nam</span></div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
                                             checked={ownPerson?.gender}
-                                        />Nữ</div>
+                                        /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                     </div>
                                 </div>
                             </li>
@@ -136,31 +136,36 @@ export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, de
                                     />
                                 </div>
                             </li>
-                            <li className="menu__item">
-                                <div className="menu__item--title">Người phụ thuộc:</div>
 
-                            </li>
-                            {depend?.length > 0 && <table>
-                                <tr>
+                            {depend?.length > 0 &&
+                                <>
+                                    <li className="menu__item">
+                                        <div className="menu__item--title">Người phụ thuộc:</div>
 
-                                    <th>STT</th>
-                                    <th>Tên</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Email</th>
-                                    <th>Số CCCD</th>
-                                    <th>Quê quán</th>
-                                    <th>Quan hệ với chủ hộ</th>
+                                    </li>
+                                    <table>
+                                        <tr>
 
-                                </tr>
-                                {depend?.map((item, index) => {
-                                    return (
-                                        <SubItem key={index} index={index + 1} data={item} positionId={item?.positionId} />
-                                    )
-                                })}
+                                            <th>STT</th>
+                                            <th>Tên</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Email</th>
+                                            <th>Số CCCD</th>
+                                            <th>Quê quán</th>
+                                            <th>Quan hệ với chủ hộ</th>
+
+                                        </tr>
+                                        {depend?.map((item, index) => {
+                                            return (
+                                                <SubItem key={index} index={index + 1} data={item} positionId={item?.positionId} />
+                                            )
+                                        })}
 
 
-                            </table>}
+                                    </table>
+                                </>
+                            }
 
                         </ul>
 

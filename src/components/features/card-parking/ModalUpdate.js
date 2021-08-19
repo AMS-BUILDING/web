@@ -49,7 +49,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                         value={statusId}
                                         onChange={e => setStatusId(e.target.value)}
                                     >
-                                        <option>---</option>
                                         {status?.map((item, index) => {
                                             return (
                                                 <option key={index} value={item?.id}>{item?.statusName}</option>
@@ -58,10 +57,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                     </select>
                                 </div>
                             </li>
-
-
                         </ul>
-
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>

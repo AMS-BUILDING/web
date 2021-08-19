@@ -1,5 +1,5 @@
 .wrapSearch{
-    padding: 10px;
+    padding: 20px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,4 +36,9 @@ input:focus{
     color: white;
     border: 1px solid #5cb377;
     cursor: pointer;
+}
+.wrapContent{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 3px
 }

@@ -10,6 +10,7 @@ export default function Item({ data, index, search }) {
     const handleCloseDelete = () => {
         setShowDelete(false)
     }
+    console.log(data)
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const handleCloseMessage = () => {
@@ -53,7 +54,7 @@ export default function Item({ data, index, search }) {
             <tr>
                 <td>{index}</td>
                 <td>{data?.name}</td>
-                <td>{data?.gender}</td>
+                <td>{data?.gender ? "Nam" : "Nữ"}</td>
                 <td>{data?.phone}</td>
                 <td>{data?.homeTown}</td>
                 <td>{data?.email}</td>

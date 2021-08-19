@@ -6978,4 +6978,44 @@ header .form-inline .search-form.close {
     outline: 0;
   }
 
-  
+  .user-bg .overlay-box {
+    background: #b5a8b9;
+    opacity: .9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    text-align: center;
+  }
+  .white-box {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+.user-bg {
+    margin: -25px;
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+}
+.user-bg .overlay-box .user-content {
+    padding: 15px;
+    margin-top: 30px;
+}
+.user-btm-box {
+    padding: 40px 0 10px;
+    clear: both;
+    overflow: hidden;
+}
+.thumb-lg {
+    height: 88px;
+    width: 88px;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+img {
+    vertical-align: middle;
+}

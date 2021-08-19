@@ -4,14 +4,13 @@ import API from '../../../lib/API';
 import { doPost } from '../../../lib/DataSource';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
+import { Controller, useForm } from "react-hook-form";
 
 export default function ResetPassword() {
+    const { control, reset, handleSubmit, formState: { errors }, register } = useForm();
 
-    const [account, setAccount] = useState({
-        token: null,
-        password: null
-    });
-    let [message,setMessage] = useState();
+    const [account, setAccount] = useState();
+    let [message, setMessage] = useState();
     const handleAccount = (e) => {
         let { name, value } = e.target;
         setAccount({
@@ -19,17 +18,18 @@ export default function ResetPassword() {
             [name]: value
         })
     }
-    const [show,setShow] = useState(false);
+    const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false)
     }
-    let reset = async () => {
+    let resetPassword = async (data) => {
         let path = '/reset-password';
-        let resp = await API.anonymousJSONPost(path,account);
-        if(resp.ok){
+        let resp = await API.anonymousJSONPost(path, data);
+        console.log(data)
+        if (resp.ok) {
             setShow(true)
-
-        }else{
+            history.push('/')
+        } else {
             let response = await resp.json();
             setMessage(response?.message)
         }
@@ -37,36 +37,72 @@ export default function ResetPassword() {
     let history = useHistory();
     return (
         <>
-           <ModalSuccess show={show} handleClose={handleClose} />
+            <ModalSuccess show={show} handleClose={handleClose} />
             <div>
                 <div id="intro">
                     <div className="middle signin">
                         <div className="login-panel">
                             <div className="logo text-center"><br />
                                 <div onClick={() => {
-                                    history.push('/login')
-                                }}><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
+                                    history.push('/')
+                                }}
+                                    style={{ cursor: 'pointer' }}
+                                ><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
                             </div>
 
-                            <div className="form-group">
-                                <div>Ma token</div>
-                                <label>
-                                    <i className="fas fa-user fa-fw" />
-                                </label>
-                                <input type="text"
-                                    value={account?.token}
+                            <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                                <div style={{ color: '#fff', marginBottom: 15 }}>Mã xác minh</div>
+
+
+                                <Controller
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value } }) => (
+                                        <input
+                                            onBlur={onBlur}
+                                            className=""
+                                            onChange={(e) => {
+                                                onChange(e.target.value)
+                                            }}
+                                            placeholder="Mã xác minh ..."
+                                            value={value}
+                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                        />
+
+                                    )}
+                                    rules={{ required: true }}
                                     name="token"
-                                    onChange={e => handleAccount(e)}
+                                    defaultValue=""
                                 />
+                                <br />
+                                <div>{errors?.token && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+                             
                             </div>
-                            <div className="form-group">
-                                <label>
-                                    <i className="fas fa-key fa-fw" />
-                                </label>
-                                <input type="password" className="form-control" placeholder="Password" name="password" required 
-                                onChange={e => handleAccount(e)}
-                            
+                            <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+
+
+                                <Controller
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value } }) => (
+                                        <input
+                                            onBlur={onBlur}
+                                            className=""
+                                            onChange={(e) => {
+                                                onChange(e.target.value)
+                                            }}
+                                            placeholder="Mật khẩu ..."
+                                            value={value}
+                                            type="password"
+                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                        />
+
+                                    )}
+                                    rules={{ required: true }}
+                                    name="password"
+                                    defaultValue=""
                                 />
+                                <br />
+                                <div>{errors?.token && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+                               
                             </div>
                             <div>{message && <>{message}</>}</div>
                             <br />
@@ -75,7 +111,7 @@ export default function ResetPassword() {
                             </div> */}
                             <div className="form-group">
                                 <div className="col">
-                                    <button className="btn btn-sm" onClick={() => reset()} >
+                                    <button className="btn btn-sm" onClick={handleSubmit(resetPassword)} >
                                         <i className="fas fa-sign-in-alt fa-fw mr-1" />Reset
                                     </button>
                                 </div>
@@ -103,11 +139,11 @@ function ModalSuccess({ show, handleClose }) {
                 <Modal.Title>Thông báo</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-               Bạn đã đổi mật khẩu thành công!. Ấn tiếp tục để quay về đăng nhập
+                Bạn đã đổi mật khẩu thành công!. Ấn tiếp tục để quay về đăng nhập
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => {
-                    history.push('/login')
+                    history.push('/')
                     handleClose()
                 }}>
                     Tiếp tục

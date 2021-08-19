@@ -47,8 +47,8 @@ export default function ModalAdd({ show, handleClose, search }) {
                                             {...register("title", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.title && <span>This field is required</span>}</div>
-                                
+                                    <div className="menu__item--error"> {errors.title && <span style={{ fontSize: 13 }}>Trường này không được bỏ trống</span>}</div>
+
                                 </li>
 
                                 <li className="menu__item">
@@ -59,7 +59,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
                                     </div>
                                     <div className="menu__item--error">
-                                        {errors.description && <span>This field is required</span>}
+                                        {errors.description && <span style={{ fontSize: 13 }}>Trường này không được bỏ trống</span>}
                                     </div>
                                 </li>
                             </ul>
