@@ -267,17 +267,6 @@ export default function Profile() {
                             </div>
 
                             <div className="app-card-body px-4 w-100">
-                                <div className="item border-bottom py-3">
-                                    <div className="row justify-content-between align-items-center">
-                                        <div className="col-auto">
-                                            <div className="item-label mb-2"><strong>Ảnh đại diện</strong></div>
-                                            <div className="item-data"> <img className="user-avatar rounded-circle"
-                                                src={` ${BASE_DOWNLOAD_URL}${data?.image}`} alt="User Avatar" style={{ width: 100, height: 100, borderRadius: 50 }} /></div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
 
                                 <div className="item border-bottom py-3">
                                     <div className="row justify-content-between align-items-center">

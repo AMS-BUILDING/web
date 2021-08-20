@@ -32,7 +32,7 @@ export default function Department({ handleRoomName }) {
     }, [])
     useEffect(() => {
         search()
-    }, [activePage,isAdd])
+    }, [activePage, isAdd])
     let search = async () => {
         let path = `/admin/apartment/search?householderName=${householderName}&roomName=${roomName}&pageNo=${activePage - 1}`;
         let resp = await API.authorizedJSONGET(path);
@@ -46,27 +46,31 @@ export default function Department({ handleRoomName }) {
             <h4 style={{ marginBottom: 20, marginTop: 20 }}>Căn hộ</h4>
             <div className={style.wrapContent}>
                 <div className={style.wrapSearch}>
-                    <input
-                        placeholder="Số phòng"
-                        value={roomName}
-                        onChange={e => setRoomName(e.target.value)}
-                        className={style.ipSearch}
-                    />
-                    <input
-                        placeholder="Tên chủ hộ"
-                        value={householderName}
-                        onChange={e => setHouseHolderName(e.target.value)}
-                        className={style.ipSearch}
-                    />
-                    <button
-                        onClick={() => {
-                            search();
-                            setActivePage(1)
-                        }}
-                        className={style.btnSearch}><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                        </svg></button>
-                    <div >
+                    <div>
+                        <input
+                            placeholder="Số phòng"
+                            value={roomName}
+                            onChange={e => setRoomName(e.target.value)}
+                            className={style.ipSearch}
+                        />
+                        <input
+                            placeholder="Tên chủ hộ"
+                            value={householderName}
+                            onChange={e => setHouseHolderName(e.target.value)}
+                            className={style.ipSearch}
+                        />
+                        <button
+                            onClick={() => {
+                                search();
+                                setActivePage(1)
+                            }}
+                            className={style.btnSearch}><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                            </svg></button>
+                    </div>
+                </div>
+                <div style={{ display: 'flex', paddingRight: 10, justifyContent: 'flex-end' }}>
+                    <div style={{ marginRight: 30 }}>
                         <button onClick={handleShow} className={style.btnAdd}>Thêm căn hộ</button>
                     </div>
                     <div >
@@ -75,7 +79,6 @@ export default function Department({ handleRoomName }) {
                         }} className={style.btnAdd}>Thêm thẻ căn hộ</button>
                     </div>
                 </div>
-
                 <ModalAddAddress
                     show={show}
                     handleClose={handleClose}

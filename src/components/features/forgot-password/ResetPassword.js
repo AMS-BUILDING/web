@@ -63,21 +63,19 @@ export default function ResetPassword() {
                             </div>
 
                             <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-                                <div style={{ color: '#fff', marginBottom: 15 }}>Mã xác minh</div>
-
 
                                 <Controller
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
                                             onBlur={onBlur}
-                                            className=""
+                                            className="form-control"
                                             onChange={(e) => {
                                                 onChange(e.target.value)
                                             }}
                                             placeholder="Mã xác minh ..."
                                             value={value}
-                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                            style={{ width: '100%', paddingLeft: 20, border: 'none' }}
                                         />
 
                                     )}
@@ -86,25 +84,25 @@ export default function ResetPassword() {
                                     defaultValue=""
                                 />
                                 <br />
-                                <div>{errors?.token && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+                                <div>{errors?.token && <div style={{ color: 'yellow' }}>Trường này không được bỏ trống!</div>}</div>
 
                             </div>
                             <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
 
-                                <div style={{ color: '#fff', marginBottom: 15 }}>Mật khẩu mới</div>
+
                                 <Controller
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
                                             onBlur={onBlur}
-                                            className=""
+                                            className="form-control"
                                             onChange={(e) => {
                                                 onChange(e.target.value)
                                             }}
-                                            placeholder="Mật khẩu ..."
+                                            placeholder="Mật khẩu mới"
                                             value={value}
                                             type="password"
-                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                            style={{ width: '100%', paddingLeft: 20, border: 'none' }}
                                         />
 
                                     )}
@@ -113,25 +111,25 @@ export default function ResetPassword() {
                                     defaultValue=""
                                 />
                                 <br />
-                                <div>{errors?.password && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+                                <div>{errors?.password && <div style={{ color: 'yellow' }}>Trường này không được bỏ trống!</div>}</div>
 
                             </div>
                             <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
 
-                                <div style={{ color: '#fff', marginBottom: 15 }}>Nhập lại mật khẩu</div>
+
                                 <Controller
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
                                             onBlur={onBlur}
-                                            className=""
+                                            className="form-control"
                                             onChange={(e) => {
                                                 onChange(e.target.value)
                                             }}
-                                            placeholder="Mật khẩu ..."
+                                            placeholder="Xác nhận mật khẩu mới"
                                             value={value}
                                             type="password"
-                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                            style={{ width: '100%', padding: 20, border: 'none' }}
                                         />
 
                                     )}
@@ -140,7 +138,7 @@ export default function ResetPassword() {
                                     defaultValue=""
                                 />
                                 <br />
-                                <div>{errors?.newPs && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+                                <div>{errors?.newPs && <div style={{ color: 'yellow' }}>Trường này không được bỏ trống!</div>}</div>
 
                             </div>
                             <div>{message && <>{message}</>}</div>
@@ -151,7 +149,7 @@ export default function ResetPassword() {
                             <div className="form-group">
                                 <div className="col">
                                     <button className="btn btn-sm" onClick={handleSubmit(resetPassword)} >
-                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Reset
+                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Thay đổi mật khẩu
                                     </button>
                                 </div>
                             </div>

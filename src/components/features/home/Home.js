@@ -18,7 +18,7 @@ export default function Home() {
             <div className="content mt-3">
                 <div className="animated fadeIn">
                     <div className="row">
-                        <div className="col-lg-5" style={{ marginBottom: 30 }}>
+                        <div className="col-lg-5" style={{ marginBottom: 30, backgroundColor: 'white' }}>
                             <TotalRevenue />
                         </div>
                         <div className="col" style={{ marginBottom: 30 }} />

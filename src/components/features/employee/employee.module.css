@@ -17,6 +17,7 @@
     margin-left: 10px;
     border-radius: 10px;
     cursor: pointer;
+    height: 40px;
 }
 
 .btnSearch:hover{
@@ -29,13 +30,14 @@ input:focus{
    outline: none;
 }
 .btnAdd{
-    display: inline-block;
+    display: block;
     background-color: #5cb377;
     padding: 5px;
     border-radius: 5px;
     color: white;
     border: 1px solid #5cb377;
     cursor: pointer;
+    margin-left: auto;
 }
 .wrapContent{
     background-color: white;

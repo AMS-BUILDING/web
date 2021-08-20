@@ -12,6 +12,7 @@
     border-radius: 10px;
     cursor: pointer;
     display: inline-block;
+    height: 35px;
 }
 .btnSearch:hover{
     background-color: #74be8b;

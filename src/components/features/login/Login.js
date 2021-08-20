@@ -74,7 +74,7 @@ export default function Login({ messageError }) {
                                     defaultValue=""
                                 />
                             </div>
-                            <div>{errors?.username && <div style={{ color: '#fff' }}>Mail bạn nhập chưa đúng!</div>
+                            <div>{errors?.username && <div style={{ color: 'yellow' }}>Mail bạn nhập chưa đúng!</div>
 
                             }</div>
                             <br />
@@ -103,7 +103,7 @@ export default function Login({ messageError }) {
                                     defaultValue=""
                                 />
                             </div>
-                            <div>{errors?.password && <div style={{ color: '#fff' }}>Chưa nhập mật khẩu!</div>}</div>
+                            <div>{errors?.password && <div style={{ color: 'yellow' }}>Chưa nhập mật khẩu!</div>}</div>
                             <br />
                             <div>
                                 <p>{message && message}</p>
@@ -124,7 +124,7 @@ export default function Login({ messageError }) {
                                     }}
                                         style={{ cursor: 'pointer' }}
                                     >
-                                        <i className="fas fa-question fa-fw mr-1" />Quên mật khẩu
+                                        <i className="fas fa-question fa-fw mr-1" style={{ color: 'white' }} /><span style={{ color: 'white', fontWeight: 'bold' }}>Quên mật khẩu</span>
                                     </a><br /><br />
                                 </div>
                             </div>
