@@ -96,7 +96,7 @@ export default function DashboardNumber() {
                             </button>
                         </div>
                         <h4 className="mb-0">
-                            <span className="count">{currencyFormat(data?.totalRevenue)}</span>
+                            <span className="count">{currencyFormat(data?.totalRevenue?.toString())}</span>
                         </h4>
                         <p className="text-light">Doanh thu</p>
 
