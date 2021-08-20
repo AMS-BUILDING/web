@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../../lib/API';
 import { doPost } from '../../../lib/DataSource';
+import { Controller, useForm } from "react-hook-form";
+
 
 export default function Login({ messageError }) {
-    const [account, setAccount] = useState();
+
+    const { control, reset, handleSubmit, formState: { errors }, register } = useForm();
+
     let history = useHistory()
     const [message, setMessage] = useState();
     useEffect(() => {
@@ -13,9 +17,9 @@ export default function Login({ messageError }) {
         localStorage.removeItem("roleId")
     }, [])
 
-    let login = async () => {
+    let login = async (data) => {
         let path = "/login";
-        let resp = await API.anonymousJSONPost(path, account);
+        let resp = await API.anonymousJSONPost(path, data);
         if (resp.status === 200) {
             let response = await resp.json();
 
@@ -27,10 +31,10 @@ export default function Login({ messageError }) {
                 setMessage("Từ chối truy cập!")
             }
         } else {
-            setMessage("Tài khoản hoặc mật khẩu chưa đúng!")
+            setMessage("Tài khoản chưa đúng!")
         }
     }
-
+    console.log(errors?.username)
     return (
         <>
             <div>
@@ -50,31 +54,63 @@ export default function Login({ messageError }) {
                                 <label>
                                     <i class="fas fa-user fa-fw"></i>
                                 </label>
-                                <input type="text" className="form-control" placeholder="Tên đăng nhập" name="username" required onChange={(e) => setAccount({
-                                    ...account,
-                                    username: e.target.value
-                                })}
-                                // style={{ paddingLeft: 8 }}
+                                <Controller
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value } }) => (
+                                        <input
+                                            onBlur={onBlur}
+                                            className="form-control"
+                                            onChange={(e) => {
+                                                onChange(e.target.value)
+                                            }}
+                                            placeholder="Email"
+                                            value={value}
+                                        // style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                        />
+
+                                    )}
+                                    rules={{ required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ }}
+                                    name="username"
+                                    defaultValue=""
                                 />
                             </div>
+                            <div>{errors?.username && <div style={{ color: '#fff' }}>Mail bạn nhập chưa đúng!</div>
+
+                            }</div>
+                            <br />
                             <div className="form-group">
                                 <label>
                                     <i class="fas fa-key fa-fw"></i>
                                 </label>
-                                <input type="password" className="form-control" placeholder="Mật khẩu" name="password" required onChange={(e) => setAccount({
-                                    ...account,
-                                    password: e.target.value
-                                })}
-                                // style={{ paddingLeft: 8 }}
+                                <Controller
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value } }) => (
+                                        <input
+                                            onBlur={onBlur}
+                                            type="password"
+                                            className="form-control"
+                                            onChange={(e) => {
+                                                onChange(e.target.value)
+                                            }}
+                                            placeholder="Mật khẩu"
+                                            value={value}
+                                            style={{ border: 'none' }}
+                                        />
+
+                                    )}
+                                    rules={{ required: true }}
+                                    name="password"
+                                    defaultValue=""
                                 />
                             </div>
+                            <div>{errors?.password && <div style={{ color: '#fff' }}>Chưa nhập mật khẩu!</div>}</div>
                             <br />
                             <div>
-                                <p style={{ color: 'yellow' }}>{message && message}</p>
+                                <p>{message && message}</p>
                             </div>
                             <div className="form-group">
                                 <div className="col">
-                                    <button className="btn btn-sm" onClick={() => login()}>
+                                    <button className="btn btn-sm" onClick={handleSubmit(login)}>
                                         <i className="fas fa-sign-in-alt fa-fw mr-1" />Đăng nhập
                                     </button>
                                 </div>

@@ -81,7 +81,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                             {...register("overPassword", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.overPassword && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.overPassword && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                             </ul>
                             <br />

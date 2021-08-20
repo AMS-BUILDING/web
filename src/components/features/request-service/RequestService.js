@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import API from '../../../lib/API';
 import Item from './Item';
 import Pagination from 'react-js-pagination';
-import style from './reqservice.module.css';
+import style from './reqService.module.css';
 
 export default function RequestService() {
     const [data, setData] = useState();
@@ -37,7 +37,7 @@ export default function RequestService() {
             setStatus(response);
         }
     }
-   
+
     return (
         <>
             <div className="container-fluid">

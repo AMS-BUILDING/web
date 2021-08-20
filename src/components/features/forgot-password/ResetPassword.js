@@ -23,16 +23,28 @@ export default function ResetPassword() {
         setShow(false)
     }
     let resetPassword = async (data) => {
-        let path = '/reset-password';
-        let resp = await API.anonymousJSONPost(path, data);
-        console.log(data)
-        if (resp.ok) {
-            setShow(true)
-            history.push('/')
-        } else {
-            let response = await resp.json();
-            setMessage(response?.message)
+        try {
+            if (data?.newPs !== data?.password) {
+                setMessage("Mật khẩu bạn nhập lại chưa đúng")
+            } else {
+                let path = '/reset-password';
+                let resp = await API.anonymousJSONPost(path, {
+                    token: data?.token,
+                    password: data?.password
+                });
+                console.log(data)
+                if (resp.ok) {
+                    setShow(true)
+                    history.push('/')
+                } else {
+                    let response = await resp.json();
+                    setMessage(response?.message)
+                }
+            }
+        } catch (error) {
+
         }
+
     }
     let history = useHistory();
     return (
@@ -75,11 +87,11 @@ export default function ResetPassword() {
                                 />
                                 <br />
                                 <div>{errors?.token && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
-                             
+
                             </div>
                             <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
 
-
+                                <div style={{ color: '#fff', marginBottom: 15 }}>Mật khẩu mới</div>
                                 <Controller
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
@@ -101,8 +113,35 @@ export default function ResetPassword() {
                                     defaultValue=""
                                 />
                                 <br />
-                                <div>{errors?.token && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
-                               
+                                <div>{errors?.password && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+
+                            </div>
+                            <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+
+                                <div style={{ color: '#fff', marginBottom: 15 }}>Nhập lại mật khẩu</div>
+                                <Controller
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value } }) => (
+                                        <input
+                                            onBlur={onBlur}
+                                            className=""
+                                            onChange={(e) => {
+                                                onChange(e.target.value)
+                                            }}
+                                            placeholder="Mật khẩu ..."
+                                            value={value}
+                                            type="password"
+                                            style={{ width: '100%', padding: 5, borderRadius: 8, border: 'none' }}
+                                        />
+
+                                    )}
+                                    rules={{ required: true }}
+                                    name="newPs"
+                                    defaultValue=""
+                                />
+                                <br />
+                                <div>{errors?.newPs && <div style={{ color: '#fff' }}>Trường này không được bỏ trống!</div>}</div>
+
                             </div>
                             <div>{message && <>{message}</>}</div>
                             <br />

@@ -48,6 +48,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
             setMessage(response.message)
         }
     }
+    console.log(employee?.dob)
     return (
         <>
 
