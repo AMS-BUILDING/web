@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/LeftPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/LeftPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/card-parking/CardParking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/card-parking/CardParking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/card-parking/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/card-parking/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/card-parking/ModalUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/card-parking/ModalUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/Department.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/Department.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/ModalAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/ModalAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/ModalAddAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/ModalAddAddress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/ModalAddCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/ModalAddCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/ModalAddDepend.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/ModalAddDepend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/ModalAddSumbit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/ModalAddSumbit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/SubItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/SubItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/department.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/department.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/resident-card/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/resident-card/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/resident-card/ModalUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/resident-card/ModalUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/department/resident-card/ResidentCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/department/resident-card/ResidentCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/Employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/Employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/ModalAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/ModalAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/ModalDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/ModalDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/ModalUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/ModalUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/employee/employee.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/employee/employee.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/feedback/FeedBack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/feedback/FeedBack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/feedback/feedback.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/feedback/feedback.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/forgot-password/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/forgot-password/ForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/forgot-password/ResetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/forgot-password/ResetPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/IsStaying.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/isstay/stay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/isstay/stay.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/notification/ModalAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/notification/ModalAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/notification/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/notification/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/notification/notification.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/notification/notification.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/profile/ChangePassWord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/profile/ChangePassWord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/profile/UpdateProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/profile/UpdateProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/request-service/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/request-service/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/request-service/ModalDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/request-service/ModalDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/request-service/ModalUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/request-service/ModalUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/request-service/RequestService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/request-service/RequestService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/request-service/reqService.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/request-service/reqService.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/resident/ModalAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/resident/ModalAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/resident/ModalDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/resident/ModalDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/resident/ModalUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/resident/ModalUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/resident/Resident.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/resident/Resident.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/resident/resident.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/resident/resident.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/service/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/service/Service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/service/service.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/service/service.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/style.scss" afterDir="false" />
-    </list>
+    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +11,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="minh_hoang" />
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="TuanNA_Dashboard" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,6 +35,19 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
