@@ -92,21 +92,23 @@ export default function Header({ handleClick }) {
                 <div className="user-area dropdown float-right">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <img className="user-avatar rounded-circle" 
-                        src={`${BASE_DOWNLOAD_URL}=${data?.image}` } alt="User Avatar" />
+                        <img className="user-avatar rounded-circle"
+                            src={`${BASE_DOWNLOAD_URL}${data?.image}`} alt="User Avatar"
+                            style={{ width: 60, height: 60, borderRadius: 30 }}
+                        />
                     </a>
 
                     <div className="user-menu dropdown-menu">
-                        <div onClick={() => handleClick("profile")}><i className="fa fa-user"></i> My Profile</div>
+                        <div style={{ cursor: 'pointer' }} onClick={() => handleClick("profile")}><i className="fa fa-user"></i> Tài khoản</div>
 
-                        <div
+                        <div style={{ cursor: 'pointer' }}
                             onClick={() => {
                                 localStorage.removeItem("token")
                                 localStorage.removeItem("page")
                                 localStorage.removeItem("roleId")
                                 window.location.reload();
                             }}
-                        ><i className="fa fa-power-off"></i> Logout</div>
+                        ><i className="fa fa-power-off"></i> Đăng xuất</div>
                     </div>
                 </div>
 

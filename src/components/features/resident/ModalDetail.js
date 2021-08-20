@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import moment from 'moment';
 export default function ModalDetail({ show, handleClose, handleShow, data }) {
-        console.log("address",data)
+    console.log("address", data)
     return (
         <>
             <Modal show={show} onHide={handleClose} animation={false} centered>
@@ -25,19 +25,19 @@ export default function ModalDetail({ show, handleClose, handleShow, data }) {
                             <div className="menu__item--title">Giới tính:</div>
                             <div className="menu__item--input">
                                 <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
-                                        defaultChecked={data?.gender} 
-                                    /> Nam</div>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}><input type="radio" name="gender" style={{ width: 20 }}
                                         defaultChecked={data?.gender}
-                                    />Nữ</div>
+                                    /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
+                                        defaultChecked={data?.gender}
+                                    /><span style={{ marginLeft: '5px' }}> Nữ</span></div>
                                 </div>
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Ngày sinh:</div>
                             <div className="menu__item--input">
-                                <input type="text"
+                                <input type="date"
                                     value={(data?.dob)}
                                 />
                             </div>

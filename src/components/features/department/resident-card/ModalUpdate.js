@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import API from '../../../../lib/API';
+import { status_request } from '../../../../utils/status';
 
 export default function ModalUpdate({ show, handleClose, data, search }) {
 
@@ -11,18 +12,23 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
     let [status, setStatus] = useState();
     useEffect(() => {
         fetchData()
+     
     }, [])
-    console.log("aa",status)
+    useEffect(() => {
+        fetchStatus()
+    }, [statusId])
+  
+    console.log(statusId)
     let fetchData = async () => {
-        let path = `/manager-service/request-service/list`;
-
-        let resp = await API.authorizedJSONGET(path);
-        if (resp.ok) {
-            let response = await resp.json();
-            setStatus(response);
-            let arr = await response?.filter((item) => item.name == data?.status);
-            setStatusId(arr[0]?.id)
+        let arr = await status_request?.filter((item) => item.name == data?.status);
+        setStatusId(arr[0]?.id);
+    }
+    let fetchStatus = () => {
+        let resp = [];
+        for (let i = statusId - 1; i < status_request?.length; i++) {
+            resp.push(status_request[i])
         }
+        setStatus(resp)
     }
     let onSubmit = async data => {
         console.log(data);
@@ -37,6 +43,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
             console.log(response.message)
         }
     }
+    console.log("s",status)
     return (
         <>
 
@@ -49,7 +56,6 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                     <div className="menu__item--error" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> {message && <span>{message}</span>}</div>
 
                         <div className="modal__main">
-                            <label>Trạng thái</label>
                             <select
                                 value={statusId}
                                 onChange={e => setStatusId(e.target.value)}

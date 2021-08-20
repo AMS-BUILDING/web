@@ -36,52 +36,49 @@ export default function FeedBack() {
     }
     return (
         <>
-            <div className="breadcrumbs">
-                <div className="col-sm-4">
-                    <div className="page-header float-left">
-                        <div className="page-title">
-                            <h1>Phản hồi</h1>
-                        </div>
+            <div className="container-fluid">
+                <h4 style={{ marginBottom: 20, marginTop: 20 }}>Phản hồi</h4>
+                <div className={style.wrapContent}>
+                    <Search text={textSearch} handleTextSearch={handleTextSearch} search={search} handleActivePage={handleActivePage} />
+                    <div className="main__table">
+                        <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Ngày</th>
+
+                            </tr>
+                            {data?.totalElement > 0 ?
+                                data?.data?.map((item, idx) => {
+                                    return <Item data={item} index={parseInt(5 * (activePage - 1) + idx + 1)} />
+                                }) :
+
+                                <>
+                                    <tbody >
+                                        <tr >
+                                            <td colSpan="4">Không có dữ liệu</td>
+                                        </tr>
+                                    </tbody>
+                                </>
+                            }
+
+                        </table>
                     </div>
+                    {data?.totalElement > 0 ?
+                        <div className="wrapper-paginate">
+                            <Pagination
+                                activePage={activePage}
+                                itemsCountPerPage={5}
+                                totalItemsCount={parseInt(data?.totalElement)}
+                                pageRangeDisplayed={3}
+                                onChange={(item) => setActivePage(item)}
+                            />
+                        </div> : <></>
+                    }
                 </div>
             </div>
-            <Search text={textSearch} handleTextSearch={handleTextSearch} search={search} handleActivePage={handleActivePage} />
-            <div className="main__table">
-                <table>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                        <th>Ngày</th>
 
-                    </tr>
-                    {data?.totalElement > 0 ?
-                        data?.data?.map((item, idx) => {
-                            return <Item data={item} index={parseInt(5 * (activePage - 1) + idx + 1)} />
-                        }) :
-
-                        <>
-                            <tbody >
-                                <tr >
-                                    <td colSpan="4">Không có dữ liệu</td>
-                                </tr>
-                            </tbody>
-                        </>
-                    }
-
-                </table>
-            </div>
-            {data?.totalElement > 0 ?
-                <div className="wrapper-paginate">
-                    <Pagination
-                        activePage={activePage}
-                        itemsCountPerPage={5}
-                        totalItemsCount={parseInt(data?.totalElement)}
-                        pageRangeDisplayed={3}
-                        onChange={(item) => setActivePage(item)}
-                    />
-                </div> : <></>
-            }
         </>
     )
 }
