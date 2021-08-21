@@ -54,8 +54,8 @@ export default function Service() {
                         <table>
                             <tr>
                                 <th>STT</th>
+                                <th>Loại dịch vụ</th>
                                 <th>Tên dịch vụ</th>
-                                <th>Tên dịch vụ phụ</th>
                                 <th>Chức năng</th>
                             </tr>
                             {data?.totalElement > 0 ?
@@ -66,7 +66,11 @@ export default function Service() {
                                 })
                                 :
                                 <>
-                                    No data
+                                    <tbody >
+                                        <tr >
+                                            <td colSpan="8">Không có dữ liệu</td>
+                                        </tr>
+                                    </tbody>
                                 </>
                             }
                         </table>

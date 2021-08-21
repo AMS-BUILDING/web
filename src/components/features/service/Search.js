@@ -37,7 +37,7 @@ export default function Search({ search, textSearch, handleServiceId, handleText
                         })}
                     </select>
                     <div>
-                        <input placeholder="Tên dịch vụ phụ"
+                        <input placeholder="Tên dịch vụ"
                             value={textSearch}
                             onChange={e => {
                                 handleTextSearch(e.target.value)
