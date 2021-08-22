@@ -10,7 +10,7 @@ export default function ForgotPassword() {
     const [email, setEmail] = useState();
     const [message, setMessage] = useState();
     let history = useHistory();
-    const [show,setShow] = useState(false);
+    const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false)
     }
@@ -27,32 +27,34 @@ export default function ForgotPassword() {
     return (
         <>
             <div>
-            <ModalSuccess show={show} handleClose={handleClose} />
+                <ModalSuccess show={show} handleClose={handleClose} />
                 <div id="intro">
                     <div className="middle signin">
                         <div className="login-panel">
                             <div className="logo text-center"><br />
                                 <div onClick={() => {
-                                    history.push('/login')
-                                }}><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
+                                    history.push('/')
+                                }}
+                                    style={{ cursor: 'pointer' }}
+                                ><p style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' }}><b>AMS Building</b></p></div><br /><br />
                             </div>
 
                             <div className="form-group">
-                                <label>
-                                    <i className="fas fa-user fa-fw" />
-                                </label>
                                 <input
+                                    style={{ padding: 20 }}
                                     type="email"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
-                                    placeholder="Email ..."
+                                    placeholder="Email"
+                                    className="form-control"
                                 />
-                                <div>{message && <>{message}</>}</div>
+
                                 {/* <input type="text" className="form-control" placeholder="Username" name="username" required onChange={(e) => setAccount({
                                     ...account,
                                     username: e.target.value
                                 })} /> */}
                             </div>
+                            <div style={{ color: 'yellow' }}>{message && <>{message}</>}</div>
                             {/* <div className="form-group">
                                 <label>
                                     <i className="fas fa-key fa-fw" />
@@ -76,9 +78,11 @@ export default function ForgotPassword() {
                             <div className="form-group">
                                 <div className="col">
                                     <button className="btn btn-sm" onClick={() => {
-                                        history.push('/login')
-                                    }} >
-                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Go to Login
+                                        history.push('/')
+                                    }}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <i className="fas fa-sign-in-alt fa-fw mr-1" />Đăng nhập
                                     </button>
                                 </div>
                             </div>
