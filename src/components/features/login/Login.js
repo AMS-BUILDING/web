@@ -31,7 +31,7 @@ export default function Login({ messageError }) {
                 setMessage("Từ chối truy cập!")
             }
         } else {
-            setMessage("Tài khoản chưa đúng!")
+            setMessage("Tài khoản hoặc mật khẩu chưa đúng!")
         }
     }
     console.log(errors?.username)
@@ -106,7 +106,7 @@ export default function Login({ messageError }) {
                             <div>{errors?.password && <div style={{ color: 'yellow' }}>Chưa nhập mật khẩu!</div>}</div>
                             <br />
                             <div>
-                                <p>{message && message}</p>
+                                <p style={{ color: 'yellow' }}>{message && message}</p>
                             </div>
                             <div className="form-group">
                                 <div className="col">
