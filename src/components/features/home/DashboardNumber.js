@@ -19,7 +19,7 @@ export default function DashboardNumber() {
     }
     return (
         <>
-            <div className="col-sm-6 col-lg-3">
+            <div className="col-sm-6 col-lg-3" style={{ paddingLeft: 0 }}>
                 <div className="card text-white bg-flat-color-1">
                     <div className="card-body pb-0">
                         <div className="dropdown float-right">
@@ -86,7 +86,7 @@ export default function DashboardNumber() {
                 </div>
             </div>
 
-            <div className="col-sm-6 col-lg-3">
+            <div className="col-sm-6 col-lg-3" style={{ paddingRight: 0 }}>
                 <div className="card text-white bg-flat-color-3">
                     <div className="card-body pb-0">
                         <div className="dropdown float-right">
