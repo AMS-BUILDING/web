@@ -8,7 +8,7 @@ import UseRequestService from './UseRequestService';
 export default function Home() {
     return <>
         <div className="container-fluid">
-            <h4 style={{ marginBottom: 30, marginTop: 30 }}>Dashboard</h4>
+            <h4 style={{ marginBottom: 30, marginTop: 30 }}>Biểu đồ</h4>
         </div>
 
         <div className="content mt-3">
