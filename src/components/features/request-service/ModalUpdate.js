@@ -12,12 +12,12 @@ export default function ModalUpdate({ show, handleClose, rqservice, search }) {
     let [status, setStatus] = useState();
     useEffect(() => {
         fetchData()
-     
+
     }, [])
     useEffect(() => {
         fetchStatus()
     }, [statusId])
-  
+
     console.log(statusId)
     let fetchData = async () => {
         let arr = await status_request?.filter((item) => item.name == rqservice?.status);
@@ -60,6 +60,7 @@ export default function ModalUpdate({ show, handleClose, rqservice, search }) {
                         <select
                             value={statusId}
                             onChange={e => setStatusId(e.target.value)}
+                            style={{ width: '100%' }}
                         >
                             {status?.map((item, index) => {
                                 return (

@@ -17,7 +17,27 @@ export default function Header({ handleClick }) {
     console.log(data)
     return <header id="header" className="header">
         <div className="header-menu">
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                <div className="language-select dropdown" id="language-select">
+                    <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
+                        aria-expanded="true">
+                        <i className="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div className="dropdown-menu" aria-labelledby="language">
+                        <div className="dropdown-item">
+                            <span className="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div className="dropdown-item">
+                            <i className="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div className="dropdown-item">
+                            <i className="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div className="dropdown-item">
+                            <i className="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
                 <div className="user-area dropdown float-right">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -41,26 +61,7 @@ export default function Header({ handleClick }) {
                     </div>
                 </div>
 
-                <div className="language-select dropdown" id="language-select">
-                    <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
-                        aria-expanded="true">
-                        <i className="flag-icon flag-icon-us"></i>
-                    </a>
-                    <div className="dropdown-menu" aria-labelledby="language">
-                        <div className="dropdown-item">
-                            <span className="flag-icon flag-icon-fr"></span>
-                        </div>
-                        <div className="dropdown-item">
-                            <i className="flag-icon flag-icon-es"></i>
-                        </div>
-                        <div className="dropdown-item">
-                            <i className="flag-icon flag-icon-us"></i>
-                        </div>
-                        <div className="dropdown-item">
-                            <i className="flag-icon flag-icon-it"></i>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </header>

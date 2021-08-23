@@ -1,11 +1,11 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
-export default function ModalDetail({ show, handleClose,data }) {
+export default function ModalDetail({ show, handleClose, data }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Chi tiết thông tin làm thẻ xe</Modal.Title>
                 </Modal.Header>
@@ -18,7 +18,7 @@ export default function ModalDetail({ show, handleClose,data }) {
                                     <input type="text" value={data?.vehicleOwner} />
                                 </div>
                             </li>
-                                                      
+
                             <li className="menu__item">
                                 <div className="menu__item--title">Số ĐT:</div>
                                 <div className="menu__item--input">
@@ -31,7 +31,7 @@ export default function ModalDetail({ show, handleClose,data }) {
                                     <input type="text" value={} />
                                 </div>
                             </li> */}
-                            
+
                             <li className="menu__item">
                                 <div className="menu__item--title">Tên xe:</div>
                                 <div className="menu__item--input">
@@ -62,8 +62,8 @@ export default function ModalDetail({ show, handleClose,data }) {
                                     <input type="text" value={data?.status} />
                                 </div>
                             </li>
-                           
-                           
+
+
                         </ul>
 
                     </Modal.Body>

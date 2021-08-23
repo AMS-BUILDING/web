@@ -7,14 +7,8 @@ import MonthlyVehicle from './MonthlyVehicle';
 import UseRequestService from './UseRequestService';
 export default function Home() {
     return <>
-        <div className="breadcrumbs">
-            <div className="col-sm-4">
-                <div className="page-header float-left">
-                    <div className="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
+        <div className="container-fluid">
+            <h4 style={{ marginBottom: 30, marginTop: 30 }}>Dashboard</h4>
         </div>
 
         <div className="content mt-3">

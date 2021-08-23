@@ -34,7 +34,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal show={show} onHide={handleClose} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật trạng thái làm thẻ xe</Modal.Title>
                 </Modal.Header>
@@ -61,7 +61,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                     </Modal.Body>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={() => onSubmit()}>
+                    <Button variant="success" onClick={() => onSubmit()}>
                         Cập nhật
                     </Button>
                     <Button variant="secondary" onClick={() => {
