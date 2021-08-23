@@ -191,7 +191,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="success" type="submit">
-                            Tiếp
+                            Thêm
                         </Button>
                         <Button variant="secondary" onClick={() => {
 
