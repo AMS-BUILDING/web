@@ -2,9 +2,9 @@
 
   on:
     push:
-      branches: [ MAIN-FRONTEND ]
+      branches: [ develop ]
     pull_request:
-      branches: [ MAIN-FRONTEND ]
+      branches: [ develop ]
 
   jobs:
     build:
