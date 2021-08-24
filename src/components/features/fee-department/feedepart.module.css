@@ -1,0 +1,14 @@
+.btnSearch {
+    background-color: #5cb377 !important;
+    color: white;
+    border: 1px solid #5cb377;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 40px;
+}
+.wrapContent{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 3px
+}

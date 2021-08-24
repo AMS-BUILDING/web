@@ -7,7 +7,7 @@ import Search from './Search';
 import API from '../../../lib/API';
 import { generatePath } from 'react-router-dom';
 
-export default function ModalAddCard({ show, handleCloseAdd, search }) {
+export default function ModalAddCard({ show, handleCloseAdd, search, handleAdd }) {
 
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
@@ -20,6 +20,7 @@ export default function ModalAddCard({ show, handleCloseAdd, search }) {
         let resp = await API.authorizedJSONPost(path);
         if (resp.ok) {
             handleCloseAdd()
+            handleAdd()
             search()
             reset({
                 email: null
@@ -35,7 +36,7 @@ export default function ModalAddCard({ show, handleCloseAdd, search }) {
             <Modal show={show} onHide={handleCloseAdd} animation={false} centered>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Thêm thông tin chủ hộ</Modal.Title>
+                        <Modal.Title>Thêm  thẻ căn hộ</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <ul className="menu">
@@ -50,7 +51,7 @@ export default function ModalAddCard({ show, handleCloseAdd, search }) {
                                         {...register("email", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.email && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                             </li>
                         </ul>
                     </Modal.Body>

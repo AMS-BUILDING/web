@@ -52,13 +52,17 @@ function Admin({ roleId }) {
 
   let handleClick = (item) => {
     dispatch(setPageRedux(JSON.parse(JSON.stringify(item))))
+  };
+  const [isChange,setIsChange] = useState(false);
+  const handleChange = () => {
+    setIsChange(!isChange)
   }
   return (
     <>
       <LeftPanel roleId={roleId} handleRoomName={handleRoomName} />
       <div id="right-panel" className="right-panel">
-        <Header handleClick={handleClick} />
-        <Dashboard roomName={roomName} handleRoomName={handleRoomName} />
+        <Header handleClick={handleClick} isChange={isChange} />
+        <Dashboard roomName={roomName} handleRoomName={handleRoomName} handleChange={handleChange} />
         <Footer />
       </div>
 
