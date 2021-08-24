@@ -49,7 +49,7 @@ export default function Item({ data, index, search }) {
             <tr>
                 <td>{index}</td>
                 <td>{data?.vehicleOwner}</td>
-                <td>{data?.vehicleName}</td>
+               
                 <td>{data?.type}</td>
                 <td>{data?.color}</td>
                 <td>{data?.licensePlates}</td>
@@ -87,6 +87,7 @@ export default function Item({ data, index, search }) {
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
                 data={data}
+                search={search}
             />
         </>
     )

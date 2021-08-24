@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import API from '../../../lib/API';
 
-export default function ModalAdd({ show, handleClose, handleShow, search, apartmentId}) {
+export default function ModalAdd({ show, handleClose, handleShow, search, apartmentId }) {
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     let [position, setPosition] = useState();
@@ -22,7 +22,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
 
     }
 
-    
+
     let onSubmit = async (data) => {
         let path = '/admin/a/apartment/add';
         let objData = {
@@ -85,18 +85,17 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                     <div className="menu__item--title">Giới tính:</div>
                                     <div className="menu__item--input">
                                         <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                <input type="radio" style={{ width: 50 }}
-
+                                            <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
+                                                <input type="radio" style={{ width: 20 }}
                                                     {...register("gender", { required: true })}
                                                     value={true}
                                                     defaultChecked={true}
                                                     defaultValue={true}
-                                                /> Nam</div>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                                /> <span style={{ marginLeft: 5 }}>Nam</span></div>
+                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
                                                 {...register("gender", { required: true })}
                                                 value={false}
-                                            />Nữ</div>
+                                            /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                         </div>
                                     </div>
                                     <div className="menu__item--error"> {errors.gender && <span>Trường này không được để trống</span>}</div>
@@ -118,10 +117,10 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                     <div className="menu__item--input">
                                         <input type="text"
                                             name="phone"
-                                            {...register("phone", { required: true })}
+                                            {...register("phone")}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.phone && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"></div>
 
                                 </li>
                                 <li className="menu__item">
@@ -144,17 +143,16 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                         />
                                     </div>
                                     <div className="menu__item--error"> {errors.homeTown && <span>Trường này không được để trống</span>}</div>
-
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Email:</div>
                                     <div className="menu__item--input">
                                         <input type="text"
                                             name="email"
-                                            {...register("email", { required: true })}
+                                            {...register("email")}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.email && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> </div>
 
                                 </li>
                                 <li className="menu__item">
@@ -162,10 +160,10 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                     <div className="menu__item--input">
                                         <input type="text"
                                             name="identifyCard"
-                                            {...register("identifyCard", { required: true })}
+                                            {...register("identifyCard")}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.identifyCard && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"></div>
 
                                 </li>
                                 <li className="menu__item">
@@ -191,7 +189,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="success" type="submit">
-                            Tiếp
+                            Thêm
                         </Button>
                         <Button variant="secondary" onClick={() => {
 

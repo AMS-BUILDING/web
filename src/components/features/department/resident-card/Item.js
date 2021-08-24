@@ -120,19 +120,29 @@ export default function Item({ data, index, search }) {
                 <ModalDelete showDelete={showDelete} handleCloseDelete={handleCloseDelete} deleteItem={deleteItem} search={search} />
 
                 <td>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {data?.status !== "Huy bỏ" ?
+                            <div>
+                                <svg style={{ width: 25, height: 25, backgroundColor: '#ffc107', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
+                                    onClick={handleShowUpdate}
+                                >
+                                    <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                                </svg>
+                            </div>
+                            :
+                            <div style={{ width: 25, height: 25, color: 'white', padding: 3, borderRadius: 3, marginRight: 10 }}>
 
-                    <svg style={{ width: 25, height: 25, backgroundColor: '#ffc107', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
-                        onClick={handleShowUpdate}
-                    >
-                        <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
-                    </svg>
-                    <svg style={{ width: 25, height: 25, backgroundColor: '#dc3545', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
-                        onClick={() => {
-                            setShowDelete(true)
-                        }}
-                    >
-                        <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
-                    </svg>
+                            </div>
+                        }
+                        <svg style={{ width: 25, height: 25, backgroundColor: '#dc3545', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
+                            onClick={() => {
+                                setShowDelete(true)
+                            }}
+                        >
+                            <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+                        </svg>
+                    </div>
+
                 </td>
 
             </tr>
@@ -141,7 +151,7 @@ export default function Item({ data, index, search }) {
                 handleClose={handleCloseUpdate}
                 data={data}
                 search={search}
-               
+
             />
         </>
     )

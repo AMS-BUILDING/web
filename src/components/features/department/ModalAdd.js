@@ -5,7 +5,7 @@ import ModalAddDepend from './ModalAddDepend';
 import { useForm } from "react-hook-form";
 import API from '../../../lib/API';
 
-export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleShow, blockId, floorId ,search}) {
+export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleShow, blockId, floorId, search }) {
     const [showDepend, setShowDepend] = useState(false);
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     let [ownPerson, setOwnPerson] = useState();
@@ -24,6 +24,13 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
             let response = await resp.json();
             setApartment(response)
         }
+    }
+    let handleOwnPerson = (e) => {
+        let { name, value } = e.target;
+        setOwnPerson({
+            ...ownPerson,
+            [name]: value
+        })
     }
     const onSubmit = async data => {
         let path = `/admin/validate/owner`;
@@ -60,16 +67,22 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                 <div className="menu__item--input">
                                     <input type="text"
                                         {...register("name", { required: true })}
+                                        value={ownPerson?.name}
+                                        name="name"
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.name && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.name && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Số phòng:</div>
                                 <div className="menu__item--input">
                                     <select {...register("apartmentId", { required: true })}
-                                    defaultValue={apartment[0]?.id}
+                                        defaultValue={apartment[0]?.id}
+                                        value={ownPerson?.apartmentId}
+                                        name="apartmentId"
+                                        onChange={e => handleOwnPerson(e)}
                                     >
 
                                         {apartment?.map((item, index) => {
@@ -79,27 +92,27 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         })}
                                     </select>
                                 </div>
-                                <div className="menu__item--error"> {errors.apartmentId && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.apartmentId && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                             </li>
                             <li className="menu__item">
                                 <div className="menu__item--title">Giới tính:</div>
                                 <div className="menu__item--input">
                                     <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <input type="radio" style={{ width: 50 }}
+                                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
+                                            <input type="radio" style={{ width: 20 }}
 
                                                 {...register("gender", { required: true })}
                                                 defaultValue={true}
                                                 defaultChecked={true}
                                                 value={true}
-                                            /> Nam</div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
+                                            /> <span style={{ marginLeft: 5 }}>Nam</span></div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
                                             {...register("gender", { required: true })}
                                             value={false}
-                                        />Nữ</div>
+                                        /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                     </div>
                                 </div>
-                                <div className="menu__item--error"> {errors.gender && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.gender && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -110,7 +123,7 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                         {...register("dob", { required: true })}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.dob && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.dob && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -119,9 +132,12 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                     <input type="text"
                                         name="phone"
                                         {...register("phone", { required: true })}
+                                        value={ownPerson?.phone}
+
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.phone && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.phone && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -130,9 +146,15 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                     <input type="text"
                                         name="email"
                                         {...register("email", { required: true })}
+
+
+
+                                        value={ownPerson?.email}
+
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.email && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.email && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -141,9 +163,12 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                     <input type="text"
                                         name="identifyCard"
                                         {...register("identifyCard", { required: true })}
+                                        value={ownPerson?.identifyCard}
+
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.identifyCard && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.identifyCard && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -152,9 +177,12 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                     <input type="text"
                                         name="currentAddress"
                                         {...register("currentAddress", { required: true })}
+                                        value={ownPerson?.currentAddress}
+
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.currentAddress && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.currentAddress && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                             <li className="menu__item">
@@ -163,9 +191,12 @@ export default function ModalAdd({ show, handleCloseAdd, handleShowAdd, handleSh
                                     <input type="text"
                                         name="homeTown"
                                         {...register("homeTown", { required: true })}
+                                        value={ownPerson?.homeTown}
+
+                                        onChange={e => handleOwnPerson(e)}
                                     />
                                 </div>
-                                <div className="menu__item--error"> {errors.homeTown && <span>This field is required</span>}</div>
+                                <div className="menu__item--error"> {errors.homeTown && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                             </li>
                         </ul>

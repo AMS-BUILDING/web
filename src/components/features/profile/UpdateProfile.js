@@ -6,19 +6,19 @@ import API, { BASE_DOWNLOAD_URL } from '../../../lib/API';
 import { Controller, useForm } from "react-hook-form";
 
 export default function UpdateProfile({ show, handleClose, search }) {
-
     const { control, reset, handleSubmit, formState: { errors }, register } = useForm();
     const [message, setMessage] = useState()
     const [data, setData] = useState();
     const [filePath, setFilePath] = useState();
     const [file, setFile] = useState();
+    const [date, setDate] = useState();
     useEffect(() => {
         fetchData()
     }, []);
     useEffect(() => {
         fetchData()
     }, [show]);
-    console.log("a", data)
+  
     const fetchData = async () => {
         let path = `/member/account/profile`;
         let resp = await API.authorizedJSONGET(path);
@@ -28,25 +28,50 @@ export default function UpdateProfile({ show, handleClose, search }) {
         }
     }
     let submitHandler = async form => {
-        console.log(form)
-        let path = `/tenant/update/profile`;
-        let data = new FormData();
-        data.append("name", form?.name);
-        data.append("dob", form?.dob);
-        data.append("phone", form?.phone);
-        data.append("currentAddress", form?.currentAddress);
-        data.append("homeTown", form?.homeTown);
-        data.append("multipartFile", file)
-        let resp = await API.authorizedFilePost(path, data);
-        if (resp.ok) {
-            search()
-            reset(null)
-            handleClose()
+        if (filePath) {
+            console.log("x", moment(date).format("DD/MM/YYYY"))
+            console.log("asas", form)
+            let path = `/tenant/update/profile`;
+            let data = new FormData();
+            data.append("name", form?.name);
+            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) :  data.append("dob", data?.dob) ;
+            data.append("phone", form?.phone);
+            data.append("currentAddress", form?.currentAddress);
+            data.append("homeTown", form?.homeTown);
+            data.append("identifyCard", form?.identifyCard);
+            data.append("multipartFile", file)
+            let resp = await API.authorizedFilePost(path, data);
+            if (resp.ok) {
+                search()
+                reset()
+                handleClose()
+            } else {
+                let response = await resp.json();
+                console.log(response)
+                setMessage(response?.message)
+            }
         } else {
-            let response = await resp.json();
-            console.log(response)
-            setMessage("Vui lòng kiểm tra lại thông tin")
+            console.log("asas", form)
+            let path = `/tenant/update/profile`;
+            let data = new FormData();
+            data.append("name", form?.name);
+            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) :  data.append("dob", data?.dob) ;
+            data.append("phone", form?.phone);
+            data.append("currentAddress", form?.currentAddress);
+            data.append("homeTown", form?.homeTown);
+            data.append("identifyCard", form?.identifyCard);
+            let resp = await API.authorizedFilePost(path, data);
+            if (resp.ok) {
+                search()
+                reset()
+                handleClose()
+            } else {
+                let response = await resp.json();
+                console.log(response)
+                setMessage(response?.message)
+            }
         }
+
     }
     return (
         <>
@@ -69,16 +94,13 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    name: e.target.value
-                                                })
                                             }}
-                                            value={data?.name}
+                                            value={value}
                                         />
 
                                     )}
@@ -87,67 +109,16 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                 />
                             </div>
                         </li>
-                        {/* <li className="menu__item">
-                            <div className="menu__item--title">Giới tính:</div>
-                            <div className="menu__item--input">
-                                <Controller
-                                    control={control}
-                                    render={({ field: { onChange, onBlur, value } }) => (
-                                        <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                <input type="radio" style={{ width: 50 }}
-                                                    value={true}
-                                                    onClick={() => {
-                                                        onChange(true)
-                                                        setData({
-                                                            ...data,
-                                                            gender: true
-                                                        })
-                                                    }}
-                                                    name="gender"
-                                                    defaultChecked={data?.gender}
-                                                /> Nam</div>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
-                                                value={false}
-                                                onClick={() => {
-                                                    onChange(false)
-                                                    setData({
-                                                        ...data,
-                                                        gender: false
-                                                    })
-                                                }}
-                                                defaultChecked={!data?.gender}
-                                            />Nữ</div>
-                                        </div>
 
-                                    )}
-                                    name="gender"
-                                    defaultValue={data?.gender}
-                                />
-                            </div>
-                        </li> */}
                         <li className="menu__item">
                             <div className="menu__item--title">Ngày sinh:</div>
                             <div className="menu__item--input">
-                                <Controller
-                                    control={control}
-                                    render={({ field: { onChange, onBlur, value } }) => (
-                                        <input
-                                            onBlur={onBlur}
-                                            type="date"
-                                            className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    dob: e.target.value
-                                                })
-                                            }}
-                                            value={data?.dob}
-                                        />
-
-                                    )}
-                                    name="dob"
+                                <input
+                                    type="date"
+                                    onChange={e => {
+                                        setDate(e.target.value)
+                                    }}
+                                    value={date}
                                     defaultValue={data?.dob}
                                 />
                             </div>
@@ -159,16 +130,13 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    phone: e.target.value
-                                                })
                                             }}
-                                            value={data?.phone}
+                                            value={value}
                                         />
 
                                     )}
@@ -184,16 +152,13 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    identifyCard: e.target.value
-                                                })
                                             }}
-                                            value={data?.identifyCard}
+                                            value={value}
                                         />
 
                                     )}
@@ -209,16 +174,13 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    currentAddress: e.target.value
-                                                })
                                             }}
-                                            value={data?.currentAddress}
+                                            value={value}
                                         />
 
                                     )}
@@ -234,16 +196,13 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     control={control}
                                     render={({ field: { onChange, onBlur, value } }) => (
                                         <input
+                                            type="text"
                                             onBlur={onBlur}
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setData({
-                                                    ...data,
-                                                    homeTown: e.target.value
-                                                })
                                             }}
-                                            value={data?.homeTown}
+                                            value={value}
                                         />
 
                                     )}
@@ -267,7 +226,8 @@ export default function UpdateProfile({ show, handleClose, search }) {
 
                             </div>
 
-                            {filePath ? (
+
+                            {filePath &&
                                 <div>
                                     <img
                                         id="target"
@@ -276,16 +236,14 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                         alt=""
                                     />
                                 </div>
-                            ) : (
-                                <>
-                                    <img
-                                        id="target"
-                                        src={`${BASE_DOWNLOAD_URL}${data?.image}`}
-                                        style={{ width: 300, height: 200, objectFit: "cover" }}
-                                        alt=""
-                                    />
-                                </>
-                            )}
+                            }
+                            {!filePath && <img
+                                id="target"
+                                src={`${BASE_DOWNLOAD_URL}${data?.image}`}
+                                style={{ width: 300, height: 200, objectFit: "cover" }}
+                                alt=""
+                            />}
+
                         </li>
 
 

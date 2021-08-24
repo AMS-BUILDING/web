@@ -7,6 +7,9 @@ export default function ModalDetail({ show, handleClose,id }) {
     useEffect(() => {
         search()
     },[])
+    useEffect(() => {
+        search()
+    },[id])
     let search = async () => {
         let path = `/manager-service/request-service/get-one/${id}`;
         let resp = await API.authorizedJSONGET(path);
