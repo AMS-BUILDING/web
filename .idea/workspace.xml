@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="" />
+    <list default="true" id="7f551004-b56e-42d1-ba4b-42810228b373" name="Default Changelist" comment="Add file yml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendors/bootstrap/build/saucelabs-unit-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/bootstrap/build/saucelabs-unit-test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendors/chart.js/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/chart.js/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendors/flag-icon-css/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/flag-icon-css/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/DataSource.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/DataSource.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +44,18 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
+  <component name="RunManager">
+    <configuration name="client" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,6 +71,7 @@
       <workItem from="1627542130823" duration="593000" />
       <workItem from="1628245708413" duration="969000" />
       <workItem from="1629001457247" duration="765000" />
+      <workItem from="1629865220528" duration="99000" />
     </task>
     <servers />
   </component>

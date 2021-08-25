@@ -59,7 +59,7 @@ To build `*.less` files
 $ grunt build
 ```
 
-To serve it on `localhost:8000`
+To serve it on `103.130.212.222:8000`
 
 ```bash
 $ grunt connect
