@@ -6,7 +6,7 @@ import style from './profile.module.css';
 import InforProfile from './InforProfile';
 import ChangeProfile from './ChangeProfile';
 
-export default function Profile({handleChange}) {
+export default function Profile({ handleChange }) {
     const [data, setData] = useState();
     useEffect(() => {
         search()
@@ -40,8 +40,8 @@ export default function Profile({handleChange}) {
         <>
 
             <div className="container-fluid">
-                
-                <div className="row">
+
+                <div className="row" style={{ padding: 10 }}>
                     <div className="col-md-4 col-xs-12">
                         <div className="white-box">
                             <div className="user-bg"> <img width="100%" className="user-avatar rounded-circle"
@@ -73,7 +73,7 @@ export default function Profile({handleChange}) {
 
                             </ul>
                             {tab == "infor" && <InforProfile data={data} />}
-                            {tab == "changeProfile" && <ChangeProfile data={data} search={search} /> }
+                            {tab == "changeProfile" && <ChangeProfile data={data} search={search} />}
                             {tab == "changePassword" && <ChangePassword />}
 
                             <div className="app-card-footer p-4 mt-auto">
