@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "http://103.130.212.222:8080/api";
 export const doPost = async (path, headers, formData) => {
   return axios({
     url: BASE_URL + path,
