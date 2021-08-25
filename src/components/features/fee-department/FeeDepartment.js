@@ -78,7 +78,7 @@ export default function FeeDepartment() {
                         handleClose={handleClose}
                         handleShow={handleShow}
                     />
-                    <div style={{ paddingLeft: '30px' }}>
+                    <div style={{ paddingLeft: '10px' }}>
                         <button onClick={() => setIsSign("service")} style={{
                             border: '1px solid gray', color: '#333', backgroundColor: (isSign == "service" ? '#5cb377' : 'transparent'),
                             cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
@@ -96,7 +96,7 @@ export default function FeeDepartment() {
                             }}
                         >Tổng</button>
                     </div>
-                    <div className="main__table">
+                    <div className="main__table" style={{ marginTop: 10 }}>
                         <br />
                         {isSign == "service" && <Service data={data} handleActivePage={handleActivePage} activePage={activePage} />}
                         {isSign == "request" && <SignUpService data={data} date={moment(date).format("MM/YYYY")} handleActivePage={handleActivePage} activePage={activePage} />}
