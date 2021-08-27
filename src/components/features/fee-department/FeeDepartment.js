@@ -80,18 +80,18 @@ export default function FeeDepartment() {
                     />
                     <div style={{ paddingLeft: '10px' }}>
                         <button onClick={() => setIsSign("service")} style={{
-                            border: '1px solid gray', color: '#333', backgroundColor: (isSign == "service" ? '#5cb377' : 'transparent'),
+                            border: '1px solid #d2d6dd', color: '#333', backgroundColor: (isSign == "service" ? '#5cb377' : 'transparent'),
                             cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
                         }}>Dịch vụ đặt chỗ</button>
                         <button onClick={() => setIsSign("request")}
                             style={{
-                                border: '1px solid gray', color: '#333', backgroundColor: (isSign == "request" ? '#5cb377' : 'transparent'),
+                                border: '1px solid #d2d6dd', color: '#333', backgroundColor: (isSign == "request" ? '#5cb377' : 'transparent'),
                                 cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
                             }}
                         >Đăng ký dịch vụ</button>
                         <button onClick={() => setIsSign("total")}
                             style={{
-                                border: '1px solid gray', color: '#333', backgroundColor: (isSign == "total" ? '#5cb377' : 'transparent'),
+                                border: '1px solid #d2d6dd', color: '#333', backgroundColor: (isSign == "total" ? '#5cb377' : 'transparent'),
                                 cursor: 'pointer', padding: 10, borderRadius: 5, fontFamily: 'Roboto'
                             }}
                         >Tổng</button>

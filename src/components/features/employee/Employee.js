@@ -30,14 +30,13 @@ export default function Employee() {
     const handleMessage = (text) => {
         setMessage(text)
     }
-    console.log(data?.data)
+
     useEffect(() => {
         search()
         window.scrollTo(0, 0)
     }, [])
     useEffect(() => {
         search()
-
     }, [activePage])
     let search = async () => {
         let path = `/manager-service/employee/search?pageNo=${activePage - 1}&name=${name}&phoneNumber=${phone}&identifyCard=${identifyCard}&positionId=${positionId}`;
@@ -69,7 +68,7 @@ export default function Employee() {
     const roleId = localStorage.getItem("roleId");
     return <>
         <div className="container-fluid">
-            <h4 style={{ marginTop: 30, marginBottom: 30 }}>Nhân viên</h4>
+            <h4 style={{ marginBottom: 20, marginTop: 20 }}>Nhân viên</h4>
             <div className={style.wrapContent}>
                 <div className={style.wrapSearch}>
                     <input
@@ -97,17 +96,16 @@ export default function Employee() {
                     }} className={style.btnSearch}><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                             <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
                         </svg></button>
-                    {roleId == 1 && <div>
 
-                    </div>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
-
-                    <button className={style.btnAdd} style={{ marginRight: 20 }}
+                    {roleId == 1 && <div>
+                        <button className={style.btnAdd} onClick={handleShow} style={{ marginRight: 20 }}>Thêm Nhân Viên</button>
+                    </div>}
+                    <button className={style.btnAdd}
                         type="button"
                         onClick={() => download("Employee.csv")}
                     >Tải excel</button>
-                    <button className={style.btnAdd} onClick={handleShow} >Thêm Nhân Viên</button>
                 </div>
                 <div className="main__table">
                     <table>
@@ -145,7 +143,9 @@ export default function Employee() {
                             itemsCountPerPage={5}
                             totalItemsCount={parseInt(data?.totalElement)}
                             pageRangeDisplayed={3}
-                            onChange={(item) => setActivePage(item)}
+                            onChange={(item) => {
+                                setActivePage(item)
+                            }}
                         />
                     </div> : <></>
                 }

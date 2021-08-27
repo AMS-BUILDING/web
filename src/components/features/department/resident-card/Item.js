@@ -108,8 +108,6 @@ export default function Item({ data, index, search }) {
             setShowDelete(false)
             search()
         }
-
-
     }
     return (
         <>
@@ -151,6 +149,7 @@ export default function Item({ data, index, search }) {
                 handleClose={handleCloseUpdate}
                 data={data}
                 search={search}
+                id={data.residentId}
 
             />
         </>

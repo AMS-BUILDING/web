@@ -31,7 +31,7 @@ export default function Item({ data, index, search }) {
 
 
     }
-    console.log(data)
+    
     return (
         <>
             <tr>
@@ -40,7 +40,6 @@ export default function Item({ data, index, search }) {
                 <td>{data?.phone}</td>
                 <td>{data?.roomNumber}</td>
                 <ModalDelete showDelete={showDelete} handleCloseDelete={handleCloseDelete} deleteItem={deleteItem} search={search} />
-
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
                         onClick={handleShow}

@@ -138,7 +138,7 @@ const API = {
     authorizedJSONGETAVATAR: async (path) => {
         // const token = await AuthVerification.token()
 
-        return (fetch("http://103.130.212.222:8080" + path, {
+        return (fetch("http://localhost:8080" + path, {
             method: "GET",
             headers: {
                 Accept: "*/*",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import API from '../../../lib/API';
 import ModalDetail from './ModalDetail';
 import ModalUpdate from './ModalUpdate';
@@ -10,7 +10,6 @@ export default function Item({ data, index, search }) {
     const handleCloseDelete = () => {
         setShowDelete(false)
     }
-    console.log(data)
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const handleCloseMessage = () => {
@@ -22,10 +21,7 @@ export default function Item({ data, index, search }) {
     const handleMessage = (text) => {
         setMessage(text)
     }
-
-
     const deleteItem = async () => {
-
         let path = `/admin/employee/remove/${data?.id}`;
         let resp = await API.authorizedJSONPost(path);
         if (resp.ok) {
@@ -97,8 +93,6 @@ export default function Item({ data, index, search }) {
                 handleClose={handleCloseUpdate}
                 data={data}
                 search={search}
-                handleShowMessage={handleShowMessage}
-                handleMessage={handleMessage}
             />
         </>
     )

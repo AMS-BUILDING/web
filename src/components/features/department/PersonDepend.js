@@ -11,7 +11,7 @@ export default function PersonDepend({ addEvent, minusEvent, index, length, ownP
     let [person, setPerson] = useState(depend[index]);
     let [positionId, setPositionId] = useState(person?.positionId ? person?.positionId : 5);
     const [gender, setGender] = useState(true)
-
+  
 
     let handleData = (e) => {
         let { value, name } = e.target;
@@ -128,19 +128,19 @@ export default function PersonDepend({ addEvent, minusEvent, index, length, ownP
                             <div className="menu__item--title">Giới tính:</div>
                             <div className="menu__item--input">
                                 <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
-                                        <input type="radio" style={{ width: 20 }}
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <input type="radio" style={{ width: 50 }}
 
                                             onClick={() => setGender(true)}
                                             checked={gender}
 
                                             name={`${index}`}
-                                        /> <span style={{ marginLeft: 5 }}>Nam</span></div>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
+                                        /> Nam</div>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }}
                                         onClick={() => setGender(false)}
                                         checked={!gender}
                                         name={`${index}`}
-                                    /><span style={{ marginLeft: 5 }}>Nữ</span></div>
+                                    />Nữ</div>
                                 </div>
                             </div>
                             <div className="menu__item--error"> </div>

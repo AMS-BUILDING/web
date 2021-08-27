@@ -74,7 +74,7 @@ export default function Profile({ handleChange }) {
                             </ul>
                             {tab == "infor" && <InforProfile data={data} />}
                             {tab == "changeProfile" && <ChangeProfile data={data} search={search} />}
-                            {tab == "changePassword" && <ChangePassword />}
+                            {tab == "changePassword" && <ChangePassword handleClose={handleClose} search={search} />}
 
                             <div className="app-card-footer p-4 mt-auto">
                             </div>
