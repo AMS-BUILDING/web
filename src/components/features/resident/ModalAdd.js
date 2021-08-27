@@ -27,24 +27,25 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
         let path = '/admin/a/apartment/add';
         let objData = {
             apartmentId: apartmentId,
-            request: data
+            request: {
+                name: data.name,
+                identifyCard: data?.identifyCard ? data.identifyCard : "",
+                phone: data?.phone ? data.phone : "",
+                email: data?.email ? data.email : "",
+                gender: data.gender,
+                dob: data.dob,
+                positionId: data.positionId,
+                currentAddress: data.currentAddress,
+                homeTown: data.homeTown
+            }
         };
         console.log("objData", objData)
         let resp = await API.authorizedJSONPost(path, objData);
         if (resp.ok) {
             handleClose()
             search()
-            setMessage(null)
-            reset({
-                name: null,
-                identifyCard: null,
-                phone: null,
-                email: null,
-                gender: true,
-                dob: null,
-                currentAddress: null,
-                homeTown: null
-            })
+            setMessage("")
+            reset()
             console.log("ok")
         } else {
             let response = await resp.json();
@@ -60,6 +61,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                 onHide={() => {
                     handleClose()
                     setMessage(null)
+                    reset()
                 }}
                 animation={false} centered>
                 <form
@@ -79,7 +81,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("name", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.name && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.name && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Giới tính:</div>
@@ -98,7 +100,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                         </div>
                                     </div>
-                                    <div className="menu__item--error"> {errors.gender && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.gender && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -109,7 +111,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("dob", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.dob && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.dob && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -131,7 +133,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("currentAddress", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.currentAdress && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.currentAdress && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
                                 <li className="menu__item">
@@ -142,7 +144,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             {...register("homeTown", { required: true })}
                                         />
                                     </div>
-                                    <div className="menu__item--error"> {errors.homeTown && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.homeTown && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                                 </li>
                                 <li className="menu__item">
                                     <div className="menu__item--title">Email:</div>
@@ -177,7 +179,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
                                             })}
                                         </select>
                                     </div>
-                                    <div className="menu__item--error"> {errors.positionId && <span>Trường này không được để trống</span>}</div>
+                                    <div className="menu__item--error"> {errors.positionId && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
 
                                 </li>
 
@@ -195,6 +197,7 @@ export default function ModalAdd({ show, handleClose, handleShow, search, apartm
 
                             handleClose()
                             setMessage(null)
+                            reset()
                         }}>
                             Quay lại
 

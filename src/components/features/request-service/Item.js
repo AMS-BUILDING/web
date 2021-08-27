@@ -54,7 +54,8 @@ export default function Item({ index, data, search }) {
             <ModalUpdate
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
-                rqservice={data}
+                statusName={data.status}
+                id={data.id}
                 search={search}
             />
         </>

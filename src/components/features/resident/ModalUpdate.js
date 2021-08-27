@@ -6,57 +6,56 @@ import API from '../../../lib/API';
 import { Controller, useForm } from "react-hook-form";
 
 export default function ModalUpdate({ show, handleClose, data, search }) {
-    const { control, reset, handleSubmit, formState: { errors }, register } = useForm();
-    const [resident, setResident] = useState();
-    const [message, setMessage] = useState()
     let [position, setPosition] = useState();
+    let [arrPosition, setArrPosition] = useState([])
+    const { control, reset, handleSubmit, formState: { errors }, register } = useForm();
+    const [gender, setGender] = useState();
+    const [message, setMessage] = useState()
+    const [dob, setDob] = useState();
     useEffect(() => {
         fetchData()
-    }, [])
-  
+    }, [data])
+
     let fetchData = async () => {
-        let path = `/manager-service/position/search?show=true`;
-        let resp = await API.authorizedJSONGET(path);
-        if (resp.ok) {
-            let response = await resp.json();
-            setPosition(response);
-            let arr = await response?.filter((item) => item.name == data?.positionId);
-            setResident({
-                ...resident,
-                accountId: data?.accountId,
-                name: data?.name,
-                gender: data?.gender,
-                dob: data?.dob,
-                phone: data?.phone,
-                email: data?.email,
-                identifyCard: data?.identifyCard,
-                positionId: arr[0]?.id,
-                currentAddress: data?.currentAddress,
-                homeTown: data?.homeTown
-            })
+        setDob(data.dob)
+        setGender(data.gender)
+        if (data.relationShip == "Chủ hộ") {
+            setPosition(null)
+        } else {
+            let path = `/manager-service/position/search?show=true`;
+            let resp = await API.authorizedJSONGET(path);
+            if (resp.ok) {
+                let response = await resp.json();
+                setArrPosition(response);
+                let id = await response?.filter((item) => item.name == data.relationShip)?.[0]?.id;
+                setPosition(id)
+            }
         }
+
     }
 
 
 
     let submitHandler = async form => {
         let objForm = {
-            accountId: data?.accountId,
-            name: form?.name,
-            gender: form?.gender,
-            dob: moment(form?.dob, "YYYY-MM-DD").format("DD/MM/YYYY"),
-            phone: form?.phone,
-            email: form?.email,
-            identifyCard: form?.identifyCard,
-            currentAddress: form?.currentAddress,
-            homeTown: form?.homeTown
+            accountId: data.accountId,
+            name: form.name,
+            gender: gender,
+            dob: dob,
+            phone: form?.phone ? form.phone : "",
+            email: form?.email ? form.email : "",
+            identifyCard: form?.identifyCard ? form.identifyCard : "",
+            currentAddress: form.currentAddress,
+            homeTown: form.homeTown,
+            positionId: position
         }
         console.log(objForm)
         let path = `/admin/resident/update`;
         let resp = await API.authorizedJSONPost(path, objForm);
         if (resp.ok) {
             handleClose()
-            search()
+            search();
+            console.log("ok")
         } else {
             let response = await resp.json();
             setMessage(response.message)
@@ -69,6 +68,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
             <Modal show={show} onHide={() => {
                 handleClose()
                 setMessage(null)
+                reset()
             }} animation={false} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Cập nhật thông tin cư dân</Modal.Title>
@@ -89,82 +89,45 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             className=""
                                             onChange={e => {
                                                 onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    name: e.target.value
-                                                })
                                             }}
-                                            value={resident?.name}
+                                            value={value}
                                         />
 
                                     )}
                                     name="name"
-                                    defaultValue={resident?.name}
+                                    defaultValue={data?.name}
                                 />
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Giới tính:</div>
                             <div className="menu__item--input">
-                                <Controller
-                                    control={control}
-                                    render={({ field: { onChange, onBlur, value } }) => (
-                                        <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
-                                                <input type="radio" style={{ width: 20 }}
-                                                    value={true}
-                                                    onClick={() => {
-                                                        onChange(true)
-                                                        setResident({
-                                                            ...resident,
-                                                            gender: true
-                                                        })
-                                                    }}
-                                                    name="gender"
-                                                    defaultChecked={resident?.gender}
-                                                /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
-                                            <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
-                                                value={false}
-                                                onClick={() => {
-                                                    onChange(false)
-                                                    setResident({
-                                                        ...resident,
-                                                        gender: false
-                                                    })
-                                                }}
-                                                defaultChecked={!resident?.gender}
-                                            /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
-                                        </div>
 
-                                    )}
-                                    name="gender"
-                                    defaultValue={resident?.gender}
-                                />
+                                <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', marginRight: 10 }}>
+                                        <input type="radio" style={{ width: 20 }}
+                                            onClick={() => { setGender(true) }}
+                                            name="gender"
+                                            checked={gender}
+                                        /> <span style={{ marginLeft: 5 }}>Nam</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
+                                        onClick={() => { setGender(false) }}
+                                        name="gender"
+                                        checked={!gender}
+                                    /><span style={{ marginLeft: 5 }}>Nữ</span></div>
+                                </div>
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Ngày sinh:</div>
                             <div className="menu__item--input">
-                                <Controller
-                                    control={control}
-                                    render={({ field: { onChange, onBlur, value } }) => (
-                                        <input
-                                            onBlur={onBlur}
-                                            type="date"
-                                            className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    dob: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.dob}
-                                        />
-
-                                    )}
-                                    name="dob"
-                                    defaultValue={resident?.dob}
+                                <input
+                                    className=""
+                                    onChange={e => {
+                                        setDob(e.target.value)
+                                    }}
+                                    value={dob}
+                                    type="date"
                                 />
                             </div>
                         </li>
@@ -178,19 +141,12 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             type="text"
                                             onBlur={onBlur}
                                             className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    phone: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.phone}
+                                            onChange={e => { onChange(e.target.value) }}
+                                            value={value}
                                         />
-
                                     )}
                                     name="phone"
-                                    defaultValue={resident?.phone}
+                                    defaultValue={data?.phone}
                                 />
                             </div>
                         </li>
@@ -204,19 +160,13 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             type="text"
                                             onBlur={onBlur}
                                             className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    email: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.email}
+                                            onChange={e => { onChange(e.target.value) }}
+                                            value={value}
                                         />
 
                                     )}
                                     name="email"
-                                    defaultValue={resident?.email}
+                                    defaultValue={data?.email}
                                 />
                             </div>
                         </li>
@@ -230,24 +180,17 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             type="text"
                                             onBlur={onBlur}
                                             className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    identifyCard: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.identifyCard}
+                                            onChange={e => { onChange(e.target.value) }}
+                                            value={value}
                                         />
-
                                     )}
                                     name="identifyCard"
-                                    defaultValue={resident?.identifyCard}
+                                    defaultValue={data?.identifyCard}
                                 />
                             </div>
                         </li>
                         <li className="menu__item">
-                            <div className="menu__item--title">Địa chỉ hiện tại:</div>
+                            <div className="menu__item--title">Nơi ở hiện tại:</div>
                             <div className="menu__item--input">
                                 <Controller
                                     control={control}
@@ -256,19 +199,12 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             type="text"
                                             onBlur={onBlur}
                                             className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    currentAddress: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.currentAddress}
+                                            onChange={e => { onChange(e.target.value) }}
+                                            value={value}
                                         />
-
                                     )}
                                     name="currentAddress"
-                                    defaultValue={resident?.currentAddress}
+                                    defaultValue={data?.currentAddress}
                                 />
                             </div>
                         </li>
@@ -282,51 +218,34 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                                             type="text"
                                             onBlur={onBlur}
                                             className=""
-                                            onChange={e => {
-                                                onChange(e.target.value)
-                                                setResident({
-                                                    ...resident,
-                                                    homeTown: e.target.value
-                                                })
-                                            }}
-                                            value={resident?.homeTown}
+                                            onChange={e => { onChange(e.target.value) }}
+                                            value={value}
                                         />
-
                                     )}
                                     name="homeTown"
-                                    defaultValue={resident?.homeTown}
+                                    defaultValue={data?.homeTown}
                                 />
                             </div>
                         </li>
 
                         {data?.relationShip !== "Chủ hộ" &&
                             <li className="menu__item">
-                                <div className="menu__item--title">Quan hệ với chủ hộ:</div>
+                                <div className="menu__item--title">Vị trí:</div>
                                 <div className="menu__item--input">
-                                    <Controller
-                                        control={control}
-                                        render={({ field: { onChange, onBlur, value } }) => (
-                                            <select
-                                                value={resident?.positionId}
-                                                onChange={(e) => {
-                                                    onChange(e.target.value)
-                                                    setResident({ ...resident, positionId: e.target.value })
-                                                }}
-                                            >
-                                                {position?.map((item, index) => {
-                                                    return (
-                                                        <option value={item?.id}>{item?.name}</option>
-                                                    )
-                                                })}
-                                            </select>
-                                        )}
-                                        name="position"
-                                        defaultValue={resident?.positionId}
-                                    />
+                                    <select
+                                        value={position}
+                                        onChange={e => setPosition(e.target.value)}
+                                    >
+                                        {arrPosition?.map((item, index) => {
+                                            return (
+                                                <option key={index} value={item.id} >{item.name}</option>
+                                            )
+                                        })}
+                                    </select>
                                 </div>
+
                             </li>
                         }
-
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
@@ -337,6 +256,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
                         onClick={() => {
                             handleClose()
                             setMessage(null)
+                            reset()
                         }}
                     >
                         Hủy
