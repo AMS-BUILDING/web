@@ -42,7 +42,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
         <>
             <ModalSuccess showSuccess={showSuccess} handleCloseSuccess={handleCloseSuccess} message={message} />
 
-            <div className="app-card-body px-4 w-100" style={{ background: '#fff' }}>
+            <div className="app-card-body px-4 w-100" style={{ background: '#fff', paddingTop: 10 }}>
                 <div className="item border-bottom ">
                     <div className="row justify-content-between align-items-center">
                         <div className="col-auto" style={{ width: '100%' }}>
@@ -53,7 +53,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                     style={{ border: 'none', width: '100%' }}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.password && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> {errors.password && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                     style={{ border: 'none', width: '100%' }}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.newPassword && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> {errors.newPassword && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                         </div>
 
                     </div>
@@ -83,7 +83,7 @@ export default function ChangePassword({ show, handleClose, handleShow, search }
                                     style={{ border: 'none', width: '100%' }}
                                 />
                             </div>
-                            <div className="menu__item--error"> {errors.overPassword && <span>Trường này không được để trống</span>}</div>
+                            <div className="menu__item--error"> {errors.overPassword && <span style={{ fontSize: 13 }}>Trường này không được để trống</span>}</div>
                         </div>
                     </div>
                 </div>

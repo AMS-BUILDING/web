@@ -230,7 +230,7 @@ export default function ModalUpdate({ show, handleClose, data, search }) {
 
                         {data?.relationShip !== "Chủ hộ" &&
                             <li className="menu__item">
-                                <div className="menu__item--title">Vị trí:</div>
+                                <div className="menu__item--title">Quan hệ với chủ hộ:</div>
                                 <div className="menu__item--input">
                                     <select
                                         value={position}
