@@ -1,6 +1,6 @@
 
-export const BASE_URL = "http://localhost:8080/api";
-export const BASE_DOWNLOAD_URL = "http://localhost:8080/download?image=";
+export const BASE_URL = "http://103.130.212.222:8080/api";
+export const BASE_DOWNLOAD_URL = "http://103.130.212.222:8080/download?image=";
 
 const token = localStorage.getItem("token");
 const API = {
