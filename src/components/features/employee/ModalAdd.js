@@ -145,6 +145,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
 
                                     )}
+                                    rules={{ required: true }}
                                     name="phoneNumber"
                                     defaultValue=""
                                 />
@@ -167,6 +168,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
 
                                     )}
+                                    rules={{ required: true }}
                                     name="email"
                                     defaultValue=""
                                 />
@@ -189,6 +191,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
 
                                     )}
+                                    rules={{ required: true }}
                                     name="identifyCard"
                                     defaultValue=""
                                 />
@@ -211,6 +214,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
 
                                     )}
+                                    rules={{ required: true }}
                                     name="currentAddress"
                                     defaultValue=""
                                 />
@@ -233,6 +237,7 @@ export default function ModalAdd({ show, handleClose, search }) {
                                         />
 
                                     )}
+                                    rules={{ required: true }}
                                     name="homeTown"
                                     defaultValue=""
                                 />
