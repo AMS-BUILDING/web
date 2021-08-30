@@ -6,7 +6,7 @@ import ModalDelete from '../modal/ModalDelete';
 import ModalMessage from '../modal/ModalMessage';
 
 export default function Item({ data, index, search }) {
-   
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -32,7 +32,7 @@ export default function Item({ data, index, search }) {
         let path = `/manager-service/vehicle-card/remove/${data?.id}`;
         let resp = await API.authorizedJSONPost(path);
         if (resp.ok) {
-            setMessage("Xoa thanh cong");
+            setMessage("Xóa thành công");
             setShowDelete(false)
             setShowMessage(true)
         } else {
@@ -49,7 +49,7 @@ export default function Item({ data, index, search }) {
             <tr>
                 <td>{index}</td>
                 <td>{data?.vehicleOwner}</td>
-               
+
                 <td>{data?.type}</td>
                 <td>{data?.color}</td>
                 <td>{data?.licensePlates}</td>
