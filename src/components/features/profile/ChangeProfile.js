@@ -61,8 +61,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="name"
                                 defaultValue={data?.name}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.name && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">
@@ -100,8 +102,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="email"
                                 defaultValue={data?.email}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.email && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">
@@ -123,8 +127,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="identifyCard"
                                 defaultValue={data?.identifyCard}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.identifyCard && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">
@@ -146,8 +152,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="phone"
                                 defaultValue={data?.phone}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.phone && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">
@@ -169,8 +177,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="currentAddress"
                                 defaultValue={data?.currentAddress}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.currentAddress && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">
@@ -192,8 +202,10 @@ export default function ChangeProfile({ data, search }) {
                                 )}
                                 name="homeTown"
                                 defaultValue={data?.homeTown}
+                                rules={{ required: true }}
                             />
                         </div>
+                        <div>{errors?.homeTown && <div style={{ color: 'red', paddingLeft: 15 }}>Trưởng hợp này không được để trống!</div>}</div>
                     </div>
                 </div>
                 <div className="item border-bottom py-3">

@@ -11,7 +11,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="minh_hoang" />
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="TuanNA_Release_01" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,6 +64,7 @@
       <workItem from="1628245708413" duration="969000" />
       <workItem from="1629001457247" duration="765000" />
       <workItem from="1629865220528" duration="99000" />
+      <workItem from="1630060171290" duration="28000" />
     </task>
     <servers />
   </component>

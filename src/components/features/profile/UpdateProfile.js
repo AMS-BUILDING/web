@@ -18,7 +18,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
     useEffect(() => {
         fetchData()
     }, [show]);
-  
+
     const fetchData = async () => {
         let path = `/member/account/profile`;
         let resp = await API.authorizedJSONGET(path);
@@ -34,7 +34,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
             let path = `/tenant/update/profile`;
             let data = new FormData();
             data.append("name", form?.name);
-            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) :  data.append("dob", data?.dob) ;
+            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) : data.append("dob", data?.dob);
             data.append("phone", form?.phone);
             data.append("currentAddress", form?.currentAddress);
             data.append("homeTown", form?.homeTown);
@@ -55,7 +55,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
             let path = `/tenant/update/profile`;
             let data = new FormData();
             data.append("name", form?.name);
-            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) :  data.append("dob", data?.dob) ;
+            date ? data.append("dob", moment(date).format("DD/MM/YYYY")) : data.append("dob", data?.dob);
             data.append("phone", form?.phone);
             data.append("currentAddress", form?.currentAddress);
             data.append("homeTown", form?.homeTown);
@@ -106,6 +106,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     )}
                                     name="name"
                                     defaultValue={data?.name}
+                                    rules={{ required: true }}
                                 />
                             </div>
                         </li>
@@ -142,6 +143,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     )}
                                     name="phone"
                                     defaultValue={data?.phone}
+                                    rules={{ required: true }}
                                 />
                             </div>
                         </li>
@@ -164,6 +166,7 @@ export default function UpdateProfile({ show, handleClose, search }) {
                                     )}
                                     name="identifyCard"
                                     defaultValue={data?.identifyCard}
+                                    rules={{ required: true }}
                                 />
                             </div>
                         </li>

@@ -83,7 +83,7 @@ export default function ModalAddSumbit({ show, handleCloseSumbit, handleShow, de
                                             checked={ownPerson?.gender}
                                         /> <span style={{ marginLeft: 5 }}>Nam</span></div>
                                         <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }}
-                                            checked={ownPerson?.gender}
+                                            checked={!ownPerson?.gender}
                                         /><span style={{ marginLeft: 5 }}>Nữ</span></div>
                                     </div>
                                 </div>
