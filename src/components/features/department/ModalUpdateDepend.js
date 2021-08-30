@@ -43,8 +43,8 @@ export default function ModalUpdateDepend({ show, handleClose, handleShow }) {
                                 <div className="menu__item--title">Giới tính:</div>
                                 <div className="menu__item--input">
                                     <div style={{ display: 'flex', alignItems: 'center', width: 300 }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }} /> Nam</div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 50 }} />Nữ</div>
+                                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}><input type="radio" name="gender" style={{ width: 20 }} /> <span style={{ marginLeft: '5px' }}>Nam</span></div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}><input type="radio" name="gender" style={{ width: 20 }} /><span style={{ marginLeft: '5px' }}>Nữ</span></div>
                                     </div>
                                 </div>
                             </li>

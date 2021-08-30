@@ -1,16 +1,15 @@
-import React from 'react';
-import Login from './components/features/login/Login';
+import React, { useEffect } from 'react';
 import Navigation from './Navigation';
-export default function App(){
-  return(
+export default function App() {
+  // useEffect(() => {
+  //   localStorage.removeItem("token")
+  //   localStorage.removeItem("roleId")
+  //   localStorage.removeItem("page")
+  // },[])
+  return (
     <>
       <Navigation />
-      {/* <Login /> */}
     </>
   )
 }
 
-
-// headers: {
-//   Authorization: 'Bearer ' + token //the token is a variable which holds the token
-// }

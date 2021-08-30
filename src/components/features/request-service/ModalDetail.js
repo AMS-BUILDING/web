@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
-export default function ModalDetail({ show, handleClose }) {
+import API from '../../../lib/API';
+export default function ModalDetail({ show, handleClose,id }) {
+    const [data,setData] = useState();
+    useEffect(() => {
+        search()
+    },[])
+    useEffect(() => {
+        search()
+    },[id])
+    let search = async () => {
+        let path = `/manager-service/request-service/get-one/${id}`;
+        let resp = await API.authorizedJSONGET(path);
+        if(resp.ok){
+            let response = await resp.json();
+            setData(response)
+        }
+    }
+   
     return (
         <>
 
@@ -14,28 +31,28 @@ export default function ModalDetail({ show, handleClose }) {
                         <li className="menu__item">
                             <div className="menu__item--title">Tên:</div>
                             <div className="menu__item--input">
-                                <input type="text" />
+                                <input type="text" value={data?.name} />
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Tòa:</div>
                             <div className="menu__item--input">
-                                <input type="text" />
+                                <input type="text" value={data?.block} />
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Số phòng:</div>
                             <div className="menu__item--input">
-                                <input type="text" />
+                                <input type="text" value={data?.roomName} />
                             </div>
                         </li>
                         <li className="menu__item">
                             <div className="menu__item--title">Tên dịch vụ:</div>
                             <div className="menu__item--input">
-                                <input type="text" />
+                                <input type="text" value={data?.serviceName} />
                             </div>
                         </li>
-                        <li className="menu__item">
+                        {/* <li className="menu__item">
                             <div className="menu__item--title">Mô tả:</div>
                             <div className="menu__item--input">
                                 <textarea type="text" />
@@ -46,11 +63,11 @@ export default function ModalDetail({ show, handleClose }) {
                             <div className="menu__item--input">
                                 <input type="text" />
                             </div>
-                        </li>
+                        </li> */}
                         <li className="menu__item">
                             <div className="menu__item--title">Trạng thái:</div>
                             <div className="menu__item--input">
-                                <input type="text" />
+                                <input type="text" value={data?.status} />
                             </div>
                         </li>
                     </ul>

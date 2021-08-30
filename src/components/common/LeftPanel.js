@@ -1,15 +1,21 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setPageRedux } from '../../redux/PageSlice';
 
-export default function LeftPanel({ page, handlePage }) {
-
+export default function LeftPanel({ roleId, handleRoomName }) {
+    let dispatch = useDispatch()
+    let page = useSelector(state => state.page);
     const handleClass = (currentPage) => {
-        if(page === currentPage){
+        if (page === currentPage) {
             return `menu-item menu-item__active`
-        }else{
+        } else {
             return `menu-item`
         }
     }
 
+    let handleClick = (item) => {
+        dispatch(setPageRedux(JSON.parse(JSON.stringify(item))))
+        localStorage.removeItem("apartmentId")
+    }
     return <aside id="left-panel" className="left-panel">
         <nav className="navbar navbar-expand-sm navbar-default navbar navbar-inverse">
 
@@ -25,89 +31,102 @@ export default function LeftPanel({ page, handlePage }) {
             <div id="main-menu" className="main-menu collapse navbar-collapse">
                 <ul className="nav navbar-nav">
                     <>
+
                         <li className={handleClass("home")} onClick={() => {
-                            handlePage("home")
+                            handleClick("home")
                         }}>
-                             <i className="menu-icon fa fa-laptop"></i>Biểu đồ 
+                            <i class="menu-icon fas fa-chart-line"></i>Biểu đồ
                         </li>
-                        <li className={handleClass("isstay")} onClick={() => {
-                            handlePage("isstay")
-                        }}>
-                           <i className="menu-icon fa fa-laptop"></i>Tạm trú - tạm vắng
-                        </li>
-                        
+
+                        {roleId == 1 && <>
+                            <li className={handleClass("isstay")} onClick={() => {
+                                handleClick("isstay")
+                            }}>
+                                <i class="menu-icon fas fa-file-signature"></i>Tạm trú - tạm vắng
+                            </li>
+                        </>}
+
                         <li className={handleClass("employee")} onClick={() => {
-                            handlePage("employee")
+                            handleClick("employee")
                         }}>
-                             <i className="menu-icon fa fa-laptop"></i>Nhân viên
+                            <i class="menu-icon fas fa-user-tie"></i>Nhân viên
                         </li>
                     </>
 
                     <>
                         <h3 className="menu-title">Quản lý dịch vụ </h3>
                         <li className={handleClass("service")} onClick={() => {
-                            handlePage("service")
+                            handleClick("service")
                         }}>
-                           <i className="menu-icon fa fa-table"></i>Dịch vụ
+                            <i class="menu-icon fas fa-boxes"></i>Dịch vụ
 
                         </li>
                         <li className={handleClass("request-service")} onClick={() => {
-                            handlePage("request-service")
+                            handleClick("request-service")
                         }}>
-                           <i className="menu-icon fa fa-table"></i>Yêu cầu dịch vụ
+                            <i class="menu-icon fas fa-hand-holding-usd"></i>Yêu cầu dịch vụ
 
                         </li>
                     </>
 
-                    <>
-                        <h3 className="menu-title">Quản lý cư dân</h3>
-                        <li className={handleClass("department")} onClick={() => {
-                            handlePage("department")
-                        }}>
-                             <i className="menu-icon fa fa-laptop"></i>Căn hộ
-                           
-                        </li>
-                        <li className={handleClass("resident")} onClick={() => {
-                            handlePage("resident")
-                        }}>
-                            <i className="menu-icon fa fa-table"></i>Cư dân
-                        </li>
-                    </>
+                    {roleId == 1 &&
 
-                    <>
-                        <h3 className="menu-title">Quản lý tài chính</h3>
-                        
-                        <li className={handleClass("fee-department")} onClick={() => {
-                            handlePage("fee-department")
-                        }}>
-                             <i className="menu-icon fa fa-table"></i>Phi căn hộ
-                        </li>
+                        <>
+                            <>
+                                <h3 className="menu-title">Quản lý cư dân</h3>
+                                <li className={handleClass("department")} onClick={() => {
+                                    handleClick("department")
+                                }}>
+                                    <i class="menu-icon fas fa-building"></i>Căn hộ
 
-                    </>
-                    <>
-                        <h3 className="menu-title">Thẻ</h3>
-                        <li className={handleClass("card-parking")} onClick={() => {
-                            handlePage("card-parking")
-                        }}>
-                            <i className="menu-icon fa fa-laptop"></i>Thẻ gửi xe
-                         
-                        </li>
-                        
-                    </>
+                                </li>
+                                <li className={handleClass("resident")} onClick={() => {
+                                    handleClick("resident")
+                                    handleRoomName("")
+                                    localStorage.removeItem("status")
+                                }}>
+                                    <i class="menu-icon fas fa-users"></i>Cư dân
+                                </li>
+                            </>
+
+                            <>
+                                <h3 className="menu-title">Quản lý tài chính</h3>
+
+                                <li className={handleClass("fee-department")} onClick={() => {
+                                    handleClick("fee-department")
+                                }}>
+                                    <i class="menu-icon fas fa-wallet"></i>Phí căn hộ
+                                </li>
+
+                            </>
+                        </>
+                    }
+
+
+                    <h3 className="menu-title">Thẻ</h3>
+                    <li className={handleClass("card-parking")} onClick={() => {
+                        handleClick("card-parking")
+                    }}>
+                        <i class="menu-icon fas fa-id-card"></i>Thẻ gửi xe
+
+                    </li>
+
+
 
                     <>
                         <h3 className="menu-title">Thông báo</h3>
                         <li className={handleClass("notification")} onClick={() => {
-                            handlePage("notification")
+                            handleClick("notification")
                         }}>
-                            <i className="menu-icon fa fa-laptop"></i>Thông báo
-                      
+                            <i class="menu-icon fas fa-globe-europe"></i>Thông báo
+
                         </li>
-                        <li className={handleClass("feedback")} onClick={() => {
-                            handlePage("feedback")
+                        {roleId == 1 && <li className={handleClass("feedback")} onClick={() => {
+                            handleClick("feedback")
                         }}>
-                            <i className="menu-icon fa fa-table"></i>Phản hồi
-                        </li>
+                            <i class="menu-icon fas fa-mail-bulk"></i>Phản hồi
+                        </li>}
+
                     </>
 
                 </ul>

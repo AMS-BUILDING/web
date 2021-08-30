@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import API from '../../../lib/API';
 import ModalDetail from './ModalDetail';
 import ModalUpdate from './ModalUpdate';
-export default function Item() {
-    const deleteItem = () => {
-        let message = window.confirm("Bạn có muốn xóa thẻ xe này không?")
-    }
+import ModalDelete from '../modal/ModalDelete';
+import ModalMessage from '../modal/ModalMessage';
+
+export default function Item({ data, index, search }) {
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -13,15 +15,47 @@ export default function Item() {
 
     const handleCloseUpdate = () => setShowUpdate(false);
     const handleShowUpdate = () => setShowUpdate(true);
+    const [showDelete, setShowDelete] = useState(false);
+    const handleCloseDelete = () => {
+        setShowDelete(false)
+    }
+    const [showMessage, setShowMessage] = useState(false);
+    const [message, setMessage] = useState("");
+    const handleCloseMessage = () => {
+        setShowMessage(false)
+    }
+    const handleShowMessage = () => {
+        setShowMessage(true)
+    }
+    const deleteItem = async () => {
+
+        let path = `/manager-service/vehicle-card/remove/${data?.id}`;
+        let resp = await API.authorizedJSONPost(path);
+        if (resp.ok) {
+            setMessage("Xóa thành công");
+            setShowDelete(false)
+            setShowMessage(true)
+        } else {
+            let response = await resp.json()
+            setMessage(response.message);
+            setShowDelete(false)
+            setShowMessage(true)
+        }
+
+
+    }
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+                <td>{index}</td>
+                <td>{data?.vehicleOwner}</td>
+
+                <td>{data?.type}</td>
+                <td>{data?.color}</td>
+                <td>{data?.licensePlates}</td>
+                <td>{data?.status}</td>
+                <ModalDelete showDelete={showDelete} handleCloseDelete={handleCloseDelete} deleteItem={deleteItem} search={search} />
+                <ModalMessage message={message} showMessage={showMessage} handleCloseMessage={handleCloseMessage} search={search} />
 
                 <td>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#308e3a', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer', marginRight: 10 }} viewBox="0 0 24 24"
@@ -35,7 +69,9 @@ export default function Item() {
                         <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
                     </svg>
                     <svg style={{ width: 25, height: 25, backgroundColor: '#dc3545', color: 'white', padding: 3, borderRadius: 3, cursor: 'pointer' }} viewBox="0 0 24 24"
-                        onClick={deleteItem}
+                        onClick={() => {
+                            setShowDelete(true)
+                        }}
                     >
                         <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
                     </svg>
@@ -45,10 +81,13 @@ export default function Item() {
             <ModalDetail
                 show={show}
                 handleClose={handleClose}
+                data={data}
             />
             <ModalUpdate
                 show={showUpdate}
                 handleClose={handleCloseUpdate}
+                data={data}
+                search={search}
             />
         </>
     )

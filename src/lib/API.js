@@ -1,7 +1,8 @@
 
-const BASE_URL = "http://localhost:8080/api";
-const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYW5nbnRAZ21haWwuY29tIiwiaWF0IjoxNjI2NDczMTk0LCJleHAiOjE2MjY4MzMxOTR9.E9405FyMv9-5ldAIYqwCCX5Xv-RgZfxvQ99LDbgGeXM";
-console.log(token)
+export const BASE_URL = "http://103.130.212.222:8080/api";
+export const BASE_DOWNLOAD_URL = "http://103.130.212.222:8080/download?image=";
+
+const token = localStorage.getItem("token");
 const API = {
     authorizedJSONPost: async (path, data) => {
         // const token = await AuthVerification.token()
@@ -134,7 +135,20 @@ const API = {
             return { status: 500 }
         }))
     },
+    authorizedJSONGETAVATAR: async (path) => {
+        // const token = await AuthVerification.token()
 
+        return (fetch("http://localhost:8080" + path, {
+            method: "GET",
+            headers: {
+                Accept: "*/*",
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: "Bearer " + token
+            }
+        }).catch(e => {
+            return { status: 500 }
+        }))
+    },
     // anonymousFilePost: async (path, formData) => {
     //     const token = await AuthVerification.token()
 
